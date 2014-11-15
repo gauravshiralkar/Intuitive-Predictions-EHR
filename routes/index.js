@@ -14,6 +14,11 @@ exports.showRatingAnalysis = function(req, res){
 	
 };
 
+exports.showSalaryAnalysis= function(req, res){
+	  res.render('salaryAnalysis');
+
+};
+
 exports.getCompanyRatings = function(req, res){
 	dbConn.getCompanyRatings(function(err,rows){
 		console.log(rows);

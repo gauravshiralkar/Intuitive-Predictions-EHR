@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>chart created with amCharts | amCharts</title>
+		<meta name="description" content="chart created using amCharts live editor" />
+
+		<!-- amCharts custom font -->
+		<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="//cdn.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/themes/chalk.js"></script>
+
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+			AmCharts.makeChart("chartdiv",
+				{
+					"type": "serial",
+					"pathToImages": "//cdn.amcharts.com/lib/3/images/",
+					"categoryField": "Job-Titles",
+					"angle": 30,
+					"depth3D": 30,
+					"startDuration": 1,
+					"theme": "chalk",
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "[[title]] of [[Job-Titles]]:[[Median Salary]]",
+							"fillAlphas": 1,
+							"id": "AmGraph-1",
+							"title": "graph 1",
+							"type": "column",
+							"valueField": "Median Salary"
+						},
+						{
+							"balloonText": "[[title]] of [[Job-Titles]]:[[Median Salary]]",
+							"fillAlphas": 1,
+							"id": "AmGraph-2",
+							"title": "graph 2",
+							"type": "column",
+							"valueField": "column-2"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"title": "Median Salaries"
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 25,
+							"text": "How much they make :p ?"
+						}
+					],
+					"dataProvider": [
+						{
+							"Job-Titles": "sw-engg",
+							"Median Salary": "75566"
+						},
+						{
+							"Job-Titles": "senior sw dev.",
+							"Median Salary": "98000"
+						},
+						{
+							"Job-Titles": "programmer",
+							"Median Salary": "60000"
+						},
+						{
+							"Job-Titles": "consultant",
+							"Median Salary": "77000"
+						},
+						{
+							"Job-Titles": "web-dev",
+							"Median Salary": "64500"
+						},
+						{
+							"Job-Titles": "programmer-analyst",
+							"Median Salary": "60000"
+						},
+						{
+							"Job-Titles": "research-asst.",
+							"Median Salary": "34000"
+						},
+						{
+							"Job-Titles": "team-lead",
+							"Median Salary": "72000"
+						},
+						{
+							"Job-Titles": "java-developer",
+							"Median Salary": "70000"
+						},
+						{
+							"Job-Titles": "project-manager",
+							"Median Salary": "85000"
+						}
+					]
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<br>
+		<br>
+			<br>
+	
+		<div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div>
+	</body>
+</html>

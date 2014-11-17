@@ -20,36 +20,29 @@
 					"pathToImages": "//cdn.amcharts.com/lib/3/images/",
 					"categoryField": "Job-Titles",
 					"angle": 30,
-					"depth3D": 30,
+					"depth3D": 10,
 					"startDuration": 1,
 					"theme": "chalk",
 					"categoryAxis": {
-						"gridPosition": "start"
+						"gridPosition": "start",
+						"labelRotation" : 45
 					},
 					"trendLines": [],
 					"graphs": [
 						{
-							"balloonText": "[[title]] of [[Job-Titles]]:[[Median Salary]]",
+							"balloonText": " [[Job-Titles]]:[[Median Salary]]",
 							"fillAlphas": 1,
 							"id": "AmGraph-1",
 							"title": "graph 1",
 							"type": "column",
 							"valueField": "Median Salary"
-						},
-						{
-							"balloonText": "[[title]] of [[Job-Titles]]:[[Median Salary]]",
-							"fillAlphas": 1,
-							"id": "AmGraph-2",
-							"title": "graph 2",
-							"type": "column",
-							"valueField": "column-2"
 						}
 					],
 					"guides": [],
 					"valueAxes": [
 						{
 							"id": "ValueAxis-1",
-							"title": "Median Salaries"
+							"title": "Median Salary"
 						}
 					],
 					"allLabels": [],

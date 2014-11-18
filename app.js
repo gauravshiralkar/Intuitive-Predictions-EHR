@@ -30,6 +30,7 @@ app.get('/', routes.index);
 app.get('/companyRatingAnalysis',routes.showRatingAnalysis);
 app.get('/getCompanyRatings',routes.getCompanyRatings)
 app.get('/SalaryAnalysis',routes.showSalaryAnalysis);
+app.get('/home',routes.showhome);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

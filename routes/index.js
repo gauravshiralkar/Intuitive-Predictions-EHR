@@ -19,6 +19,11 @@ exports.showSalaryAnalysis= function(req, res){
 
 };
 
+exports.showhome= function(req, res){
+	res.render('home');
+	};
+
+
 exports.getCompanyRatings = function(req, res){
 	dbConn.getCompanyRatings(function(err,rows){
 		console.log(rows);

@@ -44,8 +44,14 @@ app.get('/home',routes.showhome);
 app.get('/users', user.list);
 app.get('/getCompanyReviews',routes.getCompanyReviews);
 app.get('/showCompanyReviews',routes.showCompanyReviews);
+
 app.get('/maps', routes.showMap);
 app.get('/getMapData',routes.getMapData);
+app.get('/getBarChartCali',routes.getBarChartCali);
+app.get('/getBarChartTexas',routes.getBarChartTexas);
+app.get('/getBarChartNewYork',routes.getBarChartNewYork);
+app.get('/getBarChartWashington',routes.getBarChartWashington);
+app.get('/getBarChartVirginia',routes.getBarChartVirginia);
 
 app.get('/showmaps', function(req, res) {
 	connection.query('select sum(jobCount) as jobCount, stateName from citywisejobcount group by stateName order by stateName asc', function(err, rows,fields) {
@@ -55,6 +61,10 @@ app.get('/showmaps', function(req, res) {
 	});
 });
 });
+
+
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

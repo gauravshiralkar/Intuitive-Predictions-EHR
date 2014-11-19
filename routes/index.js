@@ -13,6 +13,27 @@ exports.showRatingAnalysis = function(req, res){
 		  res.render('ratingAnalysis');
 	
 };
+exports.getBarChartCali = function(req, res){
+	  res.render('companyBarChart');
+
+};
+exports.getBarChartTexas = function(req, res){
+	  res.render('companyBarChartTexas');
+
+};
+exports.getBarChartNewYork = function(req, res){
+	  res.render('companyBarChartNY');
+
+};
+exports.getBarChartWashington = function(req, res){
+	  res.render('companyBarChartWA');
+
+};
+exports.getBarChartVirginia = function(req, res){
+	  res.render('companyBarChartVI');
+
+};
+
 
 exports.showSalaryAnalysis= function(req, res){
 	  res.render('salaryAnalysis');

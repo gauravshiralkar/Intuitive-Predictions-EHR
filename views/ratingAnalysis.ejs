@@ -1,234 +1,310 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <title>Rating Visualization</title>
-        
-  <script type="text/javascript" src="../lib/d3/d3.js"></script>
-  <script type="text/javascript" src="../lib/d3/d3.csv.js"></script>
-  <script type="text/javascript" src="../lib/d3/d3.layout.js"></script>
-  <script type="text/javascript" src="../lib/parallel-coordinates-veggie.js"></script>
+<% include template %>
 
-  <script type="text/javascript" src="../lib/jquery.js"></script>
-  <script type="text/javascript" src="../lib/underscore.js"></script>
-  <script type="text/javascript" src="../lib/backbone.js"></script>
+<script type="text/javascript" src="../lib/d3/d3.js"></script>
+<script type="text/javascript" src="../lib/d3/d3.csv.js"></script>
+<script type="text/javascript" src="../lib/d3/d3.layout.js"></script>
+<script type="text/javascript"
+	src="../lib/parallel-coordinates-veggie.js"></script>
 
-  <script src="../lib/jquery-ui-1.8.16.custom.min.js"></script>
-  <script type="text/javascript" src="../lib/filter.js"></script>
-  
-  <!-- SlickGrid -->
-  <link rel="stylesheet" href="../lib/slickgrid/slick.grid.css" type="text/css" media="screen" charset="utf-8" />
-  <script src="../lib/slickgrid/jquery.event.drag-2.0.min.js"></script>
-  <script src="../lib/slickgrid/slick.core.js"></script>
-  <script src="../lib/slickgrid/slick.grid.js"></script>
-  <script src="../lib/slickgrid/slick.dataview.js"></script>
-  <script src="../lib/slickgrid/slick.pager.js"></script>
-  <script src="../lib/grid.js"></script>
-  <script src="../lib/pie.js"></script>
-  <script src="../lib/options.js"></script>
-  <!-- <script src="../data/ratings.js"></script> -->
-  <link rel="stylesheet" href="/stylesheets/ratingStyle.css" type="text/css" charset="utf-8" />
-</head>
+<script type="text/javascript" src="../lib/jquery_old.js"></script>
+<!-- <script type="text/javascript" src="../lib/jquery.js"></script>-->
+<script type="text/javascript" src="../lib/underscore.js"></script>
+<script type="text/javascript" src="../lib/backbone.js"></script>
 
-<body>
-<input type="button" value="Test" onclick="getData()"/>
-<div id="nav">
-  <h1>Rating Visualization</h1>
-  <div class="widget right toggle">
-	  <input type="range" min="0" max="1" value="0.2" step="0.01" name="power" list="powers" id="line_opacity"></input>
-   <br/>
-	  Opacity: <span id="opacity_level">20%</span>
+<script src="../lib/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="../lib/filter.js"></script>
+
+<!-- SlickGrid -->
+<link rel="stylesheet" href="../lib/slickgrid/slick.grid.css"
+	type="text/css" media="screen" charset="utf-8" />
+<script src="../lib/slickgrid/jquery.event.drag-2.0.min.js"></script>
+<script src="../lib/slickgrid/slick.core.js"></script>
+<script src="../lib/slickgrid/slick.grid.js"></script>
+<script src="../lib/slickgrid/slick.dataview.js"></script>
+<script src="../lib/slickgrid/slick.pager.js"></script>
+<script src="../lib/grid.js"></script>
+<script src="../lib/pie.js"></script>
+<script src="../lib/options.js"></script>
+<!-- <script src="../data/ratings.js"></script> -->
+<link rel="stylesheet" href="/stylesheets/ratingStyle.css"
+	type="text/css" charset="utf-8" />
+
+<body onload="getData()">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Main Menu</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/">Home</a></li>
+					<li><a href="services.html">Salary Analysis</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Know your company<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/companyRatingAnalysis">Ratings</a></li>
+							<li><a href="/showCompanyReviews">Reviews</a></li>
+						</ul></li>
+					<li><a href="/contact">Most Trending</a></li>
+
+					<!-- /.navbar-collapse -->
+			</div>
+
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Features Section -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="page-header">Rating Visualization</h2>
+				<p>We integrate information from the best sources to make sure
+					that you are equipt with the right tools to get that dream job</p>
+			</div>
+		</div>
+		<!-- /.row -->
+
+<!-- 		<input type="button" value="Test" onclick="getData()" /> -->
+		<div class="row">
+			<div id="main">
+				<div class="widgets">
+					<div id="totals" class="widget right">
+						Total Selected<br />
+					</div>
+					<div id="pie" class="widget right">
+						Group Breakdown<br />
+					</div>
+					<div id="pager" class="info"></div>
+					<div id="legend"></div>
+				</div>
+				<div id="parallel"></div>
+				<div id="myGrid"></div>
+			</div>
+		</div>
+
+
+		<!-- End Graph -->
+
+		<hr>
+
+
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+
 	</div>
-  <div><a href="#" id="shadows" class="right toggle">Shadows</a></div>
-  <div><a href="#" id="inverted" class="right toggle">Dark</a></div>
-  <div><a href="#" id="no_ticks" class="right toggle">Hide Ticks</a></div>
- 
-</div>
-<div id="main">
-  <div class="widgets">
-    <div id="totals" class="widget right">Total Selected<br/></div>
-    <div id="pie" class="widget right">Group Breakdown<br/></div>
-    <a href="#" id="export_selected" class="button green filter_control">Export</a>
-    <div id="pager" class="info"></div>
-        <div id="legend">
-    </div>
-  </div>
-  <div id="parallel">
-  </div>
-  <div id="myGrid"></div>
-  <script type="text/javascript">
-  
-  var ratings;
-  
-  function getData(){
-	  $.get("/getCompanyRatings", function(results) {
-		  ratings = results;
-		  showGraph();
-	  });
-  }
- 
-  function showGraph(){
-	
-		console.log(ratings);
-	  	var dimensions = new Filter();
-	    var highlighter = new Selector();
-
-	    dimensions.set({data: ratings});
-
-	    var columns = _(ratings[0]).keys();
-	   
-	    var axes = _(columns).without('name', 'group');
-	    
-
-	    var industry =
-	      ["Internet", "Computer Hardware & Software",
-	       "Insurance Carriers", "Brokerage Services", "Real Estate",
-	       "Consulting", "Enterprise Software & Network Solutions"];
-	    
-	    var colors = {
-	      "Internet" : '#ff7f0e',
-	      "Computer Hardware & Software" : '#aec7e8',
-	      "Insurance Carriers" : '#555',
-	      "Brokerage Services" : '#ffbb78',
-	      "Real Estate" : '#d62728',
-	      "Consulting" : '#98df8a',
-	      "Enterprise Software & Network Solutions" : '#2ca02c'}
-	    /*  "Sausages and Luncheon Meats" : '#ff9896',
-	      "Breakfast Cereals" : '#9467bd',
-	      "Fruits and Fruit Juices" : '#c5b0d5',
-	      "Nut and Seed Products" : '#8c564b',
-	      "Beverages" : '#c49c94',
-	      "Finfish and Shellfish Products" : '#e377c2',
-	      "Legumes and Legume Products" : '#f7b6d2',
-	      "Baked Products" : '#7f7f7f',
-	      "Sweets" : '#c7c7c7',
-	      "Cereal Grains and Pasta" : ' #bcbd22',
-	      "Fast Foods" : '#dbdb8d',
-	      "Meals, Entrees, and Sidedishes" : '#17becf',
-	      "Snacks" : '#9edae5',
-	      "Ethnic Foods" : '#e7ba52',
-	      "Restaurant Foods" : '#1f77b4'
-	    }*/
-	    
-	    _(industry).each(function(group) {
-	      $('#legend').append("<div class='item'><div class='color' style='background: " + colors[group] + "';></div><div class='key'>" + group + "</div></div>");
-	    });
-
-	    var pc = parallel(dimensions, colors);
-	    var pie = piegroups(ratings, industry, colors, 'group');
-	    var totals = pietotals(
-	      ['in', 'out'],
-	      [_(ratings).size(), 0]
-	    );
-
-	    var slicky = new grid({
-	      model: dimensions,
-	      selector: highlighter,
-	      width: $('body').width(),
-	      columns: columns
-	    });
-	    
-	    // vertical full screen
-	    var parallel_height = $(window).height() - 64 - 12 - 120 - 320;
-	    if (parallel_height < 120) parallel_height = 120;  // min height
-	    if (parallel_height > 340) parallel_height = 340;  // max height
-	    $('#parallel').css({
-	        height: parallel_height + 'px',
-	        width: $(window).width() + 'px'
-	    });
-	    
-	    slicky.update();
-	    pc.render();
-
-	    dimensions.bind('change:filtered', function() {
-	      var data = dimensions.get('data');
-	      var filtered = dimensions.get('filtered');
-	      var data_size = _(data).size();
-	      var filtered_size = _(filtered).size();
-	      pie.update(filtered);
-	      totals.update([filtered_size, data_size - filtered_size]);
-	      
-	      var opacity = _([2/Math.pow(filtered_size,0.37), 100]).min();
-	      $('#line_opacity').val(opacity).change();
-	    });
-	    
-	    highlighter.bind('change:selected', function() {
-	      var highlighted = this.get('selected');
-	      pc.highlight(highlighted);
-	    });
-
-	    $('#remove_selected').click(function() {
-	      dimensions.outliers();
-	      pc.update(dimensions.get('data'));
-	      pc.render();
-	      dimensions.trigger('change:filtered');
-	      return false;
-	    });
-	    
-	    $('#keep_selected').click(function() {
-	      dimensions.inliers();
-	      pc.update(dimensions.get('data'));
-	      pc.render();
-	      dimensions.trigger('change:filtered');
-	      return false;
-	    });
-	    
-	    $('#export_selected').click(function() {
-	      var data = dimensions.get('filtered');
-	      var keys = _.keys(data[0]);
-	      var csv = _(keys).map(function(d) { return '"' + addslashes(d) + '"'; }).join(",");
-	      _(data).each(function(row) {
-	        csv += "\n";
-	        csv += _(keys).map(function(k) {
-	          var val = row[k];
-	          if (_.isString(val)) {
-	            return '"' + addslashes(val) + '"';
-	          }
-	          if (_.isNumber(val)) {
-	            return val;
-	          }
-	          if (_.isNull(val)) {
-	            return "";
-	          }
-	        }).join(",");
-	      });
-	      var uriContent = "data:application/octet-stream," + encodeURIComponent(csv);
-	      var myWindow = window.open(uriContent, "Nutrient CSV");
-	      myWindow.focus();
-	      return false;
-	    });
-
-	    $('#line_opacity').change(function() {
-	      var val = $(this).val();
-	      $('#parallel .foreground path').css('stroke-opacity', val.toString());
-	      $('#opacity_level').html((Math.round(val*10000)/100) + "%");
-	    });
-	    
-	    $('#parallel').resize(function() {
-	      // vertical full screen
-	      pc.render();
-	      var val = $('#line_opacity').val();
-	      $('#parallel .foreground path').css('stroke-opacity', val.toString());
-	    });
-	    
-	    $('#parallel').resizable({
-	      handles: 's',
-	      resize: function () { return false; }
-	    });
-	    
-	    $('#myGrid').resizable({
-	      handles: 's'
-	    });
-
-	    function addslashes( str ) {
-	      return (str+'')
-	        .replace(/\"/g, "\"\"")        // escape double quotes
-	        .replace(/\0/g, "\\0");        // replace nulls with 0
-	    };
-	  } 
-  </script>
-</div>
+	<!-- /.container -->
 </body>
+<script type="text/javascript">
+	var ratings;
+
+	function getData() {
+		$.get("/getCompanyRatings", function(results) {
+			ratings = results;
+
+			setTimeout('showGraph()', 100);
+		});
+	}
+
+	function showGraph() {
+
+		console.log(ratings);
+		var dimensions = new Filter();
+		var highlighter = new Selector();
+
+		dimensions.set({
+			data : ratings
+		});
+
+		var columns = _(ratings[0]).keys();
+
+		var axes = _(columns).without('name', 'group');
+
+		var industry = [ "Internet", "Computer Hardware & Software",
+				"Insurance Carriers", "Brokerage Services", "Real Estate",
+				"Consulting", "Enterprise Software & Network Solutions" ];
+
+		var colors = {
+			"Internet" : '#ff7f0e',
+			"Computer Hardware & Software" : '#aec7e8',
+			"Insurance Carriers" : '#555',
+			"Brokerage Services" : '#ffbb78',
+			"Real Estate" : '#d62728',
+			"Consulting" : '#98df8a',
+			"Enterprise Software & Network Solutions" : '#2ca02c'
+		}
+		/*  "Sausages and Luncheon Meats" : '#ff9896',
+		  "Breakfast Cereals" : '#9467bd',
+		  "Fruits and Fruit Juices" : '#c5b0d5',
+		  "Nut and Seed Products" : '#8c564b',
+		  "Beverages" : '#c49c94',
+		  "Finfish and Shellfish Products" : '#e377c2',
+		  "Legumes and Legume Products" : '#f7b6d2',
+		  "Baked Products" : '#7f7f7f',
+		  "Sweets" : '#c7c7c7',
+		  "Cereal Grains and Pasta" : ' #bcbd22',
+		  "Fast Foods" : '#dbdb8d',
+		  "Meals, Entrees, and Sidedishes" : '#17becf',
+		  "Snacks" : '#9edae5',
+		  "Ethnic Foods" : '#e7ba52',
+		  "Restaurant Foods" : '#1f77b4'
+		}*/
+
+		_(industry)
+				.each(
+						function(group) {
+							$('#legend')
+									.append(
+											"<div class='item'><div class='color' style='background: " + colors[group] + "';></div><div class='key'>"
+													+ group + "</div></div>");
+						});
+
+		var pc = parallel(dimensions, colors);
+		var pie = piegroups(ratings, industry, colors, 'group');
+		var totals = pietotals([ 'in', 'out' ], [ _(ratings).size(), 0 ]);
+
+		var slicky = new grid({
+			model : dimensions,
+			selector : highlighter,
+			width : $('body').width(),
+			columns : columns
+		});
+
+		// vertical full screen
+		var parallel_height = $(window).height() - 64 - 12 - 120 - 320;
+		if (parallel_height < 120)
+			parallel_height = 120; // min height
+		if (parallel_height > 340)
+			parallel_height = 340; // max height
+		$('#parallel').css({
+			height : parallel_height + 'px',
+			width : $(window).width() + 'px'
+		});
+
+		slicky.update();
+		pc.render();
+
+		dimensions.bind('change:filtered', function() {
+			var data = dimensions.get('data');
+			var filtered = dimensions.get('filtered');
+			var data_size = _(data).size();
+			var filtered_size = _(filtered).size();
+			pie.update(filtered);
+			totals.update([ filtered_size, data_size - filtered_size ]);
+
+			var opacity = _([ 2 / Math.pow(filtered_size, 0.37), 100 ]).min();
+			$('#line_opacity').val(opacity).change();
+		});
+
+		highlighter.bind('change:selected', function() {
+			var highlighted = this.get('selected');
+			pc.highlight(highlighted);
+		});
+
+		$('#remove_selected').click(function() {
+			dimensions.outliers();
+			pc.update(dimensions.get('data'));
+			pc.render();
+			dimensions.trigger('change:filtered');
+			return false;
+		});
+
+		$('#keep_selected').click(function() {
+			dimensions.inliers();
+			pc.update(dimensions.get('data'));
+			pc.render();
+			dimensions.trigger('change:filtered');
+			return false;
+		});
+
+		$('#export_selected').click(
+				function() {
+					var data = dimensions.get('filtered');
+					var keys = _.keys(data[0]);
+					var csv = _(keys).map(function(d) {
+						return '"' + addslashes(d) + '"';
+					}).join(",");
+					_(data).each(function(row) {
+						csv += "\n";
+						csv += _(keys).map(function(k) {
+							var val = row[k];
+							if (_.isString(val)) {
+								return '"' + addslashes(val) + '"';
+							}
+							if (_.isNumber(val)) {
+								return val;
+							}
+							if (_.isNull(val)) {
+								return "";
+							}
+						}).join(",");
+					});
+					var uriContent = "data:application/octet-stream,"
+							+ encodeURIComponent(csv);
+					var myWindow = window.open(uriContent, "Nutrient CSV");
+					myWindow.focus();
+					return false;
+				});
+
+		$('#line_opacity').change(
+				function() {
+					var val = $(this).val();
+					$('#parallel .foreground path').css('stroke-opacity',
+							val.toString());
+					$('#opacity_level').html(
+							(Math.round(val * 10000) / 100) + "%");
+				});
+
+		$('#parallel').resize(
+				function() {
+					// vertical full screen
+					pc.render();
+					var val = $('#line_opacity').val();
+					$('#parallel .foreground path').css('stroke-opacity',
+							val.toString());
+				});
+
+		$('#parallel').resizable({
+			handles : 's',
+			resize : function() {
+				return false;
+			}
+		});
+
+		$('#myGrid').resizable({
+			handles : 's'
+		});
+
+		function addslashes(str) {
+			return (str + '').replace(/\"/g, "\"\"") // escape double quotes
+			.replace(/\0/g, "\\0"); // replace nulls with 0
+		}
+		;
+	}
+</script>
+
+
+
 </html>

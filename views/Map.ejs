@@ -1,14 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
-<title>Inside state map</title>
-	<h1> hello </h1>
-	
-
-	<script type="text/javascript" src="http://www.amcharts.com/lib/3/ammap.js"></script>
+<% include template %>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/ammap.js"></script>
 	<script type="text/javascript" src="http://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
 	<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-	
 <script type="text/javascript">
 
 //add all your code to this method, as this will ensure that page is loaded
@@ -203,16 +199,98 @@ AmCharts.ready(function() {
     map.write("mapdiv");
 });
 </script>
-</head>
- 
-<body><div style="width:800px;height:400px;position:relative;background:#ccc;">
-<div id="mapdiv" style="width: 600px; height: 400px;"></div>
-<div style="position:absolute; width: 160px ; height:400px ;left:640px" > <a href="companyBarChart"> California</a> <br> 
-<a href=""> Texas</a><br> 
-<a href=""> New York</a> <br>
-<a href=""> Washington</a><br>
-<a href=""> Virginia</a>
-</div>
-</div>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Main Menu</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/">Home</a></li>
+					<li><a href="services.html">Salary Analysis</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Know your company<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/companyRatingAnalysis">Ratings</a></li>
+							<li><a href="/showCompanyReviews">Reviews</a></li>
+						</ul></li>
+					<li><a href="/contact">Most Trending</a></li>
+
+					<!-- /.navbar-collapse -->
+			</div>
+
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Features Section -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="page-header">Rating Visualization</h2>
+				<p>We integrate information from the best sources to make sure
+					that you are equipt with the right tools to get that dream job</p>
+			</div>
+		</div>
+		<!-- /.row -->
+
+		<div class="row">
+			<div class="col-md-6">
+				<div id="mapdiv" style="width:100%; height: 400px;"></div>
+			</div>
+			<div class="col-md-6">
+				 <div class="well">
+                    <h4>States</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">California</a>
+                                </li>
+                                <li><a href="#">Texas</a>
+                                </li>
+                                <li><a href="#">New York</a>
+                                </li>
+                                <li><a href="#">Washington</a>
+                                </li>
+                                 <li><a href="#">Virginia</a>
+                                </li>
+                            </ul>
+                        </div>
+                       </div>
+                    </div>
+			</div>
+		</div>
+		
+		<hr>
+
+
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<!-- /.container -->
 </body>
+
+
 </html>

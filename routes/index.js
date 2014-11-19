@@ -53,7 +53,10 @@ exports.getMapData= function(req, res){
 	});	
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f548fbe2661bbfc5fc501e178ac37cac0f329d12
 exports.getCompanyReviews = function(req,res){
 	dbConn.getCompanyReviews(function(err,rows){
 		console.log(rows);

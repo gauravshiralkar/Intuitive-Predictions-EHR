@@ -6,7 +6,7 @@
 var dbConn = require('../model/dbConnection');
 
 exports.index = function(req, res){
-  res.render('analysis', { title: 'Express' });
+  res.render('index');
 };
 
 exports.showRatingAnalysis = function(req, res){
@@ -25,7 +25,7 @@ exports.showMap= function(req, res){
 };
 
 exports.showhome= function(req, res){
-	res.render('home');
+	res.render('index');
 	};
 
 

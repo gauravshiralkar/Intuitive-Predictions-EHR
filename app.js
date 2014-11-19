@@ -42,7 +42,8 @@ app.get('/SalaryAnalysis',routes.showSalaryAnalysis);
 app.get('/getSalaryInfo/:strUser',routes.getSalaryInfo);
 app.get('/home',routes.showhome);
 app.get('/users', user.list);
-
+app.get('/getCompanyReviews',routes.getCompanyReviews);
+app.get('/showCompanyReviews',routes.showCompanyReviews);
 app.get('/maps', routes.showMap);
 app.get('/getMapData',routes.getMapData);
 

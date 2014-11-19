@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : 'password123',
+	password : 'pass',
 	port : '3306',
 	database : 'cmpe274'
 });
@@ -20,6 +20,13 @@ exports.getSalaryInfo = function(callback,q) {
 	var query = "select jobTitle, medianSalary from cmpe274.salinfo where jobName='"+q+"' limit 10";
 	console.log("about to call database");
 	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+
+exports.getMapData = function(callback) {
+	var query = "select sum(jobCount) as jobCount, stateName from citywisejobcount group by stateName order by stateName asc";
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});

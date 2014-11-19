@@ -1,6 +1,15 @@
 /**
  * Module dependencies.
  */
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host : 'localhost',
+	user : 'root',
+	password : 'pass',
+	port : '3306',
+	database : 'cmpe274'
+});
+connection.connect();
 
 var express = require('express')
   , routes = require('./routes')
@@ -33,6 +42,18 @@ app.get('/SalaryAnalysis',routes.showSalaryAnalysis);
 app.get('/getSalaryInfo/:strUser',routes.getSalaryInfo);
 app.get('/home',routes.showhome);
 app.get('/users', user.list);
+
+app.get('/maps', routes.showMap);
+app.get('/getMapData',routes.getMapData);
+
+app.get('/showmaps', function(req, res) {
+	connection.query('select sum(jobCount) as jobCount, stateName from citywisejobcount group by stateName order by stateName asc', function(err, rows,fields) {
+		console.log(rows[38].jobCount);
+		res.render('Map.ejs', {
+			rows:rows		
+	});
+});
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -19,6 +19,11 @@ exports.showSalaryAnalysis= function(req, res){
 
 };
 
+exports.showMap= function(req, res){
+	res.render('Map',{rows:''});
+
+};
+
 exports.showhome= function(req, res){
 	res.render('home');
 	};
@@ -38,5 +43,13 @@ exports.getSalaryInfo= function(req, res){
 		console.log(req.params.strUser);
 		 res.send(rows);
 	},req.params.strUser);	
+};
+
+
+exports.getMapData= function(req, res){
+	console.log("routes");
+	dbConn.getMapData(function(err,rows){
+		 res.send(rows);
+	});	
 };
 

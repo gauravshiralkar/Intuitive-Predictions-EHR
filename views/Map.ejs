@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<title>Inside state map</title>
+	<h1> hello </h1>
+	
+
+	<script type="text/javascript" src="http://www.amcharts.com/lib/3/ammap.js"></script>
+	<script type="text/javascript" src="http://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
+	<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+	
+<script type="text/javascript">
+
+//add all your code to this method, as this will ensure that page is loaded
+AmCharts.ready(function() {
+    // create AmMap object
+    var map = new AmCharts.AmMap();
+    // set path to images
+    map.pathToImages = "http://www.amcharts.com/lib/3/images/";
+
+    /* create data provider object
+     map property is usually the same as the name of the map file.
+
+     getAreasFromMap indicates that amMap should read all the areas available
+     in the map data and treat them as they are included in your data provider.
+     in case you don't set it to true, all the areas except listed in data
+     provider will be treated as unlisted.
+    */
+    var dataProvider = {
+        map: "usaLow",
+        getAreasFromMap:true                    
+    }; 
+    // pass data provider to the map object
+    map.dataProvider = {
+    		map: "usaLow",
+    		images:[{latitude:37.0000, longitude:120.0000, color:"#CC0000", scale:0.5, label:"New York", labelShiftY:2, zoomLevel:5, title:"New York", description:"Click here"}],
+    		areas: [{
+    			id: "US-AL",
+    			value: <%= rows[0].jobCount%> 
+    		}, {
+    			id: "US-AK",
+    			value: 1
+    		}, {
+    			id: "US-AZ",
+    			value: <%= rows[1].jobCount%>
+    		}, {
+    			id: "US-AR",
+    			value: <%= rows[2].jobCount%>
+    		}, {
+    			id: "US-CA",
+    			value: <%= rows[3].jobCount%>
+    		}, {
+    			id: "US-CO",
+    			value: <%= rows[4].jobCount%>
+    		}, {
+    			id: "US-CT",
+    			value: <%= rows[5].jobCount%>
+    		}, {
+    			id: "US-DE",
+    			value: <%= rows[6].jobCount%>
+    		}, {
+    			id: "US-FL",
+    			value: <%= rows[8].jobCount%>
+    		}, {
+    			id: "US-GA",
+    			value: <%= rows[9].jobCount%>
+    		}, {
+    			id: "US-HI",
+    			value: <%= rows[10].jobCount%>
+    		}, {
+    			id: "US-ID",
+    			value: <%= rows[11].jobCount%>
+    		}, {
+    			id: "US-IL",
+    			value: <%= rows[12].jobCount%>
+    		}, {
+    			id: "US-IN",
+    			value: <%= rows[13].jobCount%>
+    		}, {
+    			id: "US-IA",
+    			value: <%= rows[14].jobCount%>
+    		}, {
+    			id: "US-KS",
+    			value: <%= rows[15].jobCount%>
+    		}, {
+    			id: "US-KY",
+    			value: <%= rows[16].jobCount%>
+    		}, {
+    			id: "US-LA",
+    			value: <%= rows[17].jobCount%>
+    		}, {
+    			id: "US-ME",
+    			value: <%= rows[18].jobCount%>
+    		}, {
+    			id: "US-MD",
+    			value: <%= rows[19].jobCount%>
+    		}, {
+    			id: "US-MA",
+    			value: <%= rows[20].jobCount%>
+    		}, {
+    			id: "US-MI",
+    			value: <%= rows[21].jobCount%>
+    		}, {
+    			id: "US-MN",
+    			value: <%= rows[22].jobCount%>
+    		}, {
+    			id: "US-MS",
+    			value: <%= rows[23].jobCount%>
+    		}, {
+    			id: "US-MO",
+    			value: 1
+    		}, {
+    			id: "US-MT",
+    			value: 1
+    		}, {
+    			id: "US-NE",
+    			value: <%= rows[24].jobCount%>
+    		}, {
+    			id: "US-NV",
+    			value: <%= rows[25].jobCount%>
+    		}, {
+    			id: "US-NH",
+    			value: <%= rows[26].jobCount%>
+    		}, {
+    			id: "US-NJ",
+    			value: <%= rows[27].jobCount%>
+    		}, {
+    			id: "US-NM",
+    			value: <%= rows[28].jobCount%>
+    		}, {
+    			id: "US-NY",
+    			value: <%= rows[29].jobCount%>
+    		}, {
+    			id: "US-NC",
+    			value: <%= rows[30].jobCount%>
+    		}, {
+    			id: "US-ND",
+    			value: 1
+    		}, {
+    			id: "US-OH",
+    			value: <%= rows[31].jobCount%>
+    		}, {
+    			id: "US-OK",
+    			value: <%= rows[32].jobCount%>
+    		}, {
+    			id: "US-OR",
+    			value: <%= rows[33].jobCount%>
+    		}, {
+    			id: "US-PA",
+    			value: <%= rows[34].jobCount%>
+    		}, {
+    			id: "US-RI",
+    			value: <%= rows[35].jobCount%>
+    		}, {
+    			id: "US-SC",
+    			value: <%= rows[36].jobCount%>
+    		}, {
+    			id: "US-SD",
+    			value: <%= rows[37].jobCount%>
+    		}, {
+    			id: "US-TN",
+    			value: <%= rows[38].jobCount%>
+    		}, {
+    			id: "US-TX",
+    			value: <%= rows[39].jobCount%>
+    		}, {
+    			id: "US-UT",
+    			value: <%= rows[40].jobCount%>
+    		}, {
+    			id: "US-VT",
+    			value: <%= rows[41].jobCount%>
+    		}, {
+    			id: "US-VA",
+    			value: <%= rows[42].jobCount%>
+    		}, {
+    			id: "US-WA",
+    			value: <%= rows[43].jobCount%>
+    		}, {
+    			id: "US-WV",
+    			value: 1
+    		}, {
+    			id: "US-WI",
+    			value: <%= rows[44].jobCount%>
+    		}, {
+    			id: "US-WY",
+    			value:<%= rows[45].jobCount%>
+    		}]
+    	};
+
+    /* create areas settings
+     * autoZoom set to true means that the map will zoom-in when clicked on the area
+     * selectedColor indicates color of the clicked area.
+     */
+    map.areasSettings = {
+        autoZoom: true,
+        selectedColor: "#CC0000"
+    };
+
+    // let's say we want a small map to be displayed, so let's create it
+    map.smallMap = new AmCharts.SmallMap();
+
+    // write the map to container div
+    map.write("mapdiv");
+});
+</script>
+</head>
+ 
+<body><div style="width:800px;height:400px;position:relative;background:#ccc;">
+<div id="mapdiv" style="width: 600px; height: 400px;"></div>
+<div style="position:absolute; width: 160px ; height:400px ;left:640px" > <a href="companyBarChart"> California</a> <br> 
+<a href=""> Texas</a><br> 
+<a href=""> New York</a> <br>
+<a href=""> Washington</a><br>
+<a href=""> Virginia</a>
+</div>
+</div>
+</body>
+</html>

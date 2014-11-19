@@ -53,3 +53,15 @@ exports.getMapData= function(req, res){
 	});	
 };
 
+exports.getCompanyReviews = function(req,res){
+	dbConn.getCompanyReviews(function(err,rows){
+		console.log(rows);
+		res.send(rows);
+	})
+};
+
+exports.showCompanyReviews = function(req,res){
+	res.render('companyReviews');
+}
+
+

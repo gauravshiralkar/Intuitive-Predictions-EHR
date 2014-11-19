@@ -13,4 +13,15 @@ exports.getCompanyRatings = function(callback) {
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});
-}
+};
+
+exports.getSalaryInfo = function(callback,q) {
+	if (q==="frontEnd or UI Developer") {q="frontEnd / UI Developer";}
+	var query = "select jobTitle, medianSalary from cmpe274.salinfo where jobName='"+q+"' limit 10";
+	console.log("about to call database");
+	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+

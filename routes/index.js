@@ -32,4 +32,11 @@ exports.getCompanyRatings = function(req, res){
 	  
 };
 
+exports.getSalaryInfo= function(req, res){
+	dbConn.getSalaryInfo(function(err,rows){
+		console.log(rows);
+		console.log(req.params.strUser);
+		 res.send(rows);
+	},req.params.strUser);	
+};
 

@@ -29,6 +29,7 @@ AmCharts.ready(function() {
     // pass data provider to the map object
     map.dataProvider = {
     		map: "usaLow",
+    		
     		images:[{latitude:37.0000, longitude:120.0000, color:"#CC0000", scale:0.5, label:"New York", labelShiftY:2, zoomLevel:5, title:"New York", description:"Click here"}],
     		areas: [{
     			id: "US-AL",
@@ -188,12 +189,19 @@ AmCharts.ready(function() {
      * selectedColor indicates color of the clicked area.
      */
     map.areasSettings = {
-        autoZoom: true,
+        autoZoom: false,
         selectedColor: "#CC0000"
     };
+    
+    map.valueLegend = {
+		right: 10,
+		minValue: "little",
+		maxValue: "a lot!"
+	}
+
 
     // let's say we want a small map to be displayed, so let's create it
-    map.smallMap = new AmCharts.SmallMap();
+   // map.smallMap = new AmCharts.SmallMap();
 
     // write the map to container div
     map.write("mapdiv");

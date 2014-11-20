@@ -3,6 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
+	//password : '',
 	password : 'welcome',
 	port : '3306',
 	database : 'cmpe274'
@@ -42,7 +43,13 @@ exports.getMapData = function(callback) {
 		callback(err, rows);
 	});
 };
-
+exports.getBubble = function(callback) {
+	var query = "select  cityName as name, jobCount as size from emplyjobcount where stateName='California' and companyName='Amazon' order by companyName";
+	connection.query(query, function(err, rows) {
+		console.log(rows);
+		callback(err, rows);
+	});
+};
 
 exports.getJobCountByState = function(callback,stateName){
 	console.log("StateName_________"+stateName)

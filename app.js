@@ -45,6 +45,8 @@ app.get('/home',routes.showhome);
 app.get('/users', user.list);
 app.get('/getCompanyReviews',routes.getCompanyReviews);
 app.get('/showCompanyReviews',routes.showCompanyReviews);
+app.get('/getBubble',routes.getBubble);
+app.get('/showBubble',routes.showBubble);
 
 app.get('/maps', routes.showMap);
 app.get('/getMapData',routes.getMapData);

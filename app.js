@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
     //password : '',
-  password : 'pass',
+  password : 'welcome',
 	port : '3306',
 	database : 'cmpe274'
 });
@@ -54,6 +54,11 @@ app.get('/getBarChartNewYork',routes.getBarChartNewYork);
 app.get('/getBarChartWashington',routes.getBarChartWashington);
 app.get('/getBarChartVirginia',routes.getBarChartVirginia);
 
+//For TreeMap
+
+app.get('/getJobcountData/:stateName',routes.getJobcountData);
+app.get('/showTreeMap/:stateName',routes.showTreeMap);
+
 app.get('/showmaps', function(req, res) {
 	connection.query('select sum(jobCount) as jobCount, stateName from citywisejobcount group by stateName order by stateName asc', function(err, rows,fields) {
 		console.log(rows[38].jobCount);
@@ -62,6 +67,8 @@ app.get('/showmaps', function(req, res) {
 	});
 });
 });
+
+
 
 
 

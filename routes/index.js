@@ -89,4 +89,18 @@ exports.showCompanyReviews = function(req,res){
 	res.render('companyReviews');
 }
 
+exports.getJobcountData = function(req,res){
+	var stateName = req.params.stateName;
+	console.log("__________***************_____________"+stateName);
+	dbConn.getJobCountByState(function(err,rows){
+		console.log(rows);
+		res.send(rows);
+	},stateName);
+}
+
+exports.showTreeMap = function(req,res){
+	console.log("State Name_________"+req.params.stateName);
+	res.render('companyTreeMap',{dat:req.params.stateName});
+}
+
 

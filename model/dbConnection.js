@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : 'pass',
+	password : 'welcome',
 	port : '3306',
 	database : 'cmpe274'
 });
@@ -19,7 +19,7 @@ exports.getCompanyReviews = function(callback){
 }
 
 exports.getCompanyRatings = function(callback) {
-	var query = "select companyName as name, companyGroup as 'group',overallRating as 'Overall Rating',cultRatng as 'Culture And Values Rating',compsRating as 'Compensation And Benefits Rating',currRatng,wrkLyfRatng as 'WorkLife Balance Rating' from companysenti ";
+	var query = "select companyName as name, companyGroup as 'group',overallRating as 'Overall Rating',cultRatng as 'Culture And Values Rating',compsRating as 'Compensation And Benefits Rating',currRatng as 'Career Opportunities Rating',wrkLyfRatng as 'WorkLife Balance Rating' from companysenti ";
 	connection.query(query, function(err, rows) {
 		console.log(rows);
 		callback(err, rows);
@@ -42,4 +42,14 @@ exports.getMapData = function(callback) {
 		callback(err, rows);
 	});
 };
+
+
+exports.getJobCountByState = function(callback,stateName){
+	console.log("StateName_________"+stateName)
+	var query = "select companyName as name,sum(jobCount) as size from emplyjobcount where stateName='"+stateName+"' group by companyName ";
+	connection.query(query, function(err, rows) {
+		console.log(rows);
+		callback(err, rows);
+	});
+}
 

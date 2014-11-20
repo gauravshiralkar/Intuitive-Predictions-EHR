@@ -18,19 +18,19 @@ exports.getBarChartCali = function(req, res){
 
 };
 exports.getBarChartTexas = function(req, res){
-	  res.render('companyBarChartTexas');
+	  res.render('BarChartTexas');
 
 };
 exports.getBarChartNewYork = function(req, res){
-	  res.render('companyBarChartNY');
+	  res.render('BarChartNY');
 
 };
 exports.getBarChartWashington = function(req, res){
-	  res.render('companyBarChartWA');
+	  res.render('BarChartWashington');
 
 };
 exports.getBarChartVirginia = function(req, res){
-	  res.render('companyBarChartVI');
+	  res.render('BarChartVirginia');
 
 };
 

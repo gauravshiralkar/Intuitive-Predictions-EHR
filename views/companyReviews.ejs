@@ -223,9 +223,16 @@ function showGraph(){
                     <li>
                         <a href="/">Home</a>
                     </li>
-                    <li>
-                        <a href="services.html">Salary Analysis</a>
-                    </li>
+                   <li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Salary Analysis<b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="/SalaryAnalysis">Software Developer</a></li>
+							<li><a href="/SalaryAnalysis">FrontEnd / UI Developer</a></li>
+							<li><a href="/SalaryAnalysis">QA &Testing</a></li>
+							<li><a href="/SalaryAnalysis">Interns</a></li>
+
+						</ul></li>
                      <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Know your company<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -237,6 +244,13 @@ function showGraph(){
                             </li>
                         </ul>
                     </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">Job Trends<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/getBarChartCali">Full Time vs part Time in
+									CA </a></li>
+							<li><a href="/showmaps">State wise job count</a></li>
+						</ul></li>
                     <li>
                         <a href="/contact">Most Trending</a>
                     </li>

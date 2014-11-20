@@ -39,11 +39,15 @@
 var root;
 var okRows;
 var satisfiedRows;
+var vSatisfiedRows;
+var disSatisfiedRows;
 
 function showGraph(){
 	$.get("/getCompanyReviews", function(rows) {
 		  var okList='';
 			var satisfiedList='';
+			var vSatisfiedList='';
+			var disDatisfiedList ='';
 		  for(i=0;i<rows.length;i++){
 				if(rows[i].ratingDesc == 'OK')
 				{
@@ -52,8 +56,11 @@ function showGraph(){
 				else if(rows[i].ratingDesc =='Satisfied'){
 					satisfiedList+=JSON.stringify(rows[i])+',';
 				}
-				else if(rows[i].ratingDesc ==''){
-					
+				else if(rows[i].ratingDesc =='Very Satisfied'){
+					vSatisfiedList+=JSON.stringify(rows[i])+',';
+				}
+				else if(rows[i].ratingDesc =='Dissatisfied'){
+					disDatisfiedList+=JSON.stringify(rows[i])+',';
 				}
 					
 			}
@@ -61,32 +68,19 @@ function showGraph(){
 			okRows =JSON.parse("["+tmpOkRows+"]");
 			var satOkRows = satisfiedList.substring(0,satisfiedList.length-1);
 			 satisfiedRows=JSON.parse("["+satOkRows+"]");
-		  	console.log('satisfiedRows'+satisfiedRows);
+			 var vSatOkRows = vSatisfiedList.substring(0,vSatisfiedList.length-1);
+			 vSatisfiedRows=JSON.parse("["+vSatOkRows+"]");
+			
+			 var disSatRows = disDatisfiedList.substring(0,disDatisfiedList.length-1);
+			 disSatisfiedRows=JSON.parse("["+disSatRows+"]");
+		  	console.log('Very satisfiedRows'+vSatOkRows);
 		  
 		  root = {
 	    "name": "flare",
 	    "children": [
-	        {
-	            "name": "Very satisfied",
-	            "children": [
-	                {
-	                    
-	                            "name": "AgglomerativeCluster",
-	                            "size": 3.3
-	                        },
-	                        {
-	                            "name": "CommunityStructure",
-	                            "size": 4
-	                        },
-	                        {
-	                            "name": "HierarchicalCluster",
-	                            "size": 5
-	                        },
-	                        {
-	                            "name": "MergeEdge",
-	                            "size": 2
-	                        }
-	                    ]
+	        		{
+	            		"name": "Very satisfied",
+	            		"children": vSatisfiedRows
 	                },
 	                {
 	    	            "name": "Satisfied",
@@ -95,7 +89,11 @@ function showGraph(){
 	    	          {
 	    	    	            "name": "OK",
 	    	    	            "children":okRows
-	    	    	                }     
+	    	    	   },
+	    	    	   {
+	    	    		   "name": "Dissatisfied",
+		            		"children": disSatisfiedRows
+	    	    	   }
 	            ]
 	        };
 		  test();

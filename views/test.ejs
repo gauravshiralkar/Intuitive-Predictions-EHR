@@ -1,0 +1,148 @@
+<head>
+<script type="text/javascript">
+
+function he(){alert("hell");}
+
+function go(){
+	alert("hi");
+	var chartData = [{
+	    "department": "Scripting Languages",
+	    "TotalCount": 3491748,
+	    "url":"#",
+	    "description":"click to drill-down",
+	    "months": [ { TagName: 'javascript', TotalCount: 735016 },
+	                { TagName: 'PHP', TotalCount: 667463 },
+	                { TagName: 'Jquery', TotalCount: 552498 },
+	                { TagName: 'HTML', TotalCount: 357985 },
+	                { TagName: 'ios', TotalCount: 287618 },
+	                { TagName: 'CSS', TotalCount: 264202 },
+	                { TagName: 'ruby-on-rails', TotalCount: 184504 },
+	                { TagName: 'ajax', TotalCount: 106188 },
+	                { TagName: 'xml', TotalCount: 103255 },
+	                { TagName: 'regex', TotalCount: 103148 },
+	                { TagName: 'html5', TotalCount: 65585 },
+	                { TagName: 'angularjs', TotalCount: 64286 },
+	 ]
+	}, {
+	    "department": "Programming Languages",
+	    "TotalCount": 3272483,
+	    "url":"#",
+	    "description":"click to drill-down",
+	    "months": [ { TagName: 'java', TotalCount: 748971 },
+	                { TagName: 'C#', TotalCount: 722692 },
+	                { TagName: 'Python', TotalCount: 361397 },
+	                { TagName: 'C++', TotalCount: 329876 },
+	                { TagName: 'asp.net', TotalCount: 240013 },
+	                { TagName: 'Objective-c', TotalCount: 209283 },
+	                { TagName: '.net', TotalCount: 198833 },
+	                { TagName: 'C', TotalCount: 160099 },
+	                { TagName: 'ruby', TotalCount: 119498 },
+	                { TagName: 'vb.net', TotalCount: 76398 },
+	                { TagName: 'node.js', TotalCount: 61914 },
+	                { TagName: 'Visual-studio-2010', TotalCount: 43509 } ]
+	}, {
+	    "department": "Frameworks",
+	    "TotalCount": 632999,
+	    "url":"#",
+	    "description":"click to drill-down",
+	    "months": [ { TagName: 'arrays', TotalCount: 110465 },
+	                { TagName: 'asp.net-mvc', TotalCount: 98636 },
+	                { TagName: 'excel', TotalCount: 55479 },
+	                { TagName: 'spring', TotalCount: 54359 },
+	                { TagName: 'winforms', TotalCount: 53988 },
+	                { TagName: 'forms', TotalCount: 52323 },
+	                { TagName: 'hibernate', TotalCount: 39895 },
+	                { TagName: 'Visual-studio ', TotalCount: 39217 },
+	                { TagName: 'list', TotalCount: 36224 },
+	                { TagName: 'api', TotalCount: 32209 },
+	                { TagName: 'Google-maps', TotalCount: 30960 },
+	                { TagName: 'asp.net-mvc-4', TotalCount: 29244 } ]
+	}];
+
+	// aggregate collective data
+	var collectiveData = [];
+	for (var x in chartData) {
+	    var dataPoint = chartData[x];
+	    if ( 0 == x ) {
+	        for (var y in dataPoint.months) {
+	            collectiveData.push({
+	                "TagName": dataPoint.months[y].TagName,
+	                "TotalCount": dataPoint.months[y].TotalCount
+	            });
+	        }
+	    }
+	    else {
+	        for (var y in dataPoint.months) {
+	            collectiveData[y].TotalCount += dataPoint.months[y].TotalCount;
+	        }
+	    }
+	}
+
+
+	// create pie chart
+	var chart = AmCharts.makeChart("chartdiv1", {
+	    "type": "pie",
+	    "dataProvider": chartData,
+	    "valueField": "TotalCount",
+	    "titleField": "department",
+	    "labelText": "[[title]]: [[value]]",
+	    "pullOutOnlyOne": true
+	});
+
+	// create column chart
+	var chart2 = AmCharts.makeChart("chartdiv2", {
+	    "type": "serial",
+	        "theme": "none",
+	        "pathToImages": "/lib/3/images/",
+	        "autoMargins": false,
+	        "marginLeft": 30,
+	        "marginRight": 8,
+	        "marginTop": 10,
+	        "marginBottom": 26,
+	    "titles": [{
+	        "text": "All departments"
+	    }],
+	        "dataProvider": collectiveData,
+	        "startDuration": 1,
+	        "graphs": [{
+	            "title": "TotalCount",
+	            "type": "column",
+	            "fillAlphas": 0.8,
+	            "valueField": "TotalCount"
+	    }],
+	        "categoryField": "TagName",
+	        "categoryAxis": {
+	            "gridPosition": "start",
+	            "autoGridCount": false,
+	            "gridCount": 12,
+	            "labelRotation":10
+	    },
+	    "valueAxes": [{
+	        "integersOnly": true
+	    }]
+	});
+
+	chart.addListener("pullOutSlice", function (event) {
+	    chart2.dataProvider = event.dataItem.dataContext.months;
+	    chart2.titles[0].text = event.dataItem.dataContext.department;
+	    chart2.validateData();
+	    chart2.animateAgain();
+	});
+
+	chart.addListener("pullInSlice", function (event) {
+	    chart2.dataProvider = collectiveData;
+	    chart2.titles[0].text = "All departments";
+	    chart2.validateData();
+	    chart2.animateAgain();
+	});	
+}
+</script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+</head>
+
+<body onload="go()">
+<div id="chartdiv1" style="width : 49%;height : 500px;font-size : 15px;float: left;"></div>
+<div id="chartdiv2" style="width : 50%;height : 500px;font-size : 15px;float: left;"></div>
+</body>

@@ -56,6 +56,10 @@ app.get('/getBarChartNewYork',routes.getBarChartNewYork);
 app.get('/getBarChartWashington',routes.getBarChartWashington);
 app.get('/getBarChartVirginia',routes.getBarChartVirginia);
 
+app.get('/showtest', function(req, res) {
+	res.render('test.ejs');
+});
+
 //For TreeMap
 
 app.get('/getJobcountData/:stateName',routes.getJobcountData);

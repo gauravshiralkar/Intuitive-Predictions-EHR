@@ -30,7 +30,7 @@ AmCharts.ready(function() {
     map.dataProvider = {
     		map: "usaLow",
     		
-    		images:[{latitude:37.0000, longitude:120.0000, color:"#CC0000", scale:0.5, label:"New York", labelShiftY:2, zoomLevel:5, title:"New York", description:"Click here"}],
+    		//images:[{latitude:37.0000, longitude:120.0000, color:"#CC0000", scale:0.5, label:"New York", labelShiftY:2, zoomLevel:5, title:"New York", description:"Click here"}],
     		areas: [{
     			id: "US-AL",
     			value: <%= rows[0].jobCount%> 
@@ -46,7 +46,7 @@ AmCharts.ready(function() {
     		}, {
     			id: "US-CA",
     			value: <%= rows[3].jobCount%>
-    		}, {
+    	}, {
     			id: "US-CO",
     			value: <%= rows[4].jobCount%>
     		}, {
@@ -82,6 +82,7 @@ AmCharts.ready(function() {
     		}, {
     			id: "US-KY",
     			value: <%= rows[16].jobCount%>
+    		
     		}, {
     			id: "US-LA",
     			value: <%= rows[17].jobCount%>
@@ -191,6 +192,7 @@ AmCharts.ready(function() {
     map.areasSettings = {
         autoZoom: false,
         selectedColor: "#CC0000"
+        	
     };
     
     map.valueLegend = {
@@ -198,7 +200,8 @@ AmCharts.ready(function() {
 		minValue: "little",
 		maxValue: "a lot!"
 	}
-
+ // get balloon intance
+    
 
     // let's say we want a small map to be displayed, so let's create it
    // map.smallMap = new AmCharts.SmallMap();

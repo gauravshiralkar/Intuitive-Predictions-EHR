@@ -27,7 +27,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Main Menu</a>
+				<a class="navbar-brand" href="index.html">Main Menu</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
@@ -145,9 +145,11 @@ var div = d3.select("#treeDiv").append("div")
       .text(function(d) { return d.children ? null : d.name; }).on("click", function(d){
     	 
     	  console.log("mouseClick"+d.name);
-    	  $(location).attr('href','/showBubble');
+    	 	var url = '/showBubble/'+stateName+'/'+d.name;
+    	  console.log("URL_____________"+url);
+    	  $(location).attr('href',url);
     		
-      });;
+      });
 
   d3.selectAll("input").on("change", function change() {
     var value = this.value === "count"

@@ -43,8 +43,10 @@ exports.getMapData = function(callback) {
 		callback(err, rows);
 	});
 };
-exports.getBubble = function(callback) {
-	var query = "select  cityName as name, jobCount as size from emplyjobcount where stateName='California' and companyName='Amazon' order by companyName";
+exports.getBubble = function(callback,stateName,companyName) {
+	console.log("StateName______"+stateName);
+	console.log("CompanyName________"+companyName);
+	var query = "select  cityName as name, jobCount as size from emplyjobcount where stateName='"+stateName+"' and companyName='"+companyName+"' order by companyName";
 	connection.query(query, function(err, rows) {
 		console.log(rows);
 		callback(err, rows);

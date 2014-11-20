@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<% include template %>
-<head>
 <style>
 
 text {
@@ -10,37 +7,58 @@ text {
 }
 
 </style>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="../lib/jquery.js"></script>
 
-<script>
+<body onload="getData()">
+	<input type="hidden" id="stateName" value="<%=stateName%>"/>
+	<input type="hidden" id="companyName" value="<%=companyName%>"/>
+
+</body>
+
+
+
+<script type="text/javascript">
 var root;
-function getData(){
-	
-	
-	
-	$.get("/getBubble", function(data) {
-		console.log(data);
-	root={
-			    "name": "flare",
-			    "children": [
-			        {
-			  
-			                    "name": "cluster",
-			                    "children": data
-			                }
-			            ]
-			        };
-		showBubble();
-	});
 
+
+
+function getData(){
+
+	var stateName = document.getElementById('stateName').value;
+
+	var companyName = document.getElementById('companyName').value;
+
+	var url = '/getBubble/'+stateName+'/'+companyName;
+
+	$.get(url, function(data) {
+
+	console.log(data);
+
+	root={
+
+	    "name": "flare",
+
+	    "children": [
+
+	        {
+	                   "name": "cluster",
+
+	                    "children": data
+
+	                }
+
+	            ]
+
+	        };
+	console.log("test");
+
+	showBubble();
+
+	});
 }
 
 
+
 function showBubble(){
-
-
-var okRows;
 
 var diameter = 960,
     format = d3.format(",d"),
@@ -93,6 +111,7 @@ d3.select(self.frameElement).style("height", diameter + "px");
 }
 </script>
 
-<body onload="getData()">
-</head>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </html>

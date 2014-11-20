@@ -91,10 +91,11 @@
 <script>
 
 var root;
+var stateName;
 
 function getData(){
 	
-	var stateName = document.getElementById('stateName').value;
+	stateName = document.getElementById('stateName').value;
 	console.log("____________"+stateName);
 	var url = '/getJobcountData/'+stateName;
 	$.get(url, function(jobCountData) {
@@ -141,7 +142,12 @@ var div = d3.select("#treeDiv").append("div")
       .call(position)
       .style("background", function(d) { 
     	  return d.children ? color(d.name) : null; })
-      .text(function(d) { return d.children ? null : d.name; });
+      .text(function(d) { return d.children ? null : d.name; }).on("click", function(d){
+    	 
+    	  console.log("mouseClick"+d.name);
+    	  $(location).attr('href','/showBubble');
+    		
+      });;
 
   d3.selectAll("input").on("change", function change() {
     var value = this.value === "count"

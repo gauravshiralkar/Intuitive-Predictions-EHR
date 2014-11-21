@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<% include template %>
 <html lang="en">
+<% include template %>
 <style>
 
 text {
@@ -10,51 +10,9 @@ text {
 </style>
 
 <body onload="getData()">
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">Techno Trends</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				
-				<li>
-					<a href="/SalaryAnalysis">Salary Analysis</a>
-				</li>
-
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Know your company<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="/companyRatingAnalysis">Ratings</a></li>
-						<li><a href="/showCompanyReviews">Reviews</a></li>
-					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Job Trends<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="/getBarChartCali">Full Time vs part Time in
-								CA </a></li>
-						<li><a href="/showmaps">State wise job count</a></li>
-					</ul></li>
-
-				<li><a href="/showtest">Most Trending</a></li>
-			</ul>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-</nav>
 	<input type="hidden" id="stateName" value="<%=stateName%>"/>
 	<input type="hidden" id="companyName" value="<%=companyName%>"/>
-
+	<div id="bubble"></div>
 </body>
 
 
@@ -112,7 +70,7 @@ var bubble = d3.layout.pack()
     .size([diameter, diameter])
     .padding(1.5);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#bubble").append("svg")
     .attr("width", diameter)
     .attr("height", diameter)
     .attr("class", "bubble");
@@ -157,4 +115,5 @@ d3.select(self.frameElement).style("height", diameter + "px");
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <% include template %>
+<link href="http://ironsummitmedia.github.io/startbootstrap-modern-business/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="http://ironsummitmedia.github.io/startbootstrap-modern-business/css/modern-business.css" rel="stylesheet" type="text/css">
 <style>
 
 text {
@@ -12,7 +14,20 @@ text {
 <body onload="getData()">
 	<input type="hidden" id="stateName" value="<%=stateName%>"/>
 	<input type="hidden" id="companyName" value="<%=companyName%>"/>
-	<div id="bubble"></div>
+	<div class="container">
+
+		<!-- Features Section -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="page-header"><%=companyName%> - Job Count Visualization</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div id="bubble"></div>
+		</div>
+	</div>
+	
 </body>
 
 
@@ -115,5 +130,6 @@ d3.select(self.frameElement).style("height", diameter + "px");
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ 
 
 </html>

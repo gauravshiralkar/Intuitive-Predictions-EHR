@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> eefe521... New branch created for final running project
 
 /*
  * GET home page.
@@ -76,9 +79,15 @@ exports.getMapData= function(req, res){
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> f548fbe2661bbfc5fc501e178ac37cac0f329d12
+=======
+
+
+
+>>>>>>> eefe521... New branch created for final running project
 exports.getCompanyReviews = function(req,res){
 	dbConn.getCompanyReviews(function(err,rows){
 		console.log(rows);
@@ -91,7 +100,15 @@ exports.showCompanyReviews = function(req,res){
 };
 
 exports.showBubble= function(req, res){
+<<<<<<< HEAD
 	res.render('bubbleChart');
+=======
+	var stateName = req.params.stateName;
+	//console.log("__________"+stateName+"param="+req.params.companyName);
+	var companyName = req.params.companyName;
+	console.log("__________"+stateName+"_______"+companyName);
+	res.render('bubbleChart',{stateName:stateName,companyName:companyName});
+>>>>>>> eefe521... New branch created for final running project
 	};
 
 exports.getJobcountData = function(req,res){
@@ -108,6 +125,7 @@ exports.showTreeMap = function(req,res){
 	res.render('companyTreeMap',{dat:req.params.stateName});
 }
 exports.getBubble= function(req, res){
+<<<<<<< HEAD
 	dbConn.getBubble(function(err,rows){
 		console.log(rows);
 				 res.send(rows);
@@ -238,3 +256,15 @@ exports.getBubble= function(req, res){
 };
 
 >>>>>>> 4325e92... Fixed bubble chart
+=======
+	console.log("side getBubble");
+	var stateName = req.params.stateName;
+	var companyName = req.params.companyName;
+	dbConn.getBubble(function(err,rows){
+		console.log("Inside getBubble");
+		console.log(rows);
+				 res.send(rows);
+	},stateName,companyName);	
+};
+
+>>>>>>> eefe521... New branch created for final running project

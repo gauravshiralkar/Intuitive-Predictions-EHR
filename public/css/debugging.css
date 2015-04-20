@@ -1,0 +1,53 @@
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* Debugged CSS  */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+/*---------------------------------------------------
+  Chrome smooth fonts   <-*** alex zaymund ***->
+----------------------------------------------------*/
+
+.box-more-info , .nav-tabs , .carousel-title  .carousel , .list-group-heading {
+	-webkit-transform: translate3d(0px, 1px, 0px);
+}
+
+
+/*---------------------------------------------------
+  debugging subnav  <-*** alex zaymund ***->
+----------------------------------------------------*/
+
+html #main-nav .dropdown-menu {
+	right:0;
+    left: auto;
+	width:100%;
+ 
+}
+
+/*---------------------------------------------------
+  Header in small device  <-*** alex zaymund 19.08 ***->
+----------------------------------------------------*/
+@media (max-width:1030px) {
+
+html .home #main-header {
+    position: inherit ;
+    width: 100%;
+    z-index: 678;
+}
+
+html  .cd-nav-trigger {
+    z-index: 999 ;
+}
+}
+
+/*---------------------------------------------------
+  Smart menu mobile view <-*** alex zaymund  19.08  ***->
+----------------------------------------------------*/
+
+@media (max-width:900px) {
+#cd-nav {
+    display: block !important;
+    opacity: 1 !important;
+}
+}

@@ -1,0 +1,31 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* COLOR CSS */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.ip-header .ip-loader svg path.ip-loader-circle {
+	-webkit-transition: stroke-dashoffset 0.2s;
+	transition: stroke-dashoffset 0.2s;
+	stroke: #d90000;
+}
+html hr, .arrow-link .icon-transform, .carousel-item-content .carousel-title, .post-list-mini li:hover, .camera_prev:hover span, .camera_next:hover span, .camera_commands:hover div, .widget-search button:hover, #toTop, .cd-nav-trigger, .cd-nav-trigger, .nav-tabs>li:hover, .nav-tabs>li.active, .category-list li .posts-count, .tag-cloud li:hover, .comments-header, .btn, .social-team li:hover, .bx-wrapper .bx-controls-direction a:hover, #logo-bottom .bglogo1, .foot-top-line, .foot-bot-line, .price-box, .btn-set-middle a, html .btn-black:hover, html .catalog-product-list .btn-black:hover, .product-tab .nav-tabs:after, .widget-sub-title, .noUi-handle, .carousel-3 .bx-controls-direction, .carousel-3 .bx-wrapper .bx-controls-direction a, .title-line:after, .prefooter-container .entry-comments, .pagination ul > li.active, .pagination ul > li:hover, #find-car .btn.btn-main i, .carousel-reviews .bx-controls-direction, html .carousel-reviews .bx-wrapper .bx-controls-direction a, html .roundedOne label:after, .poll-car-content .btn.btn-main i, .video-section .carousel-title .transform-please-2, .form-contact .btn.btn-main i, #cd-nav li a:hover, html .panel-danger > .panel-heading, .btn-icon i {
+	background-color: #d90000;
+}
+.arrow-link:hover .icon-transform i, .box-transform i, .widget-title, .widget-title a, .list-group-item .price, .seller a, .featured-content i, .page-title h3 {
+	color: #d90000;
+}
+.themecolor1, #main-nav li.active, #main-nav li:hover, .navbar-top .navbar-nav:after, .navbar-top .navbar-nav li:hover, .bglogo4, .bglogo3 .bglogo2, .bglogo1, .navbar-top .current, .box-more-info .transform-revers:hover, .comment .comment-reply:hover {
+	background-color: rgba(217, 0, 0, 0.87);
+}
+.carousel-title {
+	border-bottom: 6px solid #d90000;
+}
+html blockquote {
+	border-left-color: #d90000;
+}
+html .btn-black {
+	background: #000;
+}
+.tab-content>.tab-pane {
+	background: #f9f9f9;
+}

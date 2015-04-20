@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CarNews</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.html" />
+<link href="css/master.css" rel="stylesheet">
+<!--[if lt IE 9]>
+			<script src="js/html5shiv-3.7.0.js"></script>
+			<script src="js/respond-1.4.2.js"></script>
+		<![endif]-->
+</head>
+<body class="noIE inner-page ">
+
+<!-- Loader -->
+<div id="ip-container" class="ip-container"> 
+  <!-- initial header -->
+  <header class="ip-header">
+    <div class="ip-loader"> 	<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+      <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,39.3,10z"/>
+      <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+      </svg>
+      </div>
+  </header>
+  <!-- Loader end --> 
+  
+</div>
+
+<!-- HEADER -->
+<header id="main-header">
+  <div id="cd-nav"> <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+    <nav id="cd-main-nav">
+      <ul>
+        <li ><a href="index.html"><span>CARNews HOME</span> <small> LATEST REVIEWS OF CARS</small> </a></li>
+        <li class="active"><a href="blog.html"><span>NEWS & BLOG</span> <small>NEWS ABOUT UPCOMING</small></a></li>
+        <li ><a href="post.html"><span>CARS Post </span> <small>INFO ABOUT ALL CARS</small></a></li>
+        <li><a data-toggle="dropdown" class="dropdown-toggle" href="#"><span>Car Shop<b class="caret"></b></span> <small>SEE ALL NEWEST MODELS</small></a>
+          <ul>
+             <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="product.html"  >Product</a></li>
+          </ul>
+        </li>
+        <li><a href="shop.html"><span>CAR Pages </span> <small>SHARE YOUR OPINION</small></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-3 spacer"> </div>
+      <div class="col-md-6"> 
+        <!-- NAVIGATION -->
+        <div class="navbar navbar-default navbar-top ">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav nav-justified">
+              <li ><a href="#"><span>HOME</span></a></li>
+              <li><a href="#"><span>ABOUT</span></a></li>
+              <li class="current"><a href="#"><span>CONTACT</span></a></li>
+              <li><a href="#"><span>LOGIN</span></a></li>
+              <li><a href="#"><span>SIGNUP</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"> 
+        <!-- LOGO -->
+        <div id="logo" > <span class="bglogo1 transform-please-2"><a href="index.html"><img src="img/logo.png"  alt="logo"/></a></span> <span class="bglogo2 transform-please-2"></span> <span class="bglogo3 transform-please-2"></span> <span class="bglogo4 transform-please-2"></span> </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav id="main-nav" >
+      <div class="row">
+        <div class="col-md-12"> 
+          <!-- NAVIGATION -->
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header"> </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav nav-justified">
+                <li ><a href="index.html"><span>CARNews HOME</span> <small> LATEST REVIEWS OF CARS</small> </a></li>
+                <li  class="active"  ><a href="blog.html"><span>NEWS & BLOG</span> <small>NEWS ABOUT UPCOMING</small></a></li>
+                <li ><a href="post.html"><span>CARS Post </span> <small>INFO ABOUT ALL CARS</small></a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Car Shop<b class="caret"></b></span> <small>SEE ALL NEWEST MODELS</small></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="product.html"  >Product</a></li>
+                  </ul>
+                </li>
+                <li  ><a href="catalog.html" class="dropdown-toggle" data-toggle="dropdown"><span>CAR Pages<b class="caret"></b></span> <small>SHARE YOUR OPINION</small></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="typography.html">typography</a></li>
+                    <li><a href="price-table.html">price-table</a></li>
+                    <li><a href="timeline.html"  >timeline</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="mini-search-top">
+              <form class="form-mini-search" >
+                <input type="text" placeholder="Search..">
+                <button  type="submit" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="bread-wrap">
+    
+    <ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Blog</li>
+</ol>
+
+    
+    
+
+</div>
+  </div>
+</header>
+<!-- HEADER END -->
+
+<main id="main" class="section">
+  <div class="container">
+    <div class="row">
+      <section class="carousel carousel-reviews">
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span> CAR REVIEWS </span> </div>
+        </div>
+        <ul class="carousel-1">
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/2.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/3.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/2.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/3.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <div class="line transform-please-2"></div>
+      
+      <!-- MAIN CONTENT -->
+      <div class="col-xs-12 col-sm-12 col-md-9">
+        <section class="main-content" role="main">
+          <article class="post format-image animated" data-animation="bounceInLeft">
+            <div class="entry-header">
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"> FEATURED</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+              </div>
+            </div>
+            <div class="entry-media">
+              <div class="entry-thumbnail img">
+                <div class="img-overlay "> <a  href="#" class="link-view-more">+</a> </div>
+                <a href="media/blog/1.jpg"> <img src="media/blog/1.jpg" width="870" height="300" alt=""/></a> </div>
+            </div>
+            <div class="entry-main">
+              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <div class="entry-content">
+                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
+                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
+                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
+                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. <a href="post.html" class="readmore grow" title="Continue Reading">[...]</a></p>
+                <div class="entry-footer"> <a href="#" class="arrow-link"><span class="vm-text">View more</span> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a> </div>
+              </div>
+            </div>
+            <div class="line-block transform-please-2"></div>
+          </article>
+          <article class="post format-image animated" data-animation="bounceInLeft">
+            <div class="entry-header">
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"> FEATURED</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+              </div>
+            </div>
+            <div class="entry-media">
+              <div class="entry-thumbnail img">
+                <div class="img-overlay "> <a  href="#" class="link-view-more">+</a> </div>
+                <a href="media/blog/1.jpg"> <img src="media/blog/2.jpg" width="870" height="300" alt=""/></a> </div>
+            </div>
+            <div class="entry-main">
+              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <div class="entry-content">
+                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
+                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
+                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
+                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. <a href="post.html" class="readmore grow" title="Continue Reading">[...]</a></p>
+                <div class="entry-footer"> <a href="#" class="arrow-link"><span class="vm-text">View more</span> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a> </div>
+              </div>
+            </div>
+            <div class="line-block transform-please-2"></div>
+          </article>
+            <article class="post format-image animated" data-animation="bounceInLeft">
+            <div class="entry-header">
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"> FEATURED</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+              </div>
+            </div>
+            <div class="entry-media">
+              <div class="entry-thumbnail img">
+                <div class="img-overlay "> <a  href="#" class="link-view-more">+</a> </div>
+                <a href="media/blog/1.jpg"> <img src="media/blog/3.jpg" width="870" height="300" alt=""/></a> </div>
+            </div>
+            <div class="entry-main">
+              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <div class="entry-content">
+                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
+                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
+                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
+                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. <a href="post.html" class="readmore grow" title="Continue Reading">[...]</a></p>
+                <div class="entry-footer"> <a href="#" class="arrow-link"><span class="vm-text">View more</span> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a> </div>
+              </div>
+            </div>
+            <div class="line-block transform-please-2"></div>
+          </article>
+             <article class="post format-image animated" data-animation="bounceInLeft">
+            <div class="entry-header">
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"> FEATURED</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+              </div>
+            </div>
+            <div class="entry-media">
+              <div class="entry-thumbnail img">
+                <div class="img-overlay "> <a  href="#" class="link-view-more">+</a> </div>
+                <a href="media/blog/1.jpg"> <img src="media/blog/4.jpg" width="870" height="300" alt=""/></a> </div>
+            </div>
+            <div class="entry-main">
+              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <div class="entry-content">
+                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
+                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
+                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
+                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. <a href="post.html" class="readmore grow" title="Continue Reading">[...]</a></p>
+                <div class="entry-footer"> <a href="#" class="arrow-link"><span class="vm-text">View more</span> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a> </div>
+              </div>
+            </div>
+            <div class="line-block transform-please-2"></div>
+          </article>
+          <nav class="pagination">
+            <ul>
+              <li class="active"><a href="#" class="btn btn-primary"><span>1</span></a></li>
+              <li><a href="#" class="btn btn-default">2</a></li>
+              <li><a href="#" class="btn btn-default">3</a></li>
+              <li><a href="#" class="btn btn-default">4</a></li>
+              <li><a href="#" class="btn btn-default">5</a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+      <!-- // MAIN CONTENT -->
+      <div class="space40 visible-xs"></div>
+      <!-- SIDEBAR -->
+      <div class="col-xs-12 col-sm-12 col-md-3">
+        <aside class="sidebar">
+          <div class="widget widget-search ">
+            <h3 class="widget-title"><span>Search Blog</span></h3>
+            <form action="http://templines.com/" class="searchform" id="searchform" method="get" role="search">
+              <input type="text" id="s" name="s" value=""  placeholder="Search">
+              <button > <i class="fa fa-search"></i> </button>
+            </form>
+          </div>
+          
+          <!-- CATEGORY LIST WIDGET -->
+          <div class="widget widget-category">
+            <h3 class="widget-title"><span>categories</span></h3>
+            <ul class="category-list unstyled clearfix">
+              <li><a href="#">Technology</a><span class="posts-count">25</span></li>
+              <li><a href="#">News</a><span class="posts-count">11</span></li>
+              <li><a href="#">Photography</a><span class="posts-count">47</span></li>
+              <li><a href="#">Design</a><span class="posts-count">10</span></li>
+              <li><a href="#">Web Design</a><span class="posts-count">15</span></li>
+            </ul>
+          </div>
+          <!-- // CATEGORY LIST WIDGET --> 
+          
+          <!-- TABBED CONTENT WIDGET -->
+          <div class="widget widget-tabbed">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab-popular" data-toggle="tab">popular</a></li>
+              <li><a href="#tab-recent" data-toggle="tab">recent</a></li>
+              <li><a href="#tab-comments" data-toggle="tab">comments</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab-popular">
+                <ul class="entry-list unstyled">
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/1.jpg" width="70" height="70" alt=""/></a> </div>
+                    <div class="entry-main">
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 17 March , 2013</a> </time>
+                      </div>
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/2.jpg" width="70" height="70" alt=""/></a> </div>
+                    <div class="entry-main">
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 16 March , 2013</a> </time>
+                      </div>
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/3.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 15 March , 2014</a> </time>
+                      </div>
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/4.jpg" width="70" height="70" alt=""/></a> </div>
+                    <div class="entry-main">
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 14 March , 2013</a> </time>
+                      </div>
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-pane" id="tab-recent2">
+                <ul class="entry-list unstyled">
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/1.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 12 March , 2013</a> </time>
+                        <div class="entry-comments"> <a href="#"> <span aria-hidden="true" class="icon-bubbles"></span> 47 </a> </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/2.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 11 March , 2013</a> </time>
+                        <div class="entry-comments"> <a href="#"> <span aria-hidden="true" class="icon-bubbles"></span> 47 </a> </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/3.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 10 March , 2013</a> </time>
+                        <div class="entry-comments"> <a href="#"> <span aria-hidden="true" class="icon-bubbles"></span> 47 </a> </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/4.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 7 March , 2013</a> </time>
+                        <div class="entry-comments"> <a href="#"> <span aria-hidden="true" class="icon-bubbles"></span> 47 </a> </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-pane" id="tab-comments">
+                <ul class="entry-list unstyled">
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"><img src="media/small/1.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">John Doe </a>Says:</h5>
+                      </div>
+                      <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida nibh sed faucibus mattis <a href="#" class="readmore">[...]</a></p>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 17 March , 2013</a> </time>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/small/2.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">John Doe </a>Says:</h5>
+                      </div>
+                      <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida nibh sed faucibus mattis <a href="#" class="readmore">[...]</a></p>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 17 March , 2013</a> </time>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                  <li>
+                    <div class="entry-thumbnail"> <a href="#" class="img"><img src="media/small/3.jpg" width="70" height="70" alt=""/> </a> </div>
+                    <div class="entry-main">
+                      <div class="entry-header">
+                        <h5 class="entry-title"><a href="#">John Doe </a>Says:</h5>
+                      </div>
+                      <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida nibh sed faucibus mattis <a href="#" class="readmore">[...]</a></p>
+                      </div>
+                      <div class="entry-meta">
+                        <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"><span aria-hidden="true" class="icon-clock"></span> 17 March , 2013</a> </time>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- // TABBED CONTENT WIDGET --> 
+          
+          <!-- FLICKR STREAM -->
+          <div class="widget widget-flickr">
+            <h3 class="widget-title"><span>FLICKR photos</span></h3>
+            <ul id="flickr-feed" class="cells-9 img unstyled clearfix" data-items="9">
+            </ul>
+          </div>
+          <!-- // FLICKR STREAM --> 
+          
+          <!-- TAGS WIDGET -->
+          <div class="widget widget-tags">
+            <h3 class="widget-title"><span>Tags cloud</span></h3>
+            <ul class="tag-cloud unstyled clearfix">
+              <li><a href="#">Creative</a></li>
+              <li><a href="#">Responsive</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">CSS</a></li>
+              <li><a href="#">Retina</a></li>
+              <li><a href="#">Clean</a></li>
+            </ul>
+          </div>
+          <!-- // TAGS WIDGET --> 
+          
+          <!--  WIDGET -->
+          <div class="widget widget-latest-post">
+            <h3 class="widget-title"><span>LATEST POSTS</span></h3>
+            <ul class="carousel1">
+              <li>
+                <div class="media"> <a href="#"> <img src="media/blog/small.jpg" width="270" height="190" alt=""/></a>
+                  <div class="media-desc">
+                    <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
+                      AT FRINGILLA IDINTERDUM</h5>
+                    <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="media"> <a href="#"> <img src="media/blog/small.jpg" width="270" height="190" alt=""/></a>
+                  <div class="media-desc">
+                    <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
+                      AT FRINGILLA IDINTERDUM</h5>
+                    <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="media"> <a href="#"> <img src="media/blog/small.jpg" width="270" height="190" alt=""/></a>
+                  <div class="media-desc">
+                    <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
+                      AT FRINGILLA IDINTERDUM</h5>
+                    <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div id="tab-recent" class="tab-pane active">
+              <ul class="entry-list unstyled">
+                <li>
+                  <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="" src="media/small/1.jpg"> </a> </div>
+                  <div class="entry-main">
+                    <div class="entry-header">
+                      <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                    </div>
+                    <div class="entry-meta">
+                      <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"> <i class="fa fa-clock-o"></i> 12 March , 2013</a> </time>
+                      <div class="entry-comments"> <a href="#"> <i class="fa fa-comment-o"></i> 47 </a> </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="" src="media/small/2.jpg"> </a> </div>
+                  <div class="entry-main">
+                    <div class="entry-header">
+                      <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                    </div>
+                    <div class="entry-meta">
+                      <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
+                      <div class="entry-comments"> <a href="#"> <i class="fa fa-comment-o"></i> 47 </a> </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="" src="media/small/3.jpg"> </a> </div>
+                  <div class="entry-main">
+                    <div class="entry-header">
+                      <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                    </div>
+                    <div class="entry-meta">
+                      <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"> <i class="fa fa-clock-o"></i> 10 March , 2013</a> </time>
+                      <div class="entry-comments"> <a href="#"> <i class="fa fa-comment-o"></i> 47 </a> </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="" src="media/small/4.jpg"> </a> </div>
+                  <div class="entry-main">
+                    <div class="entry-header">
+                      <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+                    </div>
+                    <div class="entry-meta">
+                      <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"> <i class="fa fa-clock-o"></i> 7 March , 2013</a> </time>
+                      <div class="entry-comments"> <a href="#"> <i class="fa fa-comment-o"></i> 47 </a> </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- //  WIDGET --> 
+          
+        </aside>
+      </div>
+      <!-- // SIDEBAR --> 
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<div class="footer-block">
+  <div class="container">
+    <div class="row">
+      <div class="foot-top-line"></div>
+      <div class="foot-bot-line"></div>
+      <a class="scroll-top" href="#"><i class="fa fa-angle-up"></i> </a> </div>
+  </div>
+  <div class="container fot-container">
+    <div class="row">
+      <ul class="nav-footer">
+        <li><a href="#"><span>HOME</span></a></li>
+        <li><a href="#"><span>ABOUT</span></a></li>
+        <li class="current"><a href="#"><span>CONTACT</span></a></li>
+        <li><a href="#"><span>LOGIN</span></a></li>
+        <li><a href="#"><span>SIGNUP</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row text-center copyright-info">
+      <p> © ALL RIGHTS RESERVED 2020 - CARNEWS BLOG DESIGN</p>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- ABSOLUTE FOOTER -->
+<div class="copyright-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 left">
+        <ul class="unstyled clearfix social-team">
+          <li><a href="http://fb.com/#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="http://twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google"></i></a></li>
+          <li><a href="http://youtube.com/#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+          <li><a href="http://rss.com/#" target="_blank"><i class="fa fa-rss"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SCRIPTS --> 
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
+<script src= "js/jquery-migrate-1.2.1.js" ></script> 
+<script src="js/bootstrap-3.1.1.min.js"></script> 
+<script src="js/modernizr.custom.js"></script> 
+<script src="js/classie.js"></script> 
+<script src="js/pathLoader.js"></script> 
+<script src="js/waypoints.min.js"></script> 
+<script src="js/loader.js"></script> 
+<script src="js/jflickrfeed.min.js"></script> 
+<script src="plugins/selectbox/jquery.selectbox-0.2.js"></script> 
+<script src="plugins/backstretch/backstretch-2.0.4.min.js"></script> 
+<script src="plugins/camera-slider/camera-slider-1.3.4.min.js"></script> 
+<script src="plugins/camera-slider/easing-1.3.min.js"></script> 
+<script src="plugins/fancybox/fancybox-1.3.4.pack.js"></script> 
+<script src="plugins/fancybox/klass-1.0.min.js"></script> 
+<script src="plugins/fancybox/photoswipe-3.0.5.min.js"></script> 
+<script src="plugins/hover-animations/transform2d.min.js"></script> 
+<script src="plugins/hover-animations/hover-animations-1.0.min.js"></script> 
+<script src="js/smart-menu.js"></script> 
+<script src="js/cssua.min.js"></script> 
+<script src="plugins/bxslider/jquery.bxslider.min.js"></script> 
+<script src="plugins/nouislider/jquery.nouislider.min.js"></script> 
+<script src="plugins/flexslider/jquery.flexslider.js"></script> 
+<script src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CarNews</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.html" />
+<link href="css/master.css" rel="stylesheet">
+<!--[if lt IE 9]>
+			<script src="js/html5shiv-3.7.0.js"></script>
+			<script src="js/respond-1.4.2.js"></script>
+		<![endif]-->
+</head>
+<body class="noIE home">
+
+<!-- Loader -->
+<div id="ip-container" class="ip-container"> 
+  <!-- initial header -->
+  <header class="ip-header">
+    <div class="ip-loader"> 
+	<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+      <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,39.3,10z"/>
+      <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+      </svg>
+      
+       </div>
+  </header>
+  <!-- Loader end --> 
+  
+</div>
+
+<!-- HEADER -->
+<header id="main-header">
+  <div id="cd-nav"> <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+    <nav id="cd-main-nav">
+      <ul>
+        <li class="active"><a href="index.html"><span>CARNews HOME</span> <small> LATEST REVIEWS OF CARS</small> </a></li>
+        <li><a href="blog.html"><span>NEWS & BLOG</span> <small>NEWS ABOUT UPCOMING</small></a></li>
+        <li ><a href="post.html"><span>CARS Post </span> <small>INFO ABOUT ALL CARS</small></a></li>
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Car Shop<b class="caret"></b></span> <small>SEE ALL NEWEST MODELS</small></a>
+          <ul>
+              <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="product.html"  >Product</a></li>
+          </ul>
+        </li>
+        <li><a href="shop.html"><span>CAR Pages </span> <small>SHARE YOUR OPINION</small></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-3 spacer"> </div>
+      <div class="col-md-6"> 
+        <!-- NAVIGATION -->
+        <div class="navbar navbar-default navbar-top ">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav nav-justified">
+              <li ><a href="#"><span>HOME</span></a></li>
+              <li><a href="#"><span>ABOUT</span></a></li>
+              <li class="current"><a href="#"><span>CONTACT</span></a></li>
+              <li><a href="#"><span>LOGIN</span></a></li>
+              <li><a href="#"><span>SIGNUP</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"> 
+        <!-- LOGO -->
+        <div id="logo" > <span class="bglogo1 transform-please-2"><a href="index.html"><img src="img/logo.png"  alt="logo"/></a></span> <span class="bglogo2 transform-please-2"></span> <span class="bglogo3 transform-please-2"></span> <span class="bglogo4 transform-please-2"></span> </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav id="main-nav" >
+      <div class="row">
+        <div class="col-md-12"> 
+          <!-- NAVIGATION -->
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header"> </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav nav-justified">
+                <li class="active" ><a href="index.html"><span>CARNews HOME</span> <small> LATEST REVIEWS OF CARS</small> </a></li>
+                <li    ><a href="blog.html"><span>NEWS & BLOG</span> <small>NEWS ABOUT UPCOMING</small></a></li>
+                <li ><a href="post.html"><span>CARS Post </span> <small>INFO ABOUT ALL CARS</small></a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Car Shop<b class="caret"></b></span> <small>SEE ALL NEWEST MODELS</small></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="product.html"  >Product</a></li>
+                  </ul>
+                </li>
+                <li  ><a href="catalog.html" class="dropdown-toggle" data-toggle="dropdown"><span>CAR Pages<b class="caret"></b></span> <small>SHARE YOUR OPINION</small></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="typography.html">typography</a></li>
+                    <li><a href="price-table.html">price-table</a></li>
+                    <li><a href="timeline.html"  >timeline</a></li>
+                    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="mini-search-top">
+              <form class="form-mini-search" >
+                <input type="text" placeholder="Search..">
+                <button  type="submit" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="hot-news col-md-6  transform-revers-2">
+      <h5 class="themecolor1"> <a href="#">HOT WHEELS NEWS</a></h5>
+  <div class="marquee"><a href="post.html"> QUISQUE VITAE ORCI. CUM SOCIIS NATOQUE PENATIBUS ET MAGNIS DIS PARTURIENT MONTES.</a></div>
+    </div>
+  </div>
+</header>
+<!-- HEADER END --> 
+
+<!-- HOME SLIDER -->
+<div id="slider">
+  <div class="camera_slider">
+    <div data-thumb="media/slider/1.jpg" data-src="media/slider/1.jpg"> </div>
+    <div data-thumb="media/slider/2.jpg" data-src="media/slider/2.jpg"> </div>
+    <div data-thumb="media/slider/3.jpg" data-src="media/slider/3.jpg"> </div>
+    <div data-thumb="media/slider/4.jpg" data-src="media/slider/4.jpg"> </div>
+  </div>
+</div>
+<!-- HOME SLIDER END --> 
+
+<!-- SECTION -->
+<div class="section-1 animate-paraslide-image animatedEntrance">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-9">
+        <header class="section-header ">
+          <div class="heading-wrap">
+            <h2 class="heading"><span> WELCOME TO CARNEWS BLOG</span></h2>
+          </div>
+          <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla euismodm lesuada nibh. Cura bue itur accumsan sem males uada lorem accu msla viverra.Lorem ipsum dolor sit. Integer fauc ibus augue ut lacus. Sed purus neque lacinia acnc lorem tortor pharetra accumsan </p>
+          <hr>
+        </header>
+      </div>
+    </div>
+    <div  class="row service-item  " >
+      <div class="col-lg-3 col-md-3 col-sm-3 hover-item">
+        <div class="box-transform text-left"> <i class="fa fa-pencil"></i> </div>
+        <h4>LATEST & CURRENT INFO ABOUT<br>
+          ALL THE CARS</h4>
+        <p>Nulla euismodm lesuada nibh. Cura biturl accumsan sem males uada lorem accun msla viverra sed ipsum.</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 hover-item">
+        <div class="box-transform text-left"><i class="fa fa-car"></i></div>
+        <h4>PHOTOS & VIDEOS OF ALL CARS <br>
+          FROM EVERY BRAND</h4>
+        <p>Nulla euismodm lesuada nibh. Cura biturl accumsan sem males uada lorem accun msla viverra sed ipsum.</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 hover-item">
+        <div class="box-transform text-left"> <i class="fa fa-search"></i> </div>
+        <h4>SEARCH FOR ALL CARS OR BRANDS<br>
+          FOR EASY ACCESS</h4>
+        <p>Nulla euismodm lesuada nibh. Cura biturl accumsan sem males uada lorem accun msla viverra sed ipsum.</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 hover-item">
+        <div class="box-transform text-left"> <i class="fa fa-question"></i></div>
+        <h4>GET ANSWERS TO YOUR QUESTIONS<br>
+          FROM OUR EXPERTS</h4>
+        <p>Nulla euismodm lesuada nibh. Cura biturl accumsan sem males uada lorem accun msla viverra sed ipsum.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SECTION -->
+<div class="section-3" >
+  <div class="container">
+    <div class="row" >
+      <section class="carousel carousel-reviews">
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span> CAR REVIEWS </span> </div>
+        </div>
+        <ul class="carousel-1">
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/2.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/3.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/2.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"> <a href="#"><img src="media/section3/3.jpg" width="369" height="200" alt="alt"/></a>
+              <div class="carousel-item-content">
+                <div class="text-right"><a class="arrow-link" href="#"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#" class="transform-please-2 carousel-title"><span>SED MOLESTIE FEUGIAT LECTUS</span> </a> </div>
+            </div>
+            <div class="carousel-text">
+              <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla di euism odm lesu ada nibh. Curabitur accumsan selm maleis uada loreld accu msla viverkra Lorem ipsum.</p>
+            </div>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#">JULY 16 2014</a></div>
+              <div class="transform-revers"> <a href="#">5 COMMENTS</a></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="post-list-mini">
+        <ul>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInLeft" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/> </a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInDown" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a> </div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInLeft" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/> </a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInRight" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a> </div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInUp" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"><a href="#"> <img src="media/section3/1.jpg" width="369" height="200" alt="alt"/></a> </div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+          <li class="col-lg-4 col-md-12 col-sm-12  animated" data-animation="bounceInRight" >
+            <div class="media col-lg-4 col-md-4 col-sm-4"><a href="#"> <img src="media/section3/1.jpg" width="369" height="200" alt="alt"/> </a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8"> MORBI NON SEM A LACUS PORTA 
+              SUSPENDISSE VITAE SAPIEN </div>
+            <span class="transform-please"></span> </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<!--END--> 
+
+<!-- SECTION -->
+<div class="section-5">
+  <div class="container">
+    <div class="row">
+      <div style="background-image: url(media/paralax/paralax1.png) ;" class="bg"></div>
+      <form id="find-car"  >
+        <div class="animated " data-animation="bounceIn">
+          <div class="comments-header"><span>FIND A NEW CAR </span> <a class="arrow-link" href="#"></a> </div>
+          <div class="fnd-car-box">
+            <select  tabindex="1">
+              <option value="">SELECT A MAKE</option>
+              <option value="1">USA</option>
+              <option value="9">Canada</option>
+              <option value="2">France</option>
+              <option value="3">Spain</option>
+              <option value="6">Bulgaria</option>
+              <option value="8">Italy</option>
+              <option value="7" >Greece</option>
+              <option value="5">Japan</option>
+              <option value="11">China</option>
+              <option value="4">Brazil</option>
+              <option value="10">South Africa</option>
+            </select>
+          </div>
+          <div class="fnd-car-box">
+            <select  tabindex="1">
+              <option value="">SELECT CAR MODEL</option>
+              <option value="1">USA</option>
+              <option value="9">Canada</option>
+              <option value="2">France</option>
+              <option value="3">Spain</option>
+              <option value="6">Bulgaria</option>
+              <option value="8">Italy</option>
+              <option value="7" >Greece</option>
+              <option value="5">Japan</option>
+              <option value="11">China</option>
+              <option value="4">Brazil</option>
+              <option value="10">South Africa</option>
+            </select>
+          </div>
+          <div class="fnd-car-box">
+           
+            
+             <button id="find-submit"  class="btn-icon " type="submit" >
+                 <span class="wrp-btn btn  btn-primary btn-lg uppercase">
+                  <span>FIND IT</span> 
+               
+                  </span>
+                     <i class="fa fa-angle-right"></i> 
+                  
+                  </button>
+                  
+                  
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--END--> 
+
+<!-- SECTION -->
+<div class="section-6">
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-offset-2 col-md-9">
+        <header class="section-header animated " data-animation="fadeInUp">
+          <div class="heading-wrap">
+            <h2 class="heading"><span> NEWS AND RUMORS</span></h2>
+          </div>
+          <p> Nam non nisl. Phasellus commodo libero ac massa. Nulla euismodm lesuada nibh. Cura bue itur accumsan sem males uada lorem accu msla viverra.Lorem ipsum dolor sit. Integer fauc ibus augue ut lacus. Sed purus neque lacinia acnc lorem tortor pharetra accumsan </p>
+          <hr>
+        </header>
+      </div>
+    </div>
+    <div class="row">
+      <section class="post-list">
+        <ul>
+          <li class="col-lg-12 col-md-12 col-sm-12  animated " data-animation="bounceInLeft">
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section6/1.jpg" width="550" height="344" alt="alt"/></a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8">
+              <h3> MAURIS FAUCIBUS ALIQUET URNA VIVAM LIBERO DUIS NIBH</h3>
+              <p>Nulla euismodm lesuada nibh. Curabitur accumsan sem males uada lorem accun msla viverra. Vestibulum ante ipsu primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras feugiat  In leo elit, mattis non, imperdiet sed at ips sapien. Tollicitudin augue. Phasellus enim mauris feugiat id, luctus ut, aliquam eu justo.</p>
+            </div>
+            <a href="#" class="arrow-link"> <span class="icon-transform transform-please"><i class="fa fa-angle-right"></i></span></a> </li>
+          <li class="col-lg-12 col-md-12 col-sm-12 animated " data-animation="bounceInRight">
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section6/2.jpg" width="550" height="344" alt="alt"/></a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8">
+              <h3> MAURIS FAUCIBUS ALIQUET URNA VIVAM LIBERO DUIS NIBH</h3>
+              <p>Nulla euismodm lesuada nibh. Curabitur accumsan sem males uada lorem accun msla viverra. Vestibulum ante ipsu primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras feugiat  In leo elit, mattis non, imperdiet sed at ips sapien. Tollicitudin augue. Phasellus enim mauris feugiat id, luctus ut, aliquam eu justo.</p>
+            </div>
+            <a href="#" class="arrow-link"> <span class="icon-transform transform-please"><i class="fa fa-angle-right"></i></span></a> </li>
+          <li class="col-lg-12 col-md-12 col-sm-12 animated " data-animation="bounceInLeft">
+            <div class="media col-lg-4 col-md-4 col-sm-4"> <a href="#"><img src="media/section6/3.jpg" width="550" height="344" alt="alt"/></a></div>
+            <div class="media-body col-lg-8 col-md-8 col-sm-8">
+              <h3> MAURIS FAUCIBUS ALIQUET URNA VIVAM LIBERO DUIS NIBH</h3>
+              <p>Nulla euismodm lesuada nibh. Curabitur accumsan sem males uada lorem accun msla viverra. Vestibulum ante ipsu primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras feugiat  In leo elit, mattis non, imperdiet sed at ips sapien. Tollicitudin augue. Phasellus enim mauris feugiat id, luctus ut, aliquam eu justo.</p>
+            </div>
+            <a href="#" class="arrow-link"> <span class="icon-transform transform-please"><i class="fa fa-angle-right"></i></span></a> </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SECTION -->
+<div class="section-8">
+  <div style="background-image: url(media/paralax/paralax2.png) ;" class="bg2"></div>
+  <div class="container">
+    <div class="row">
+      <form id="poll-car">
+        <div class="col-lg-3 col-md-3 col-sm-12 animated " data-animation="bounceInLeft">
+          <div class="comments-header"><span>OUR POLL YOUR OPINION </span> <a class="arrow-link" href="#"></a> </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 animated " data-animation="bounceInRight">
+          <div class="poll-car-content ">
+            <p> Integer congue, elit non semper laoreet, lectus orci posuere nisl, id tempor lacus felis lac mauris. Vestibulum ac diam et eros auctor viverra. Vestibulum lobortis. In hac habitasse platea dictumst. Integer varius erat a sapien.  Proin venenatis eros viverra ultrices frn
+              gilla lectus urna consequat erat deg.</p>
+            <ul class="check-list">
+              <li>
+          
+                <input type="radio" value="None"  name="check" />
+     
+            
+                <label>Curabitur accumsan sem males</label>
+              </li>
+              <li>
+         
+                  <input type="radio" value="None" name="check" />
+       
+    
+                <label> Quis tortor ut mauris </label>
+              </li>
+            </ul>
+       
+            
+            <button id="vote-submit"  class="btn-icon " type="submit" >
+                 <span class="wrp-btn btn  btn-primary btn-lg uppercase">
+                  <span>VOTE NOW</span> 
+               
+                  </span>
+                     <i class="fa fa-angle-right"></i> 
+                  
+                  </button>
+                  
+                  
+            <a href="#" class="view-result">VIEW RESULTS</a> </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END--> 
+
+<!-- SECTION -->
+<div class="section-7">
+  <div class="container">
+    <div class="row animated " data-animation="bounceInLeft">
+      <section class="carousel-3">
+        <div  class="carousel-title ">
+          <div class="transform-please-2 "> <span> TRENDING NOW</span> </div>
+        </div >
+        <ul>
+          <li>
+            <div class="media"><a  href="#"><img src="media/product/small/item_01.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>CHRYSLER MINIVANS</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i>23 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_02.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>HYUNDAI SONATA </h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 4 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_03.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>CHEVROLET VOLT</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_04.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>HONDA ACCORD</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 123 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_05.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>ALFA ROMEO BRERA</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 12 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_01.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>CHRYSLER MINIVANS</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 23 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_02.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>HYUNDAI SONATA </h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 345 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_03.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>CHEVROLET VOLT</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i>35 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_04.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>HONDA ACCORD</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 12 COMMENTS</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="media"><a href="#"><img src="media/product/small/item_05.jpg" width="170" height="120" alt="alt"></a></div>
+            <h3>ALFA ROMEO BRERA</h3>
+            <p>Nam non nisl. Phasellus com
+              modo libero acf massa. Nulla
+              euism odm lesu ada ...</p>
+            <div class="box-more-info">
+              <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 23 COMMENTS</a></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SECTION -->
+<div class="section-9">
+  <div style="background-image: url(media/paralax/paralax3.png) ;" class="bg3"></div>
+  <div class="container">
+    <div class="row">
+      <section class="video-section animated " data-animation="bounceInRight">
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span> VIDEO SECTION</span> </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4">
+          <article  class="clearfix animated text-left ">
+            <ul class="nav nav-tabs verticale-tabs">
+              <li class="active">
+                <div class="active-panel">NOW PLAYING<a href="#" class="arrow-link"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#86024" data-toggle="tab"> <img width="550" height="344" alt="alt" src="media/section6/1.jpg"></a></li>
+              <li class="">
+                <div class="active-panel">NOW PLAYING<a href="#" class="arrow-link"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#41318" data-toggle="tab"><img width="550" height="344" alt="alt" src="media/section6/2.jpg"></a></li>
+              <li class="">
+                <div class="active-panel">NOW PLAYING<a href="#" class="arrow-link"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#81908" data-toggle="tab"><img width="550" height="344" alt="alt" src="media/section6/3.jpg"></a></li>
+              <li class="">
+                <div class="active-panel">NOW PLAYING<a href="#" class="arrow-link"> <span class="icon-transform transform-please-2"><i class="fa fa-angle-right"></i></span></a></div>
+                <a href="#81909" data-toggle="tab"><img width="550" height="344" alt="alt" src="media/section6/4.jpg"></a></li>
+            </ul>
+          </article>
+        </div>
+        <div class="tab-content verticale-tabs-content col-xs-12 col-sm-8 col-lg-8">
+          <div class="tab-pane active" id="86024">
+            <article class="clearfix animated text-left ">
+              <iframe src="http://player.vimeo.com/video/51287059"   ></iframe>
+              <div class="desc-video">
+                <p> DMC Aventador Molto Veloce LP900 </p>
+              </div>
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"><i class="fa fa-clock-o"></i> JOHN DEO</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 5 COMMENTS</a></div>
+              </div>
+            </article>
+          </div>
+          <div class="tab-pane" id="41318">
+            <article class="clearfix animated text-left ">
+              <iframe src="http://player.vimeo.com/video/88972949"   ></iframe>
+              <div class="desc-video">
+                <p>DMC Thailand Track Day Event</p>
+              </div>
+              <div class="box-more-info">
+                <div class="transform-revers"> <a href="#"><i class="fa fa-clock-o"></i> JOHN DEO</a></div>
+                <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 15 COMMENTS</a></div>
+              </div>
+            </article>
+          </div>
+          <div class="tab-pane" id="81908">
+            <article class="clearfix animated text-left ">
+              <article class="clearfix animated text-left ">
+                <iframe src="http://player.vimeo.com/video/82443310"   ></iframe>
+                <div class="desc-video">
+                  <p> McLaren MP4 12C Tuning </p>
+                </div>
+                <div class="box-more-info">
+                  <div class="transform-revers"> <a href="#"><i class="fa fa-clock-o"></i> JOHN DEO</a></div>
+                  <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                  <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 23 COMMENTS</a></div>
+                </div>
+              </article>
+            </article>
+          </div>
+          <div class="tab-pane" id="81909">
+            <article class="clearfix animated text-left ">
+              <article class="clearfix animated text-left ">
+                <iframe src="http://player.vimeo.com/video/40227044"   ></iframe>
+                <div class="desc-video">
+                  <p> DMC "Tempe" Carbon Fiber Body Kit </p>
+                </div>
+                <div class="box-more-info">
+                  <div class="transform-revers"> <a href="#"><i class="fa fa-clock-o"></i> JOHN DEO</a></div>
+                  <div class="transform-revers"> <a href="#"> <i class="fa fa-clock-o"></i> JULY 16 2020</a></div>
+                  <div class="transform-revers"> <a href="#"><i class="fa fa-comment-o"></i> 45 COMMENTS</a></div>
+                </div>
+              </article>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SECTION -->
+<div class="section-10">
+  <section class="newsletter-section">
+    <div class="top-line-newslet"></div>
+    <div class="container animated " data-animation="swing">
+      <div class="row">
+        <form id="newsletter-car">
+          <div class="nws-car-box " >
+            <div class="comments-header"><span>SUBSCRIBE TO NEWSLETTER </span> <a href="#" class="arrow-link"></a> </div>
+          </div>
+          <div class="nws-car-box ">
+            <input type="text" >
+          </div>
+          <div class="nws-car-box">
+   
+            
+            <button type="submit" class="btn-icon btn-icon-black " id="sub-submit">
+                 <span class="wrp-btn btn  btn-primary btn-lg uppercase">
+                  <span>SUBSCRIBE</span> 
+               
+                  </span>
+                     <i class="fa fa-angle-right"></i> 
+                  
+                  </button>
+                  
+                  
+          </div>
+        </form>
+        <div class="newslette-info">
+          <p>Lorem ipsum dolor sit. Integer fauc ibus augue ut lacus. Sed purus neque lacinia acnc lorem tortor pharetra accumsan</p>
+        </div>
+      </div>
+    </div>
+    <div class="bot-line-newslet"></div>
+  </section>
+</div>
+<!-- END --> 
+
+<!-- SECTION -->
+<div class="section-11">
+  <div style="background-image: url(media/paralax/paralax4.png) ;" class="bg4"></div>
+  <section class="form-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-9">
+          <header class="section-header animated " data-animation="bounceInDown">
+            <div class="heading-wrap">
+              <h2 class="heading"><span> GET IN TOUCH</span></h2>
+            </div>
+            <p> Sed purus neque lacinia acnc lorem tortor pharetra accumsan Aliquam erat volutpat. </p>
+          </header>
+        </div>
+      </div>
+      <div class="row contact-row">
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+          <form id="contact-form"  class="contact-form">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 col-md-offset-2">
+                <div data-animation="bounceInLeft" class="form-group  animated ">
+                  <input placeholder="YOUR NAME*"  type="text" id="contact-name" name="name"  required  data-validate="^[ا-ی\w\s]{2,30}$" />
+                </div>
+                <div data-animation="bounceInLeft" class="form-group  animated ">
+                  <input  placeholder="Email*" type="email" id="contact-email" name="email"  required  data-validate="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-6 ">
+                <div data-animation="bounceInRight" class="form-group  animated ">
+                  <textarea placeholder="YOUR MESSAGE*" id="contact-message" name="message" required   data-validate=".{2,400}$"></textarea>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 text-center">
+                <div data-animation="bounceInUp" class="animated ">
+                  <button id="contact-submit"  class="btn-icon " type="submit">
+                 <span class="wrp-btn btn  btn-primary btn-lg uppercase">
+                  <span>Submit</span> 
+               
+                  </span>
+                     <i class="fa fa-angle-right"></i> 
+                  
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          
+          <!-- CONTACT FORM ALERTS -->
+          <div class="alert alert-success" id="contact_success" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div class="alert-inner"> <strong>Thanks,</strong> your message recieved successfully. We'll get back to you as soon as possible. </div>
+          </div>
+          <!-- /success msg -->
+          
+          <div class="alert alert-danger" id="contact_fail" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div class="alert-inner"></div>
+          </div>
+          <!-- /error msg --> 
+          <!-- /CONTACT FORM ALERTS --> 
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- END --> 
+
+<!-- PRE FOOTER -->
+<section class="prefooter">
+  <div class="container prefooter-container">
+    <div id="logo-bottom" class=" animated "  data-animation="bounceInLeft"> <span class="bglogo1 transform-please-2"><a href="index.html"><img src="img/logo.png" alt="logo"></a></span> </div>
+    <div class="title-line"></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 animated "  data-animation="bounceInLeft">
+        <p> Pellen tesque eu lacus.Vivamus lorem arcu sel
+          my per eget ullamc orper ut blandit sedgl nisid
+          Fusc elibero or placerat non.</p>
+        <p>Aaccumsan non mi. Done accu msan ligula vit
+          aem agnal Na rutrum congue diam. Curabit url
+          ve lt egestas dolor alm erat. Pell entes queedg
+          tellus nis il  imperdiet alt pretium Aene an sedt
+          lacinia justo at nisi. </p>
+        <a class="btn btn-main btn-primary btn-lg uppercase" href="#"><span><i class="fa fa-angle-right"></i>READ MORE</span></a> </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 box-prefoot animated "  data-animation="bounceInUp">
+        <h4>BEST REVIEWS</h4>
+        <ul class="entry-list unstyled">
+          <li>
+            <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="alt" src="media/small/1.jpg"> </a> </div>
+            <div class="entry-main">
+              <div class="entry-header">
+                <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+              </div>
+              <div class="entry-meta">
+                <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2013</a> </time>
+                <div class="entry-comments"> <a href="#"> <i class="fa fa-star"></i> 47 </a> </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="alt" src="media/small/2.jpg"> </a> </div>
+            <div class="entry-main">
+              <div class="entry-header">
+                <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+              </div>
+              <div class="entry-meta">
+                <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 11 March , 2013</a> </time>
+                <div class="entry-comments"> <a href="#"> <i class="fa fa-star"></i> 47 </a> </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="entry-thumbnail"> <a class="img" href="#"> <img width="70" height="70" alt="alt" src="media/small/3.jpg"> </a> </div>
+            <div class="entry-main">
+              <div class="entry-header">
+                <h5 class="entry-title"><a href="#">Standard Post with Blog [...]</a></h5>
+              </div>
+              <div class="entry-meta">
+                <time title="2013-10-27" datetime="2013-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 10 March , 2013</a> </time>
+                <div class="entry-comments"> <a href="#"> <i class="fa fa-star"></i> 47 </a> </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 box-prefoot animated "  data-animation="bounceInUp">
+        <h4>PHOTOS FROM FLICKR</h4>
+        <div id="flickr-feed"></div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 box-prefoot animated "  data-animation="bounceInRight">
+        <h4>LATEST TWEETS</h4>
+        <ul class="tweet-box">
+          <li>
+            <div class="tw-icon"><i class="fa fa-twitter"></i></div>
+            <div class="tweet-content"> Nulla euis se modm lesuada nibh cua
+              bueitu de accumsan sem males.</div>
+            <div class="tweet-datetime">1 HOUR AGO</div>
+          </li>
+          <li>
+            <div class="tw-icon"><i class="fa fa-twitter"></i></div>
+            <div class="tweet-content"> Nulla euis se modm lesuada nibh cua
+              bueitu de accumsan sem males.</div>
+            <div class="tweet-datetime">1 HOUR AGO</div>
+          </li>
+          <li>
+            <div class="tw-icon"><i class="fa fa-twitter"></i></div>
+            <div class="tweet-content"> Nulla euis se modm lesuada nibh cua
+              bueitu de accumsan sem males.</div>
+            <div class="tweet-datetime">1 HOUR AGO</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- END --> 
+
+<!-- FOOTER -->
+<div class="footer-block">
+  <div class="container">
+    <div class="row">
+      <div class="foot-top-line"></div>
+      <div class="foot-bot-line"></div>
+      <a class="scroll-top" href="#"><i class="fa fa-angle-up"></i> </a> </div>
+  </div>
+  <div class="container fot-container">
+    <div class="row">
+      <ul class="nav-footer">
+        <li><a href="#"><span>HOME</span></a></li>
+        <li><a href="#"><span>ABOUT</span></a></li>
+        <li class="current"><a href="#"><span>CONTACT</span></a></li>
+        <li><a href="#"><span>LOGIN</span></a></li>
+        <li><a href="#"><span>SIGNUP</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row text-center copyright-info">
+      <p> © ALL RIGHTS RESERVED 2020 - CARNEWS BLOG DESIGN</p>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- ABSOLUTE FOOTER -->
+<div class="copyright-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 left">
+        <ul class="unstyled clearfix social-team">
+          <li><a href="http://fb.com/#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="http://twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google"></i></a></li>
+          <li><a href="http://youtube.com/#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+          <li><a href="http://rss.com/#" target="_blank"><i class="fa fa-rss"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END --> 
+
+<!-- SCRIPTS --> 
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
+<script src= "js/jquery-migrate-1.2.1.js" ></script> 
+<script src="js/bootstrap-3.1.1.min.js"></script> 
+<script src="js/modernizr.custom.js"></script> 
+<script src="js/classie.js"></script> 
+<script src="js/pathLoader.js"></script> 
+<script src="js/waypoints.min.js"></script> 
+<script src="js/loader.js"></script> 
+<script src="js/jflickrfeed.min.js"></script> 
+<script src="plugins/selectbox/jquery.selectbox-0.2.js"></script> 
+<script src="plugins/backstretch/backstretch-2.0.4.min.js"></script> 
+<script src="plugins/camera-slider/camera-slider-1.3.4.min.js"></script> 
+<script src="plugins/camera-slider/easing-1.3.min.js"></script> 
+<script src="plugins/fancybox/fancybox-1.3.4.pack.js"></script> 
+<script src="plugins/fancybox/klass-1.0.min.js"></script> 
+<script src="plugins/fancybox/photoswipe-3.0.5.min.js"></script> 
+<script src="plugins/hover-animations/transform2d.min.js"></script> 
+<script src="plugins/hover-animations/hover-animations-1.0.min.js"></script> 
+<script src="js/smart-menu.js"></script> 
+<script src="js/cssua.min.js"></script> 
+<script src="plugins/bxslider/jquery.bxslider.min.js"></script> 
+<script src="plugins/nouislider/jquery.nouislider.min.js"></script> 
+<script src="plugins/flexslider/jquery.flexslider.js"></script> 
+<script src="js/custom.js"></script>
+</body>
+</html>

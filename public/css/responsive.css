@@ -1,0 +1,324 @@
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* RESPONSIVE CSS */
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+@media (min-width:1022px) and (max-width:1229px) {
+html #slider {
+	margin-top: -412px;
+}
+html .camera_thumbs_cont ul li {
+	width: 230px;
+}
+#flickr-feed li {
+	max-width: 27%;
+}
+#flickr-feed li {
+	margin: 2%;
+	max-width: 29%;
+}
+}
+
+@media (min-width:760px) and (max-width:1021px) {
+html #logo {
+	margin: 0 auto;
+	max-width: 300px;
+}
+html .navbar-top .navbar-collapse {
+	text-align: center;
+}
+.section-3 .carousel, .section-7 .carousel {
+	overflow: hidden;
+	padding-top: 25px;
+	width: 100%;
+}
+}
+
+@media (max-width:1021px) {
+html .bglogo1 img {
+	width: 100%;
+	height: auto;
+}
+#main-nav .navbar-nav {
+	display: none !important;
+}
+html .bglogo1 {
+	margin: 0 auto;
+	max-width: 305px;
+	padding: 13%;
+	width: 85%;
+}
+.mini-search-top {
+	top: 5px;
+}
+.mini-search-top input[type="text"] {
+	opacity: 1;
+}
+.navbar-top .navbar-nav {
+	margin-bottom: 47px;
+}
+#cd-nav {
+	opacity: 1 !important;
+}
+.camera_thumbs_cont ul li {
+	max-width: 16%;
+}
+html .box-transform {
+	width: 80%;
+	margin: 0 auto;
+	float: none;
+}
+.service-item {
+	text-align: center;
+}
+html .section-3 {
+	margin: 10px 0;
+}
+html .carousel-item-content .carousel-title {
+	font-size: 14px;
+	line-height: 18px;
+	width: 55%;
+}
+html .post-list-mini ul {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+html .post-list-mini li {
+	height: auto;
+	max-width: inherit;
+	width: 45%;
+	margin: 1%;
+	display: inline-block;
+}
+html .post-list-mini li .transform-please {
+	display: none;
+}
+html #find-car {
+	padding: 30px 0;
+}
+html #find-car .comments-header {
+	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+html .post-list li {
+	height: auto;
+}
+html .post-list .media-body {
+	text-align: center;
+	padding: 10px;
+}
+html .comments-header {
+	display: inline-block;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+html .section-9 {
+	height: auto;
+}
+html #newsletter-car input[type="text"] {
+	margin: 0;
+	width: 100%;
+}
+html .nws-car-box {
+	display: inline-block;
+	margin: 10px 0;
+	vertical-align: top;
+	width: 100%;
+}
+html .newslette-info {
+	padding: 20px 0 0;
+}
+html .prefooter-container #logo-bottom {
+	left: 10%;
+	position: absolute;
+	top: -100px;
+	width: 100%;
+	z-index: 7;
+}
+html .box-prefoot h4 {
+	color: inherit;
+	margin: 0 0 15px;
+	padding-bottom: 0;
+}
+html .box-prefoot {
+	padding-top: 20px;
+}
+html .tweet-box .tw-icon {
+	float: none;
+	width: 100%;
+	margin-bottom: 11px;
+}
+html .tweet-content {
+	float: none;
+	margin: 0 0 10px 13px;
+	width: 100%;
+}
+html .title-line:after {
+	width: auto;
+}
+#slider {
+	margin-bottom: 43px;
+	margin-top: -392px;
+	min-height: 230px;
+	overflow: auto;
+}
+.section-3 .carousel, .section-7 .carousel {
+	overflow: hidden;
+	padding-top: 25px;
+	width: 100%;
+}
+html .fnd-car-box {
+	display: inline-block;
+	margin: 10px 0;
+	vertical-align: top;
+}
+html .fnd-car-box .sbHolder {
+	width: 230px;
+}
+html #find-car .sbOptions {
+	max-height: 88px !important;
+}
+html .fnd-car-box .sbOptions {
+	width: 230px;
+}
+html .post-list-mini.related-post li {
+	height: auto;
+	max-width: inherit;
+	overflow: hidden;
+	text-align: left;
+	width: 100%;
+}
+html .about-autor .comments-header, html .comments-wrapper .comments-header {
+	margin-bottom: 50px;
+}
+}
+
+@media (max-width:797px) {
+.main-content img {
+	height: auto;
+	max-width: 100%;
+}
+.bglogo2, .bglogo3, .bglogo4, .navbar-top .navbar-nav:after, #logo:after, .hot-news, #slider, .prefooter-container #logo-bottom:before, .prefooter .title-line {
+	display: none !important;
+}
+html .navbar-top .navbar-nav li {
+	padding: 0 10px;
+}
+html .navbar-top .navbar-nav > li > a {
+	font-size: 10px;
+	height: auto;
+	line-height: inherit;
+	padding: 10px;
+}
+html .navbar-top .navbar-nav {
+	margin-bottom: 47px;
+	top: 17px;
+}
+html .bglogo1 {
+	margin: 0 auto;
+	max-width: 305px;
+	padding: 8%;
+	width: 85%;
+}
+#main-header {
+	overflow: hidden;
+	padding: 0 20px 65px;
+}
+html .navbar-top .navbar-collapse {
+	border: none;
+}
+#logo img {
+	width: 100%;
+	height: auto;
+}
+.camera_thumbs_cont {
+	display: none !important;
+}
+html .navbar-top .navbar-nav {
+	display: inline-block;
+	left: 0;
+	margin: 0;
+}
+html .prefooter-container #logo-bottom {
+	left: 10%;
+	margin: 0 auto;
+	position: relative;
+	top: 0;
+	width: 80%;
+}
+html .prefooter {
+	margin: 0 0 20px;
+}
+#logo-bottom img {
+	width: 100%;
+	height: auto;
+}
+html .scroll-top i {
+	left: 40%;
+}
+html .section-1 .hover-item {
+	padding-bottom: 20px;
+}
+html .verticale-tabs-content iframe {
+	height: auto;
+	margin: 0px 0 0;
+}
+html .pb-center-column {
+	padding-top: 20px;
+}
+html .nav-tabs > li {
+	float: none;
+	margin-left: 0;
+	width: 100%;
+}
+html .btn-set-middle .btn-email {
+	left: 21%;
+	position: absolute;
+	right: auto;
+	top: 44px;
+	width: 231px;
+}
+html .btn-set-middle .btn-call {
+	left: 25%;
+	position: absolute;
+	top: -37px;
+	width: 231px;
+}
+html .btn-set-middle hr {
+	margin: 20px 0 120px;
+}
+html .bx-wrapper img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: auto;
+}
+html .product-featured .featured-box {
+	padding: 10px 11px;
+}
+html .mini-search-top {
+	left: 0;
+	position: relative;
+	text-align: center;
+	top: 23px;
+	z-index: 7777;
+}
+html .mini-search-top input[type="text"] {
+	opacity: 1;
+}
+}
+
+@media (max-width:500px) {
+html body .post-list-mini li {
+	width: 100%;
+}
+.section-7, .section-3 {
+	margin: -30px 0;
+	overflow: hidden;
+	padding-top: 25px;
+}
+}

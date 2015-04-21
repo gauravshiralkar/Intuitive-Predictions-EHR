@@ -41,6 +41,12 @@ if ('development' == app.get('env')) {
 
 //app.get('/', routes.index);
 app.get('/', routes.index);
+app.get('/getScatterChart', routes.getScatterChart);
+app.get('/getScatter/:strUser', routes.getScatter);
+app.get('/getBarChart', routes.getBarChart);
+app.get('/getBar/:strUser', routes.getBar);
+app.get('/about', routes.about);
+app.get('/contact', routes.contact);
 app.get('/companyRatingAnalysis',routes.showRatingAnalysis);
 app.get('/getCompanyRatings',routes.getCompanyRatings);
 app.get('/SalaryAnalysis',routes.showSalaryAnalysis);

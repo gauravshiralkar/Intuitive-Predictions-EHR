@@ -14,7 +14,6 @@ connection.connect();
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -22,8 +21,7 @@ var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-//app.set('views', __dirname + '/views');
-app.set('views', __dirname + '/views/carnews');
+app.set('views', __dirname + '/views');
 //app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -47,44 +45,12 @@ app.get('/getBarChart', routes.getBarChart);
 app.get('/getBar/:strUser', routes.getBar);
 app.get('/about', routes.about);
 app.get('/contact', routes.contact);
-app.get('/companyRatingAnalysis',routes.showRatingAnalysis);
-app.get('/getCompanyRatings',routes.getCompanyRatings);
-app.get('/SalaryAnalysis',routes.showSalaryAnalysis);
-app.get('/getSalaryInfo/:strUser',routes.getSalaryInfo);
-app.get('/home',routes.showhome);
-app.get('/users', user.list);
-app.get('/getCompanyReviews',routes.getCompanyReviews);
-app.get('/showCompanyReviews',routes.showCompanyReviews);
-app.get('/getBubble/:stateName/:companyName',routes.getBubble);
-app.get('/showBubble/:stateName/:companyName',routes.showBubble);
 
-
-
-app.get('/maps', routes.showMap);
-app.get('/getMapData',routes.getMapData);
-app.get('/getBarChartCali',routes.getBarChartCali);
-app.get('/getBarChartTexas',routes.getBarChartTexas);
-app.get('/getBarChartNewYork',routes.getBarChartNewYork);
-app.get('/getBarChartWashington',routes.getBarChartWashington);
-app.get('/getBarChartVirginia',routes.getBarChartVirginia);
 
 app.get('/showtest', function(req, res) {
 	res.render('test.ejs');
 });
 
-//For TreeMap
-
-app.get('/getJobcountData/:stateName',routes.getJobcountData);
-app.get('/showTreeMap/:stateName',routes.showTreeMap);
-
-app.get('/showmaps', function(req, res) {
-	connection.query('select sum(jobCount) as jobCount, stateName from citywisejobcount group by stateName order by stateName asc', function(err, rows,fields) {
-		console.log(rows[38].jobCount);
-		res.render('Map.ejs', {
-			rows:rows		
-	});
-});
-});
 
 
 

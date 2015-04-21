@@ -35,68 +35,6 @@ exports.getBarChart = function(req, res){
 
 
 
-
-
-
-
-exports.showRatingAnalysis = function(req, res){
-		  res.render('ratingAnalysis');
-	
-};
-exports.getBarChartCali = function(req, res){
-	  res.render('companyBarChart');
-
-};
-exports.getBarChartTexas = function(req, res){
-	  res.render('BarChartTexas');
-
-};
-exports.getBarChartNewYork = function(req, res){
-	  res.render('BarChartNY');
-	  
-};
-exports.getBarChartWashington = function(req, res){
-	  res.render('BarChartWashington');
-
-};
-exports.getBarChartVirginia = function(req, res){
-	  res.render('BarChartVirginia');
-
-};
-
-
-exports.showSalaryAnalysis= function(req, res){
-	  res.render('salaryAnalysis');
-
-};
-
-exports.showMap= function(req, res){
-	res.render('Map',{rows:''});
-
-};
-
-exports.showhome= function(req, res){
-	res.render('index');
-	};
-
-
-exports.getCompanyRatings = function(req, res){
-	dbConn.getCompanyRatings(function(err,rows){
-		console.log(rows);
-		 res.send(rows);
-	});	
-	  
-};
-
-exports.getSalaryInfo= function(req, res){
-	dbConn.getSalaryInfo(function(err,rows){
-		console.log(rows);
-		console.log(req.params.strUser);
-		 res.send(rows);
-	},req.params.strUser);	
-};
-
-
 exports.getScatter= function(req, res){
 	dbConn.getScatter(function(err,rows){
 		console.log(rows);
@@ -113,6 +51,7 @@ exports.getBar= function(req, res){
 	},req.params.strUser);	
 };
 
+<<<<<<< HEAD
 exports.getMapData= function(req, res){
 	console.log("routes");
 	dbConn.getMapData(function(err,rows){
@@ -122,11 +61,14 @@ exports.getMapData= function(req, res){
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> a2f8abf... Cleaned Project Throughly
 
 =======
 >>>>>>> f548fbe2661bbfc5fc501e178ac37cac0f329d12
 =======
 
+<<<<<<< HEAD
 
 
 >>>>>>> eefe521... New branch created for final running project
@@ -310,3 +252,5 @@ exports.getBubble= function(req, res){
 };
 
 >>>>>>> eefe521... New branch created for final running project
+=======
+>>>>>>> a2f8abf... Cleaned Project Throughly

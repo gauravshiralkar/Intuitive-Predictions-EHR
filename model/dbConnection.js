@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
 	//password : '',
 	password : 'pass',
 	port : '3306',
-	database : 'cmpe274'
+	database : 'cmpe239'
 });
 
 exports.getCompanyReviews = function(callback){
@@ -27,9 +27,40 @@ exports.getCompanyRatings = function(callback) {
 	});
 }
 
+exports.getScatter = function(callback,q) {
+	var query = "select xCordinate as ax,yCordinate as ay from cmpe239.driver1 where DriverId='"+q+"'";
+	console.log("about to call database");
+	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+
+exports.getBar = function(callback,q) {
+	if (q==="CityAvgSpeed"){
+		var query = "select DriverId, CityAvgSpeed from cmpe239.driverpatrn order by RAND() limit 10";
+	} 
+	else if(q==="HighestSpeed"){
+		var query = "select DriverId, HighestSpeed from cmpe239.driverpatrn order by RAND() limit 10";
+	}
+	else if (q==="HarshAcelrations"){
+		var query = "select DriverId, HarshAcelrations from cmpe239.driverpatrn order by RAND() limit 10";
+	} 
+	else if(q==="BreakRatioHighy"){
+		var query = "select DriverId, BreakRatioHighy from cmpe239.driverpatrn order by RAND() limit 10";
+	}
+	
+	
+	console.log("about to call database");
+	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+
 exports.getSalaryInfo = function(callback,q) {
 	if (q==="frontEnd or UI Developer") {q="frontEnd / UI Developer";}
-	var query = "select jobTitle, medianSalary from cmpe274.salinfo where jobName='"+q+"' limit 10";
+	var query = "select xCordinate as ax,yCordinate as ay from cmpe239.driver1 where DriverId='"+q+"' limit 10";
 	console.log("about to call database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
@@ -61,4 +92,6 @@ exports.getJobCountByState = function(callback,stateName){
 		callback(err, rows);
 	});
 }
+
+//Change
 

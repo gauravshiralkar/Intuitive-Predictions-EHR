@@ -21,8 +21,8 @@ Application Insights:
 
 Team members:
 -------------
-1. Prasad Bidwai
-2. Gaurav Shiralkar
+1. Gaurav Shiralkar
+2. Prasad Bidwai
 3. Ramya Hotha 
 4. Jyostna Reddy 
 5. Srijan Magapu

@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'pass',
+	password : 'password123',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -18,6 +18,29 @@ exports.getScatter = function(callback,q) {
 		callback(err, rows);
 	});
 };
+
+exports.getScatter1 = function(callback,q) {
+	
+	if (q === "HighestSpeed"){
+		var query = "select DriverId as ax,HighestSpeed as ay from cmpe239.driverpatrn";
+	}
+	else if(q === "CityAvgSpeed"){
+		var query = "select DriverId as ax,CityAvgSpeed as ay from cmpe239.driverpatrn";
+	}
+	else if(q === "HghyAvgSpeed"){
+		var query = "select DriverId as ax,HghyAvgSpeed as ay from cmpe239.driverpatrn";
+	}
+	else if(q === "HarshAcelrations"){
+		var query = "select DriverId as ax,HarshAcelrations as ay from cmpe239.driverpatrn";
+	}
+		
+	console.log("about to call database");
+	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+
 
 exports.getBar = function(callback,q) {
 	if (q==="CityAvgSpeed"){

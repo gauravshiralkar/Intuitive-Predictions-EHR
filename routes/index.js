@@ -28,12 +28,25 @@ exports.getScatterChart = function(req, res){
 
 };
 
+exports.getScatterChart1 = function(req, res){
+	res.render('ScatterChart1');
+	
+};
+
 exports.getBarChart = function(req, res){
 	 res.render('BarChart');
 
 };
 
 
+exports.getScatter1 = function(req,res){
+	dbConn.getScatter1(function(err,rows){
+		console.log(rows);
+		console.log(req.params.strUser);
+		 res.send(rows);
+	},req.params.strUsr);
+	
+};
 
 exports.getScatter= function(req, res){
 	dbConn.getScatter(function(err,rows){

@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'password123',
+	password : 'pass',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -63,6 +63,28 @@ exports.getBar = function(callback,q) {
 		callback(err, rows);
 	});
 };
+
+
+exports.search = function(callback,q) {
+	console.log('Search key= '+q);
+	connection.query('SELECT DriverId from cmpe239.driverpatrn where DriverId like "%'+q+'%"', 
+	function(err, rows, fields) {
+	      if (err) throw err;
+	    var data=[];
+	    for(i=0;i<rows.length;i++)
+	      {
+	        data.push('"'+rows[i].DriverId+'"');
+	      }
+	    
+	    console.log('Data= '+data);
+	    console.log('Rows from dbconn= '+rows);
+	    rows=data;
+	      //res.end(JSON.stringify(data));
+	    console.log('Rows from dbconn= '+rows);
+	    callback(err, rows);
+	    });
+};
+
 
 
 //Change

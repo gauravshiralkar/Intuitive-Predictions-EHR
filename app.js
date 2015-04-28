@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     //password : '',
   password : 'pass',
 	port : '3306',
-	database : 'cmpe274'
+	database : 'cmpe239'
 });
 connection.connect();
 
@@ -41,11 +41,13 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/getScatterChart', routes.getScatterChart);
 app.get('/getScatter/:strUser', routes.getScatter);
+app.get('/getScatterChart1', routes.getScatterChart1);
+app.get('/getScatter1/:strUser', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);
 app.get('/getBar/:strUser', routes.getBar);
 app.get('/about', routes.about);
 app.get('/contact', routes.contact);
-
+app.get('/search', routes.search);
 
 app.get('/showtest', function(req, res) {
 	res.render('test.ejs');

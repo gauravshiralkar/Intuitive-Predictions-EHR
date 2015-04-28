@@ -65,6 +65,7 @@ exports.getBar= function(req, res){
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 exports.getMapData= function(req, res){
 	console.log("routes");
 	dbConn.getMapData(function(err,rows){
@@ -267,3 +268,12 @@ exports.getBubble= function(req, res){
 >>>>>>> eefe521... New branch created for final running project
 =======
 >>>>>>> a2f8abf... Cleaned Project Throughly
+=======
+exports.search= function(req,res){
+	dbConn.search(function(err,rows){
+		console.log('Search key= '+req.query.key);
+		console.log('Rows from index= '+JSON.stringify(rows));
+		 res.send('['+rows+']');
+	},req.query.key);	
+};
+>>>>>>> a3fea4c... Changes for generic driver search

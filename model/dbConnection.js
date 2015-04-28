@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'password123',
+	password : 'pass',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -21,7 +21,7 @@ exports.getScatter = function(callback,q) {
 
 exports.calcInsu = function(callback,q) {
 	console.log("In dbconn calc "+q);
-	var query = "select DriverId as ax,HighestSpeed as ay from cmpe239.driverpatrn where DriverId='"+q+"'";
+	var query = "select HarshAcelrationsScore,HghyAvgSpeedScore,CityAvgSpeedScore,HighestSpeedScore from cmpe239.driverscore where DriverId='"+q+"'";
 	console.log("about to call database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
@@ -95,13 +95,6 @@ exports.search = function(callback,q) {
 	    });
 };
 
-exports.getScoreVizData = function(callback) {
-	var query = "select DriverId as DriverId, HarshAcelrationsScore as 'Harsh Acelrations Score',HghyAvgSpeedScore as 'Highway Avg SpeedScore ',CityAvgSpeedScore as 'City Avg SpeedScore',HighestSpeedScore as 'Highest Speed Score' from driverscore ";
-	connection.query(query, function(err, rows) {
-		console.log(rows);
-		callback(err, rows);
-	});
-}
 
 
 //Change

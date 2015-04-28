@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'pass',
+	password : 'password123',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -95,6 +95,13 @@ exports.search = function(callback,q) {
 	    });
 };
 
+exports.getScoreVizData = function(callback) {
+	var query = "select DriverId as DriverId, HarshAcelrationsScore as 'Harsh Acelrations Score',HghyAvgSpeedScore as 'Highway Avg SpeedScore ',CityAvgSpeedScore as 'City Avg SpeedScore',HighestSpeedScore as 'Highest Speed Score' from driverscore ";
+	connection.query(query, function(err, rows) {
+		console.log(rows);
+		callback(err, rows);
+	});
+}
 
 
 //Change

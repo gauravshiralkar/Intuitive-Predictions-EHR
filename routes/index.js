@@ -38,6 +38,12 @@ exports.getBarChart = function(req, res){
 
 };
 
+exports.getScoreVizChart = function(req, res){
+	 res.render('shop');
+
+};
+
+
 
 exports.getScatter1 = function(req,res){
 	dbConn.getScatter1(function(err,rows){
@@ -289,4 +295,15 @@ exports.search= function(req,res){
 		 res.send('['+rows+']');
 	},req.query.key);	
 };
+<<<<<<< HEAD
 >>>>>>> a3fea4c... Changes for generic driver search
+=======
+
+exports.getScoreVizData = function(req, res){
+	dbConn.getScoreVizData(function(err,rows){
+		console.log(rows);
+		 res.send(rows);
+	});	
+	  
+};
+>>>>>>> f3499b8... adding one more chart for scores

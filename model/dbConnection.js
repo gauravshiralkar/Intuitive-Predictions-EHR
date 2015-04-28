@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'pass',
+	password : 'password123',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -12,30 +12,32 @@ var connection = mysql.createConnection({
 
 exports.getScatter = function(callback,q) {
 	var query = "select xCordinate as ax,yCordinate as ay from cmpe239.driver1 where DriverId='"+q+"'";
-	console.log("about to call database");
+	console.log("about to call gdtscatter database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});
 };
 
-exports.getScatter1 = function(callback,q) {
+exports.getScatter1 = function(callback,q1) {
 	
-	if (q === "HighestSpeed"){
+	if (q1 === "HighestSpeed"){
+		console.log("in first if loop");
 		var query = "select DriverId as ax,HighestSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q === "CityAvgSpeed"){
+	else if(q1 === "CityAvgSpeed"){
 		var query = "select DriverId as ax,CityAvgSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q === "HghyAvgSpeed"){
+	else if(q1 === "HghyAvgSpeed"){
 		var query = "select DriverId as ax,HghyAvgSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q === "HarshAcelrations"){
+	else if(q1 === "HarshAcelrations"){
 		var query = "select DriverId as ax,HarshAcelrations as ay from cmpe239.driverpatrn";
 	}
 		
-	console.log("about to call database");
-	console.log("value of q is "+q);
+	console.log("about to call database of scatter1");
+	console.log("value of q is "+q1);
+	console.log(query);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});
@@ -43,6 +45,7 @@ exports.getScatter1 = function(callback,q) {
 
 
 exports.getBar = function(callback,q) {
+	
 	if (q==="CityAvgSpeed"){
 		var query = "select DriverId, CityAvgSpeed from cmpe239.driverpatrn order by RAND() limit 10";
 	} 
@@ -57,7 +60,7 @@ exports.getBar = function(callback,q) {
 	}
 	
 	
-	console.log("about to call database");
+	console.log("about to call getbar database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);

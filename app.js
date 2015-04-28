@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
     //password : '',
-  password : 'pass',
+  password : 'password123',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -42,7 +42,7 @@ app.get('/', routes.index);
 app.get('/getScatterChart', routes.getScatterChart);
 app.get('/getScatter/:strUser', routes.getScatter);
 app.get('/getScatterChart1', routes.getScatterChart1);
-app.get('/getScatter1/:strUser', routes.getScatter1);
+app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);
 app.get('/getBar/:strUser', routes.getBar);
 app.get('/about', routes.about);

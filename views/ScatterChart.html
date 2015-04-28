@@ -68,6 +68,7 @@
 <script type="text/javascript">
  	
 var salarydata;
+var calcdata;
 
 $(document).ready(function(){
     $('input.typeahead').typeahead({
@@ -92,6 +93,16 @@ function getData(){
 		gochart();	
 	});
 }
+
+function calcInsurance(){
+	var strUser = document.getElementById("id1").value;
+	$.get('/calcInsu/'+strUser, function(results) {
+		console.log("got the data!! - 2");
+		$('#datadiv').text(JSON.stringify(results));
+		$('<div>').text('im a new div').appendTo($('#datadiv'));
+	});
+}
+
 
 function gochart(){
 	
@@ -163,12 +174,13 @@ function gochart(){
 	<!-- Features Section -->
 	
 	Enter Driver Id	<input type="text" id="id1" placeholder="1" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" onchange="getData();">
-				
+	 <button class="btn btn-primary" type="button" id="id2" onclick="calcInsurance();"> Calculate Insurance </button>
+	 <br><div id="datadiv"></div><br>
 	<div class="row">
 		<div class="col-lg-12"><div id="chartdiv"></div>			
-		</div>
+		</div>	
 		
-		
+			
 	</div>
 	<!-- /.row -->
 </div>

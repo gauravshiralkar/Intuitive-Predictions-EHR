@@ -48,6 +48,19 @@ exports.getScatter1 = function(req,res){
 	
 };
 
+exports.calcInsu = function(req,res){
+	var data;
+	console.log("In index calc" + req.params.strUser);
+	dbConn.calcInsu(function(err,rows){
+		console.log(rows);
+		console.log(req.params.strUser);
+		res.send(rows);
+	},req.params.strUser);	
+	
+};
+
+
+
 exports.getScatter= function(req, res){
 	dbConn.getScatter(function(err,rows){
 		console.log(rows);

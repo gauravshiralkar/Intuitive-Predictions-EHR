@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'password123',
+	password : 'pass',
 	port : '3306',
 	database : 'cmpe239'
 });
@@ -12,32 +12,40 @@ var connection = mysql.createConnection({
 
 exports.getScatter = function(callback,q) {
 	var query = "select xCordinate as ax,yCordinate as ay from cmpe239.driver1 where DriverId='"+q+"'";
-	console.log("about to call gdtscatter database");
+	console.log("about to call database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});
 };
 
-exports.getScatter1 = function(callback,q1) {
+exports.calcInsu = function(callback,q) {
+	console.log("In dbconn calc "+q);
+	var query = "select DriverId as ax,HighestSpeed as ay from cmpe239.driverpatrn where DriverId='"+q+"'";
+	console.log("about to call database");
+	console.log("value of q is "+q);
+	connection.query(query, function(err, rows) {
+		callback(err, rows);
+	});
+};
+
+exports.getScatter1 = function(callback,q) {
 	
-	if (q1 === "HighestSpeed"){
-		console.log("in first if loop");
+	if (q === "HighestSpeed"){
 		var query = "select DriverId as ax,HighestSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q1 === "CityAvgSpeed"){
+	else if(q === "CityAvgSpeed"){
 		var query = "select DriverId as ax,CityAvgSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q1 === "HghyAvgSpeed"){
+	else if(q === "HghyAvgSpeed"){
 		var query = "select DriverId as ax,HghyAvgSpeed as ay from cmpe239.driverpatrn";
 	}
-	else if(q1 === "HarshAcelrations"){
+	else if(q === "HarshAcelrations"){
 		var query = "select DriverId as ax,HarshAcelrations as ay from cmpe239.driverpatrn";
 	}
 		
-	console.log("about to call database of scatter1");
-	console.log("value of q is "+q1);
-	console.log(query);
+	console.log("about to call database");
+	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);
 	});
@@ -45,7 +53,6 @@ exports.getScatter1 = function(callback,q1) {
 
 
 exports.getBar = function(callback,q) {
-	
 	if (q==="CityAvgSpeed"){
 		var query = "select DriverId, CityAvgSpeed from cmpe239.driverpatrn order by RAND() limit 10";
 	} 
@@ -60,7 +67,7 @@ exports.getBar = function(callback,q) {
 	}
 	
 	
-	console.log("about to call getbar database");
+	console.log("about to call database");
 	console.log("value of q is "+q);
 	connection.query(query, function(err, rows) {
 		callback(err, rows);

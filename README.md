@@ -3,7 +3,7 @@ CMPE-295A Project by
 
 - San Jose State University
 - Project: Intuitive Predictions EHR
-- Project Guide: Prof.Chandrasekar Vuppalapati
+- Project Guide: Prof.Severo D'Souza
 
 Usage:
 -----

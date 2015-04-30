@@ -54,6 +54,7 @@ exports.getScatter1 = function(req,res){
 	
 };
 
+<<<<<<< HEAD
 exports.calcInsu = function(req,res){
 	var data;
 	console.log("In index calc" + req.params.strUser);
@@ -307,3 +308,5 @@ exports.getScoreVizData = function(req, res){
 	  
 };
 >>>>>>> f3499b8... adding one more chart for scores
+=======
+>>>>>>> 9f4a814... Update index.js

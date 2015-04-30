@@ -17,7 +17,7 @@ Application Insights:
 ---------------------
 1. This is a web based application with user interface in HTML,BOOTSTRAP, CSS
 2. This is a NODEJS Project
-3. Information Required has been sourced from: Kaggle
+3. Information Required has been sourced from: 
 
 Team members:
 -------------

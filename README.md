@@ -1,13 +1,13 @@
-CMPE-239 Project by Team-Alchemist
+CMPE-295A Project by 
 ================
 
 - San Jose State University
-- Project: Driver Telematics Analysis
+- Project: Intuitive Predictions EHR
 - Project Guide: Prof.Chandrasekar Vuppalapati
 
 Usage:
 -----
-This project performs analysis of Driver Telematics Data.
+This project performs Intuitive Predictions EHR.
 
 Technologies: 
 -------------
@@ -23,6 +23,5 @@ Team members:
 -------------
 1. Gaurav Shiralkar
 2. Prasad Bidwai
-3. Ramya Hotha 
-4. Jyostna Reddy 
-5. Srijan Magapu
+3. Deepna Bains
+4. Navneet Dhillon

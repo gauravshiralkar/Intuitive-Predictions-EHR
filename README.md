@@ -7,8 +7,7 @@ CMPE-295A Project by SudoCoders
 
 Usage:
 -----
-This project involves analysis of EHR data to provide Intuitive Predictions & suggestions to fill out the EHR form correctly to avoid inconsistency in data. 
-This will help reduction in rejection of insurance claims that may occur due to inconsistent data. 
+This project involves performing the analysis on the EHR data. Knowledge obtained from the analysis can be used for providing Intuitive Predictions & suggestions to help the user to fill the EHR form correctly. The ultimate aim is to prevent rejection of insurance claims.
 
 Technologies: 
 -------------

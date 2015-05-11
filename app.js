@@ -39,9 +39,7 @@ if ('development' == app.get('env')) {
 
 //app.get('/', routes.index);
 app.get('/', routes.index);
-app.get('/getScatterChart', routes.getScatterChart);
-app.get('/getScatter/:strUser', routes.getScatter);
-app.get('/getScatterChart1', routes.getScatterChart1);
+/*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);
 app.get('/getBar/:strUser', routes.getBar);
@@ -55,7 +53,7 @@ app.get('/getScoreVizData', routes.getScoreVizData);
 app.get('/showtest', function(req, res) {
 	res.render('test.ejs');
 });
-
+*/
 
 
 

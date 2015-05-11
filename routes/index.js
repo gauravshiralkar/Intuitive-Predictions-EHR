@@ -16,34 +16,8 @@ exports.index = function(req, res){
   res.render('index');
 };
 
-exports.about = function(req, res){
-	res.render('About');
-};
-	
-exports.contact = function(req, res){
-	res.render('Contact');
-};
-exports.getScatterChart = function(req, res){
-	 res.render('ScatterChart');
 
-};
-
-exports.getScatterChart1 = function(req, res){
-	res.render('ScatterChart1');
-	
-};
-
-exports.getBarChart = function(req, res){
-	 res.render('BarChart');
-
-};
-
-exports.getScoreVizChart = function(req, res){
-	 res.render('shop');
-
-};
-
-
+/*
 
 exports.getScatter1 = function(req,res){
 	dbConn.getScatter1(function(err,rows){
@@ -53,6 +27,7 @@ exports.getScatter1 = function(req,res){
 	},req.params.strUsr);
 	
 };
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 exports.calcInsu = function(req,res){
@@ -310,3 +285,6 @@ exports.getScoreVizData = function(req, res){
 >>>>>>> f3499b8... adding one more chart for scores
 =======
 >>>>>>> 9f4a814... Update index.js
+=======
+*/
+>>>>>>> e9be4b1... Delete Unwanted

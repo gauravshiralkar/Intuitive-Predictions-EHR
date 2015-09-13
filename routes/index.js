@@ -14,8 +14,13 @@ var dbConn = require('../model/dbConnection');
 
 exports.index = function(req, res){
   res.render('index');
+  //res.render('test');
 };
 
+exports.test = function(req, res){
+	  //res.render('index');
+	  res.render('testme');
+	};
 
 /*
 

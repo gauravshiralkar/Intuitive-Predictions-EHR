@@ -39,6 +39,7 @@ if ('development' == app.get('env')) {
 
 //app.get('/', routes.index);
 app.get('/', routes.index);
+//app.get('/test', routes.test);
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);

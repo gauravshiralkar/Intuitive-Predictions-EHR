@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 	port : '3306',
 	database : 'cmpe239'
 });
-connection.connect();*/
+connection.connect();
 
 //Cassandra
 var cassandra = require('cassandra-driver');
@@ -18,7 +18,7 @@ var async = require('async');
 
 //Connect to the cluster
 var client = new cassandra.Client({contactPoints: ['127.0.0.1'], keyspace: 'cmpe295ehr'});
-
+*/
 
 //*
 

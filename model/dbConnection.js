@@ -13,7 +13,7 @@ var cassandra = require('cassandra-driver');
 var async = require('async');
 
 //Connect to the cluster
-var client = new cassandra.Client({contactPoints: ['127.0.0.1:9042'], keyspace: 'cmpe295ehr'});
+var client = new cassandra.Client({contactPoints: ['127.0.0.1:9042'], keyspace: 'system'});
 
 exports.getPatientDetails = function (callback) {
 	var query = "select * from system.schema_keyspaces";

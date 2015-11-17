@@ -1,20 +1,13 @@
 
-/*var mysql = require('mysql');
-var connection = mysql.createConnection({
-	host : 'localhost',
-	user : 'root',
-	//password : '',
-	password : 'pass',
-	port : '3306',
-	database : 'cmpe239'
-});*/
-
+//dependencies
 var cassandra = require('cassandra-driver');
 var async = require('async');
 
 //Connect to the cluster
 var client = new cassandra.Client({contactPoints: ['127.0.0.1:9042'], keyspace: 'system'});
 
+
+//Routes
 exports.getPatientDetails = function (callback) {
 	var query = "select * from system.schema_keyspaces";
     client.execute(query, function (err, result) {

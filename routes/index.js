@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> eefe521... New branch created for final running project
 
@@ -132,6 +133,8 @@ exports.getBubble= function(req, res){
 
 =======
 
+=======
+>>>>>>> 86a1744... Integrated Cassandra
 /*
  * GET home page.
  */
@@ -140,6 +143,7 @@ var dbConn = require('../model/dbConnection');
 
 exports.index = function(req, res){
   res.render('index');
+<<<<<<< HEAD
 };
 
 exports.showRatingAnalysis = function(req, res){
@@ -293,3 +297,32 @@ exports.getScoreVizData = function(req, res){
 =======
 */
 >>>>>>> e9be4b1... Delete Unwanted
+=======
+  //res.render('test');
+};
+
+exports.test = function(req, res){
+	  //res.render('index');
+	  res.render('testme');
+	};
+
+	
+	exports.getPatientDetails = function(req, res){
+		dbConn.getPatientDetails(function(err,rows){
+			console.log("index.js "+rows);
+			 res.send(rows);
+		});	
+		  
+	};
+/*
+
+exports.getScatter1 = function(req,res){
+	dbConn.getScatter1(function(err,rows){
+		console.log(rows);
+		console.log(req.params.strUser);
+		 res.send(rows);
+	},req.params.strUsr);
+	
+};
+*/
+>>>>>>> 86a1744... Integrated Cassandra

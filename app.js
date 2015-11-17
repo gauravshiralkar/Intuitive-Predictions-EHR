@@ -6,11 +6,21 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
     //password : '',
-  password : 'password123',
+  password : 'pass',
 	port : '3306',
 	database : 'cmpe239'
 });
 connection.connect();
+
+//Cassandra
+var cassandra = require('cassandra-driver');
+var async = require('async');
+
+//Connect to the cluster
+var client = new cassandra.Client({contactPoints: ['127.0.0.1'], keyspace: 'cmpe295ehr'});
+
+
+//*
 
 var express = require('express')
   , routes = require('./routes')
@@ -39,7 +49,7 @@ if ('development' == app.get('env')) {
 
 //app.get('/', routes.index);
 app.get('/', routes.index);
-//app.get('/test', routes.test);
+app.get('/test', routes.getPatientDetails);
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);

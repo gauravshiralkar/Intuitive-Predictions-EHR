@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.ui-page .ui-header {
+    background: #068EDD !important;
+}
+.ui-page .ui-footer {
+    background: #068EDD !important;
+}
+    
+div.ui-input-text {
+    width: 100px !important;
+}
+
+div.ui-field-contain {
+    align: center !important;
+}
+
+div.ui-field-contain label {
+    width: 100px !important;
+}
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+function calc(){
+var c= ($("#ipvalue").text().substr(2))-$("#ipredeem").val()
+$("#ipbalance").text("$ "+ c);
+}
+
+$(document).on('pageshow','#pagetwo', function(e,data){   
+$('#pagetwocontent').css('margin-top',($(window).height()- $('[data-role=header]').height() - $('[data-role=footer]').height() - $('#pagetwocontent').outerHeight()-50)/2);
+});
+</script>
+</head>
+
+<body>
+
+	<div data-role="page" id="pageone">
+	<br>
+	<p align="center">
+		<img align="center" alt="Ai Logo" src="css/Icon.png">
+	</p>
+	<br>
+		<h3 align="center">Loading ...</h3>
+		<a href="agorascanner://">Redeem</a>
+		<br>
+		
+		<form id="code_form">
+    <input type='text' value="1"></input>
+</form>
+
+
+	<script src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key="pk_Fhlzwtm9SCx6Uxww5fNXX8CUbwwAc"
+    data-amount="2000"
+    data-name="Demo Site"
+    data-description="2 widgets ($20.00)"
+    data-image="/128x128.png">
+</script>
+
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<button id="customButton">Purchase</button>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+    image: '/img/documentation/checkout/marketplace.png',
+    token: function(token) {
+      // Use the token to create the charge with a server-side script.
+      // You can access the token ID with `token.id`
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'Stripe.com',
+      description: '2 widgets',
+      amount: 2000
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+</script>
+	</div>
+
+
+
+	<div data-role="page" id="pagetwo">
+		<div data-role="header" data-theme="b" data-position="fixed">
+			<h1>Ai Market</h1>
+			<a href="#" class="ui-btn ui-icon-back ui-btn-icon-left"
+				id="backBtn" style="background: #068EDD">Back</a>
+		</div>
+
+		<div data-role="main" class="ui-content" id="pagetwocontent">
+		<p align="center">
+		<h4><img align="left" alt="Ai Logo" src="css/IconSmall.png">
+		 <h5 style="text-align: right;">Certificate Details &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h5></h4>						
+					</p>
+		<div class="ui-field-contain">
+		<table align="center">
+			<tr>
+                <td><label for="ipcode" style="text-align:center" >Code:</label></td>
+                <td><label id="ipcode" ></label>
+				</td>
+            </tr>
+			<tr>
+                <td><label for="ipvalue" style="text-align:center" >Value:</label></td>
+                <td><label id="ipvalue"></label> 
+				</td>
+            </tr>
+            <tr>
+                <td><label for="ipredeem" style="text-align:center">Redeem:</label></td>
+                <td><input type="text"
+						name="ipredeem" id="ipredeem" placeholder="Enter Value"
+						onchange="calc();">
+				</td>
+            </tr>
+            <tr>
+                <td><label for="ipbalance" style="text-align:center">Balance:</label></td>
+                <td><label id="ipbalance"></label>
+                </td>
+            </tr>
+        </table>
+        <p align="center">
+						<input type="button" id="startRedeem" value="Redeem"
+							data-icon="check" data-iconpos="right" data-inline="true"
+							class="ui-btn ui-btn-inline ui-corner-all">
+					</p>
+        </div>
+			
+			<div data-role="popup" id="myPopup" class="ui-content"
+				data-position-to="window">
+				<a href="#" data-rel="back"
+					class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+				<div data-role="main" class="ui-content">
+					<h3 align="center">Transaction Complete!</h3>
+					<div class="ui-field-contain">
+						<table align="center">
+							<tr>
+								<td><label for="iptransid">Status:</label></td>
+								<td><label id="iptransid"></label></td>
+							</tr>
+							<tr>
+								<td><label for="ipafterbalance">Redeemed:</label></td>
+								<td><label id="ipafterbalance"></label></td>
+							</tr>
+						</table>
+							  <br> <br> <br>
+						<p align="center">
+							<input type="button" id="okDone" value=" OK "
+							data-icon="check" data-iconpos="right" data-inline="true"
+							class="ui-btn ui-btn-inline ui-corner-all">
+						</p>					
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<h1></h1>
+		</div>
+	</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

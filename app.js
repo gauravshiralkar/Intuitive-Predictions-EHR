@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 	port : '3306',
 	database : 'cmpe239'
 });
-connection.connect();
+connection.connect();*/
 
 //Cassandra
 var cassandra = require('cassandra-driver');

@@ -1,5 +1,5 @@
 
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
 	password : 'pass',
 	port : '3306',
 	database : 'cmpe239'
-});
+});*/
 
 var cassandra = require('cassandra-driver');
 var async = require('async');

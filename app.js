@@ -34,6 +34,7 @@ app.get('/', routes.index);
 app.get('/test', routes.getPatientDetails);
 app.get('/patientaddress', routes.getPatientAddress);
 app.get('/acceptrejectmap', routes.getAcceptRejectMap);
+app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);

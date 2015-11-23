@@ -47,7 +47,7 @@ exports.getPatientAddress = function (callback) {
 
 
 exports.getAcceptRejectData = function (callback) {
-	var query = "select * from cmpe295behr.patientaddress";
+	var query = "select datediff(year,dob,getdate()) as 'age' from patientDetails";
     client.execute(query, function (err, result) {
         if (!err){
         	

@@ -312,6 +312,14 @@ exports.getAcceptRejectMap = function(req, res){
 	res.render('acceptreject');
 };
 
+exports.getAcceptRejectData = function(req, res){
+	dbConn.getAcceptRejectData(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});	
+		  
+};
+
 exports.getPatientDetails = function(req, res){
 	dbConn.getPatientDetails(function(err,rows){
 		console.log("index.js "+rows);

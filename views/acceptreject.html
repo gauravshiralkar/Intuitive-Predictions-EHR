@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+<script type="text/javascript">
+var ardata;
+
+	function getData() {
+		$.get("/getAcceptRejectData", function(results) {
+			ardata = results;
+			setTimeout('showGraph()', 100);
+		});
+	}
+
+function showGraph(){
+var chart = AmCharts.makeChart("chartdiv", {
+  "type": "serial",
+  "theme": "light",
+  "rotate": true,
+  "marginBottom": 50,
+  "dataProvider": [{
+    "age": "85+",
+    "accepted": -0.1,
+    "rejected": 0.3
+  }, {
+    "age": "80-54",
+    "accepted": -0.2,
+    "rejected": 0.3
+  }, {
+    "age": "75-79",
+    "accepted": -0.3,
+    "rejected": 0.6
+  }, {
+    "age": "70-74",
+    "accepted": -0.5,
+    "rejected": 0.8
+  }, {
+    "age": "65-69",
+    "accepted": -0.8,
+    "rejected": 1.0
+  }, {
+    "age": "60-64",
+    "accepted": -1.1,
+    "rejected": 1.3
+  }, {
+    "age": "55-59",
+    "accepted": -1.7,
+    "rejected": 1.9
+  }, {
+    "age": "50-54",
+    "accepted": -2.2,
+    "rejected": 2.5
+  }, {
+    "age": "45-49",
+    "accepted": -2.8,
+    "rejected": 3.0
+  }, {
+    "age": "40-44",
+    "accepted": -3.4,
+    "rejected": 3.6
+  }, {
+    "age": "35-39",
+    "accepted": -4.2,
+    "rejected": 4.1
+  }, {
+    "age": "30-34",
+    "accepted": -5.2,
+    "rejected": 4.8
+  }, {
+    "age": "25-29",
+    "accepted": -5.6,
+    "rejected": 5.1
+  }, {
+    "age": "20-24",
+    "accepted": -5.1,
+    "rejected": 5.1
+  }, {
+    "age": "15-19",
+    "accepted": -3.8,
+    "rejected": 3.8
+  }, {
+    "age": "10-14",
+    "accepted": -3.2,
+    "rejected": 3.4
+  }, {
+    "age": "5-9",
+    "accepted": -4.4,
+    "rejected": 4.1
+  }, {
+    "age": "0-4",
+    "accepted": -5.0,
+    "rejected": 4.8
+  }],
+  "startDuration": 1,
+  "graphs": [{
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "accepted",
+    "title": "accepted",
+    "labelText": "[[value]]",
+    "clustered": false,
+    "labelFunction": function(item) {
+      return Math.abs(item.values.value);
+    },
+    "balloonFunction": function(item) {
+      return item.category + ": " + Math.abs(item.values.value) + "%";
+    }
+  }, {
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "rejected",
+    "title": "rejected",
+    "labelText": "[[value]]",
+    "clustered": false,
+    "labelFunction": function(item) {
+      return Math.abs(item.values.value);
+    },
+    "balloonFunction": function(item) {
+      return item.category + ": " + Math.abs(item.values.value) + "%";
+    }
+  }],
+  "categoryField": "age",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "gridAlpha": 0.2,
+    "axisAlpha": 0
+  },
+  "valueAxes": [{
+    "gridAlpha": 0,
+    "ignoreAxisWidth": true,
+    "labelFunction": function(value) {
+      return Math.abs(value) + '%';
+    },
+    "guides": [{
+      "value": 0,
+      "lineAlpha": 0.2
+    }]
+  }],
+  "balloon": {
+    "fixedPosition": true
+  },
+  "chartCursor": {
+    "valueBalloonsEnabled": false,
+    "cursorAlpha": 0.05,
+    "fullWidth": true
+  },
+  "allLabels": [{
+    "text": "Accepted",
+    "x": "28%",
+    "y": "97%",
+    "bold": true,
+    "align": "middle"
+  }, {
+    "text": "Rejected",
+    "x": "75%",
+    "y": "97%",
+    "bold": true,
+    "align": "middle"
+  }],
+ "export": {
+    "enabled": true
+  }   
+
+});
+}
+
+
+</script>
+
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}								
+</style>
+
+
+
+<body onload="showGraph()">
+<div id="chartdiv"></div>
+</body>	

@@ -32,6 +32,9 @@ if ('development' == app.get('env')) {
 //app.get('/', routes.index);
 app.get('/', routes.index);
 app.get('/test', routes.getPatientDetails);
+app.get('/patientaddress', routes.getPatientAddress);
+app.get('/acceptrejectmap', routes.getAcceptRejectMap);
+
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);

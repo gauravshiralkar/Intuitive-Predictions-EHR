@@ -306,14 +306,27 @@ exports.test = function(req, res){
 	  res.render('testme');
 	};
 
-	
-	exports.getPatientDetails = function(req, res){
-		dbConn.getPatientDetails(function(err,rows){
-			console.log("index.js "+rows);
-			 res.send(rows);
-		});	
+
+
+exports.getAcceptRejectMap = function(req, res){
+	res.render('acceptreject');
+};
+
+exports.getPatientDetails = function(req, res){
+	dbConn.getPatientDetails(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});	
 		  
-	};
+};
+
+exports.getPatientAddress = function(req, res){
+	dbConn.getPatientAddress(function(err,rows){
+		console.log("index.js "+rows);
+		 res.send(rows);
+	});	
+	  
+};
 /*
 
 exports.getScatter1 = function(req,res){

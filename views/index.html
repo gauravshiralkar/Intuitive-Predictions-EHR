@@ -83,48 +83,159 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <p>Key In data for Intuitive Prediction and Suggesstions</p>
         </div>
       </div>
-      <div class="row mrgn30">
-        <form method="post" action="" id="contactfrm" role="form">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="name">Name</label>&nbsp;&nbsp;&nbsp;
-              <input type="text" class="typeahead tt-query" name="name" id="name" placeholder="Enter Name" title="Please enter your name (at least 2 characters)">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="email">Gender</label>
-              <input type="email" class="typeahead tt-query" name="email" id="email" placeholder="Enter Gender" title="Please enter a valid email address">
-            </div>
-          </div>
-          
-          <div class="col-sm-4">
-            <div class="form-group">    
-              <label for="name">Age</label>&nbsp;&nbsp;&nbsp;
-              <input type="text" class="typeahead tt-query" name="name" id="name" placeholder="Enter Age" title="Please enter your name (at least 2 characters)">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="email">Location</label>
-              <input type="email" class="typeahead tt-query" name="email" id="email" placeholder="Enter Location" title="Please enter a valid email address">
-             
-            </div>
+      <table width="900" height="600" border="0" align="top" cellspacing="10">
+      <form method="post" action="" id="contactfrm" role="form">
+      <tr>
+      <td colspan="4" height="20">Enter Patient Details</td>
+      </tr>
+      <tr>
+      <td>Name</td>
+      <td align="left"><input type="text"  name="name" placeholder="Enter Full Name"/></td>
+      <br>
+      <td>DOB</td>
+      <td align="left"><input type="date" name="dob">
+      </td>
+      <br>
+      <td>Gender</td>
+      <td align="left"> 
+      <input list="Gender">
+      <datalist id="Gender">
+      <option value="Male">
+      <option value="Female">
+     </datalist>
+     </tr>
+     <tr>
+     <td>Insurance ID</td>
+      <td align="left"><input type="text"  name="inid" placeholder="Insurance ID"/></td>
+      <br>
+      <td></td>&nbsp;&nbsp;
+      <td align="left"></td>
+      <br>
+      <td>Treatment ID</td>
+      <td align="left"><input type="text" name="treatid" placeholder="Enter Treatment ID">
+      </td>
+      </tr>
+   
+      <tr>
+      <td colspan="4" height="20">Enter Patient Address</td>
+      </tr>
+      <tr>
+      <td>Street No.</td>
+      <td align="left"><input type="text"  name="name" placeholder="Enter Full Name"/></td>
+      <br>
+      <td>House/Apt No.</td>&nbsp;&nbsp;
+      <td align="left"><input type="date" name="dob">
+      </td>
+      <br>
+      <td>City</td>
+      <td align="left"><input type="date" name="dob">
+      </td>
+      <br>
+     </tr>
+     <tr>
+     <td>State</td>
+      <td align="left"> <select>
+      <option value="--">Select State</option>  
+    	<option value="AL">Alabama</option>
+    	<option value="AK">Alaska</option>
+    	<option value="AZ">Arizona</option>
+    	<option value="AR">Arkansas</option>
+    	<option value="CA">California</option>
+    	<option value="CO">Colorado</option>
+    	<option value="CT">Connecticut</option>
+    	<option value="DE">Delaware</option>
+    	<option value="DC">District Of Columbia</option>
+    	<option value="FL">Florida</option>
+    	<option value="GA">Georgia</option>
+    	<option value="HI">Hawaii</option>
+    	<option value="ID">Idaho</option>
+    	<option value="IL">Illinois</option>
+    	<option value="IN">Indiana</option>
+    	<option value="IA">Iowa</option>
+    	<option value="KS">Kansas</option>
+    	<option value="KY">Kentucky</option>
+    	<option value="LA">Louisiana</option>
+    	<option value="ME">Maine</option>
+    	<option value="MD">Maryland</option>
+    	<option value="MA">Massachusetts</option>
+    	<option value="MI">Michigan</option>
+    	<option value="MN">Minnesota</option>
+    	<option value="MS">Mississippi</option>
+    	<option value="MO">Missouri</option>
+    	<option value="MT">Montana</option>
+    	<option value="NE">Nebraska</option>
+    	<option value="NV">Nevada</option>
+    	<option value="NH">New Hampshire</option>
+    	<option value="NJ">New Jersey</option>
+    	<option value="NM">New Mexico</option>
+    	<option value="NY">New York</option>
+    	<option value="NC">North Carolina</option>
+    	<option value="ND">North Dakota</option>
+    	<option value="OH">Ohio</option>
+    	<option value="OK">Oklahoma</option>
+    	<option value="OR">Oregon</option>
+    	<option value="PA">Pennsylvania</option>
+    	<option value="RI">Rhode Island</option>
+    	<option value="SC">South Carolina</option>
+    	<option value="SD">South Dakota</option>
+    	<option value="TN">Tennessee</option>
+    	<option value="TX">Texas</option>
+    	<option value="UT">Utah</option>
+    	<option value="VT">Vermont</option>
+    	<option value="VA">Virginia</option>
+    	<option value="WA">Washington</option>
+    	<option value="WV">West Virginia</option>
+    	<option value="WI">Wisconsin</option>
+    	<option value="WY">Wyoming</option>
+    </select>  
+      <br>
+      <td>Zip Code</td>
+      <td align="left"><input type="text" name="treatid" placeholder="Enter Treatment ID">
+      </td>
+      <td>Country</td>
+      <td align="left"><input type="text" name="treatid" placeholder="Enter Treatment ID">
+      </td>
+      </tr>
+      <tr>
+      <td colspan="4" height="20">Enter Insurance Details</td>
+      </tr>
+      <tr>
+      <td>Insurance Holder Name</td>
+      <td align="left"><input type="text"  name="name"  value=""/></td>
+      <br>
+      <td>Insurance Plan</td>
+      <td align="left"><input type="date" name="exp">
+      </td>
+      </tr>
+      <tr>
+      <td>Provider ID</td>
+      <td align="left"><input type="text"  name="name"  value=""/></td>
+      <br>
+      <td>Insurance Expiry</td>
+      <td align="left"><input type="date" name="exp">
+      </td>
+      </tr>
+      <td colspan="4" height="20">Enter Insurance Provider</td>
+      </tr>
+      <tr>
+      <td>Insurance Provider Name</td>
+      <td align="left"><input type="text"  name="name"  value=""/></td>
+      <br>
+      </tr> 
+      <td colspan="4" height="20">Enter Treatment Details</td>
+      </tr>
+      <tr>
+      <td>Treatment Code</td>
+      <td align="left"><input type="text"  name="name"  value=""/></td>
+      <br>
+      <td>Diagnosis Code</td>
+      <td align="left"><input type="text"  name="name"  value=""/></td>
+      <br>
+      </tr> 
+      </form>
+      
+      </table>
             
-          </div>
-          <div class="col-sm-4">
-           <div class="form-group">
-              <label for="name">Insurance ID</label>
-              <input type="text" class="typeahead tt-query" name="name" id="name" placeholder="Enter Insurance ID" title="Please enter your name (at least 2 characters)">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="email">Treatment Code</label>
-              <input type="email" class="typeahead tt-query" name="email" id="email" placeholder="Enter Treatment Code" title="Please enter a valid email address">
-              <button name="submit" type="submit" class="btn btn-lg btn-primary" id="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
     <div class="container">
       <div class="social text-center"> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-flickr"></i></a> <a href="#"><i class="fa fa-github"></i></a> </div>
       <!--CLEAR FLOATS--> 

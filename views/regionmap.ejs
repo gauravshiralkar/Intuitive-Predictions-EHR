@@ -53,6 +53,28 @@ $(function () {
                     [1, '#000022']
                 ]
             },
+            plotOptions: {
+                series: {
+                    events: {
+                        click: function (e) {
+                            var text = '<b>Clicked</b><br>Series: ' + this.name +
+                                    '<br>Point: ' + e.point.name + ' (' + e.point.value + ')';
+                            if (!this.chart.clickLabel) {
+                                this.chart.clickLabel = this.chart.renderer.label(text, 0, 250)
+                                    .css({
+                                        width: '180px'
+                                    })
+                                    .add();
+                            } else {
+                                this.chart.clickLabel.attr({
+                                    text: text
+                                });
+                            }
+                        }
+                    }
+                }
+            },
+
 
             series : [{
                 animation: {
@@ -66,7 +88,7 @@ $(function () {
                     color: 'white',
                     format: '{point.code}'
                 },
-                name: 'Population density',
+                name: 'Basic EHR adoption Rate',
                 tooltip: {
                     pointFormat: '{point.code}: {point.value}/km²'
                 }

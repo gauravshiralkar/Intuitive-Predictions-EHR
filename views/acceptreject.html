@@ -12,7 +12,6 @@ var ardata;
 	function getData() {
 		$.get("/getAcceptRejectData", function(results) {
 			ardata = results;
-			alert('Hi');
 			console.log(results);
 			setTimeout('showGraph()', 100);
 		});

@@ -9,20 +9,13 @@ var client = new cassandra.Client({contactPoints: ['10.189.242.3:9042'], keyspac
 
 //Connect to MySQL
 var mysql = require('mysql');
+
+
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
-	//password : 'pass',
-	port : '3306',
-	database : '295Visualization'
-});
-
-var connectionmain = mysql.createConnection({
-	host : 'localhost',
-	user : 'root',
-	password : '',
-	//password : 'pass',
+	//password : '',
+	password : 'pass',
 	port : '3306',
 	database : 'cmpe295ehr'
 });
@@ -31,6 +24,7 @@ var connectionmain = mysql.createConnection({
 //Region Map
 
 exports.getRegionMapData = function(callback){
+	connection.query('use 295Visualization;');
 	var query = 'select avg(basicEHR)*100 value , regionCode code  from adoptionpctv2 where regionCode<>"US" and regionCode<>"PR" and regionCode<>"WI" group by regionCode;';
 	connection.query(query, function(err, rows) {		
 			callback(err, rows);
@@ -41,6 +35,7 @@ exports.getRegionMapData = function(callback){
 //
 
 exports.getAcceptRejectData = function(callback){
+	
 	var query = "select case \
 		   when (year(now())-year(dob))>=0 and (year(now())-year(dob))<=4 then '0-4' \
 		   when (year(now())-year(dob))>=5 and (year(now())-year(dob))<=9 then '5-9' \
@@ -65,7 +60,7 @@ exports.getAcceptRejectData = function(callback){
 	COUNT(CASE insuranceDetailsStatus  WHEN 'Accepted' THEN 1 END) AS accepted,\
 	COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected\
 	 from patientdetails,insurancedetails where patientDetailsInsuranceId=insuranceDetailsId group by 1;";
-	connectionmain.query(query, function(err, rows) {		
+	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 	});			
 }

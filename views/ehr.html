@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<%include template%>
+
+<head>
+<style>
+
+tr.spaceUnder > td
+{
+  padding-bottom: 1em;
+}
+
+td {
+    padding-right: 35px;
+}
+
+</style>
+</head>
+<title>EHR Form</title>
+
+<body>
+	
+<section id="services" style="height:450px" class="page-section colord">
+<fieldset>
+<legend><font color= "white">Patient Demographic Details</font></legend>
+
+
+	<table Style="align: center" cellspacing="10">
+
+
+
+
+		<tr class="spaceUnder">
+			<td ><font color= "white">Name</font></td>
+			<td align="left"><input type="text" name="empid" value="" /></td>
+			<td ><font color= "white">DOB</font></td>
+			<td align="left"><input type="date" name="dob"></td>
+
+			<td ><font color= "white">Gender</font></td>
+			<td align="left"><input list="Gender"> <datalist
+					id="Gender">
+					<option value="Male">
+					<option value="Female">
+				</datalist></td>
+				</tr>
+				<tr><td></td></tr>
+				
+		<tr class="spaceUnder">
+			
+			<td ><font color= "white">Street name</font></td>
+			<td align="left"><input type="text" name="empid" value="" /></td>
+			<td ><font color= "white">House/Apt No.</font></td>
+			<td align="left"><input type="date" name="dob"></td>
+			
+			<td ><font color= "white">City</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+
+
+		</tr>
+		<tr class="spaceUnder">
+			<td ><font color= "white">State</font></td>
+			<td align="left"><input type="text" name="indid" value="" /></td>
+			<td ><font color= "white">Zip Code</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+			<td ><font color= "white">Country</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+
+		</tr>
+		
+		</table>
+		
+		</fieldset>
+		
+		<fieldset>
+		<legend><font color= "white">Patient Treatment Details</font></legend>
+		<table  Style="align: center" cellspacing="10">
+		<tr class="spaceUnder" >
+			<td ><font color= "white">Insurance ID</font></td>
+			<td align="left"><input type="text" name="indid" value="" /></td>
+			
+			<td ><font color= "white">Insurance Holder</font></td>
+			<td align="left"><input type="text" name="empid" value="" /></td>
+			<td ><font color= "white">Insurance Plan</font></td>
+			<td align="left"><input type="date" name="dob"></td>
+			
+			</tr>
+			<tr></tr>
+		
+		<tr></tr>
+		<tr class="spaceUnder">
+			
+
+			<td ><font color= "white">Provider ID</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+			<td ><font color= "white">Insurance Expiry</font></td>
+			<td align="left"><input type="text" name="indid" value="" /></td>
+			<td ><font color= "white">Insurance Provider Name</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+		</tr>
+			
+			
+		
+			
+			
+		<tr class="spaceUnder">
+		<td ><font color= "white">Treatment ID</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+			<td ><font color= "white">Treatment Code</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+			<td ><font color= "white">Diagnosis Code</font></td>
+			<td align="left"><input type="text" name="orgid" value="" /></td>
+		</tr>
+		</table>
+		
+		</fieldset>
+		 <div>
+		  <nav class="cl-effect-2">
+          <a href="#" ><span data-hover="Submit">Submit</span></a>
+           <a href="#" ><span data-hover="Cancel">Cancel</span></a>
+          </nav>
+          </div>
+			
+
+	
+
+		
+
+
+
+
+	
+	</section>
+</body>
+</html>

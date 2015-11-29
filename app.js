@@ -42,8 +42,9 @@ app.get('/getRegionMapData', routes.getRegionMapData);
 //
 
 app.get('/showAcceptRejectMap', routes.showAcceptRejectMap);
+app.get('/showEHR', routes.showEHR);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
-
+app.get('/callPieChart/state', routes.callPieChart);
 
 
 

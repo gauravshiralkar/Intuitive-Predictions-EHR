@@ -32,9 +32,11 @@ if ('development' == app.get('env')) {
 //app.get('/', routes.index);
 app.get('/', routes.index);
 app.get('/test', routes.getPatientDetails);
+
 app.get('/patientaddress', routes.getPatientAddress);
 
-
+//dashboard
+app.get('/dashboard', routes.showDashboard);
 
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);

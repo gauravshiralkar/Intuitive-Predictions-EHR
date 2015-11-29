@@ -18,7 +18,8 @@ $(function () {
 
     //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
 	  $.get('/getRegionMapData', function (data) {
-	  
+
+		  alert(data);	  
         /* Make codes uppercase to match the map data
         $.each(data, function () {
             this.code = this.code.toUpperCase();

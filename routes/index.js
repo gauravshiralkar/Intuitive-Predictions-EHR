@@ -301,6 +301,11 @@ exports.getScoreVizData = function(req, res){
   //res.render('test');
 };
 
+exports.showTemplate= function (req,res){
+	
+	res.render('template.ejs');
+};
+	
 exports.test = function(req, res){
 	  //res.render('index');
 	  res.render('testme');

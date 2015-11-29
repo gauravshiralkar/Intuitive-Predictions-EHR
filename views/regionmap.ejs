@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<% include template %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/data.js"></script>
@@ -87,8 +89,10 @@ function showGraph1(){
 </script>
 
 <body onload="showGraph()">
-<h1>ShowMap</h1>
-<div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+
+<div id="box" style= "height: 80%">
+<div id="container" style=" position: relative; height: 100%"></div>
+</div>
 
 </body>
 

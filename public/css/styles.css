@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn, .form-control, .team-socials i {
 	border-radius: 5px !important;
+	position:fixed;
 }
 .form-group {
 	margin: 0 auto;
@@ -642,6 +643,8 @@ img, video, iframe, embed, object {
 	margin: 2px;
 }
 #contactUs {
+	position: absolute;
+	bottom: 0;
 /*background: #005f8d;*/;
 }
 #contactUs .btn {
@@ -658,9 +661,11 @@ img, video, iframe, embed, object {
 	padding-top: 5px;
 }
 .team-socials {
+	position: fixed;
 	margin: 15px 0;
 	opacity: 0;
 	text-align: center;
+	bottom: 15px;
 }
 .team-member:hover .team-socials {
 	opacity: 1;
@@ -848,13 +853,19 @@ body {
 }
 .socialIcons li {
 	list-style: none;
-	display: inline;
 	margin-right: 6px;
 }
 footer {
 	border-top: 1px solid #e5e5e5;
 	padding: 45px 0;
 	background: #fff;
+
+	position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 69px;
+	
+	
 }
 .social a:hover {
 	color: #000;

@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
-	//password : 'pass',
+	//password : '',
+	password : 'pass',
 	port : '3306'
 });
 
@@ -35,29 +35,28 @@ exports.getRegionMapData = function(callback){
 exports.getAcceptRejectData = function(callback){
 	connection.query('use cmpe295ehr;');
 	var query = "select case \
-		   when (year(now())-year(dob))>=0 and (year(now())-year(dob))<=4 then '0-4' \
-		   when (year(now())-year(dob))>=5 and (year(now())-year(dob))<=9 then '5-9' \
-	       when (year(now())-year(dob))>=10 and (year(now())-year(dob))<=14 then '10-14' \
-	       when (year(now())-year(dob))>=15 and (year(now())-year(dob))<=19 then '15-19' \
-	       when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '20-24' \
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '25-29'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '30-34'\
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '35-39'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '40-44'\
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '45-49'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '50-54'\
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '55-59'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '60-64'\
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '65-69'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '70-74'\
-		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '75-79'\
-	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '80-84'\
-		   when (year(now())-year(dob))>=25 then '85+'\
-		   end as 'age'\
-	,\
-	COUNT(CASE insuranceDetailsStatus  WHEN 'Accepted' THEN 1 END) AS accepted,\
-	COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected\
-	 from patientdetails,insurancedetails where patientDetailsInsuranceId=insuranceDetailsId group by 1;";
+when (year(now())-year(dob))>=0 and (year(now())-year(dob))<=10 then '0-10' \
+when (year(now())-year(dob))>=10 and (year(now())-year(dob))<=14 then '10-14' \
+       when (year(now())-year(dob))>=15 and (year(now())-year(dob))<=19 then '15-19' \
+when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '20-24' \
+	   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '25-29' \
+when (year(now())-year(dob))>=30 and (year(now())-year(dob))<=34 then '30-34' \
+	   when (year(now())-year(dob))>=35 and (year(now())-year(dob))<=39 then '35-39' \
+when (year(now())-year(dob))>=40 and (year(now())-year(dob))<=44 then '40-44' \
+	   when (year(now())-year(dob))>=45 and (year(now())-year(dob))<=49 then '45-49' \
+when (year(now())-year(dob))>=50 and (year(now())-year(dob))<=54 then '50-54' \
+	   when (year(now())-year(dob))>=55 and (year(now())-year(dob))<=59 then '55-59' \
+when (year(now())-year(dob))>=60 and (year(now())-year(dob))<=64 then '60-64' \
+	   when (year(now())-year(dob))>=65 and (year(now())-year(dob))<=69 then '65-69' \
+when (year(now())-year(dob))>=70 and (year(now())-year(dob))<=74 then '70-74' \
+	   when (year(now())-year(dob))>=75 and (year(now())-year(dob))<=79 then '75-79' \
+when (year(now())-year(dob))>=80 and (year(now())-year(dob))<=84 then '80-84' \
+	   when (year(now())-year(dob))>=85 then '85+' \
+	   end as 'age' \
+, \
+COUNT(CASE insuranceDetailsStatus  WHEN 'Accepted' THEN 1 END) AS accepted, \
+COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected \
+ from patientdetails,insurancedetails where patientDetailsInsuranceId=insuranceDetailsId group by 1 order by 1 desc;";
 	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 	});			

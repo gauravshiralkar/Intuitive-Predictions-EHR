@@ -35,7 +35,7 @@ app.get('/test', routes.getPatientDetails);
 app.get('/patientaddress', routes.getPatientAddress);
 app.get('/acceptrejectmap', routes.getAcceptRejectMap);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
-app.get('/showTemplate', routes.showTemplate);
+
 
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);

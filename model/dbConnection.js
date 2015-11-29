@@ -12,10 +12,19 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
-	//password : 'pass',
+	//password : '',
+	password : 'pass',
 	port : '3306',
 	database : '295Visualization'
+});
+
+var connectionmain = mysql.createConnection({
+	host : 'localhost',
+	user : 'root',
+	//password : '',
+	password : 'pass',
+	port : '3306',
+	database : 'cmpe295ehr'
 });
 
 
@@ -30,6 +39,36 @@ exports.getRegionMapData = function(callback){
 
 
 //
+
+exports.getAcceptRejectData = function(callback){
+	var query = "select case \
+		   when (year(now())-year(dob))>=0 and (year(now())-year(dob))<=4 then '0-4' \
+		   when (year(now())-year(dob))>=5 and (year(now())-year(dob))<=9 then '5-9' \
+	       when (year(now())-year(dob))>=10 and (year(now())-year(dob))<=14 then '10-14' \
+	       when (year(now())-year(dob))>=15 and (year(now())-year(dob))<=19 then '15-19' \
+	       when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '20-24' \
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '25-29'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '30-34'\
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '35-39'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '40-44'\
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '45-49'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '50-54'\
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '55-59'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '60-64'\
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '65-69'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '70-74'\
+		   when (year(now())-year(dob))>=25 and (year(now())-year(dob))<=29 then '75-79'\
+	when (year(now())-year(dob))>=20 and (year(now())-year(dob))<=24 then '80-84'\
+		   when (year(now())-year(dob))>=25 then '85+'\
+		   end as 'age'\
+	,\
+	COUNT(CASE insuranceDetailsStatus  WHEN 'Accepted' THEN 1 END) AS accepted,\
+	COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected\
+	 from patientdetails,insurancedetails where patientDetailsInsuranceId=insuranceDetailsId group by 1;";
+	connectionmain.query(query, function(err, rows) {		
+			callback(err, rows);
+	});			
+}
 
 //Routes
 exports.getPatientDetails = function (callback) {
@@ -69,20 +108,3 @@ exports.getPatientAddress = function (callback) {
     });
 }
 
-
-exports.getAcceptRejectData = function (callback) {
-	var query = "select datediff(year,dob,getdate()) as 'age' from patientDetails";
-    client.execute(query, function (err, result) {
-        if (!err){
-        	
-            if ( result.rows.length > 0 ) {
-            	console.log("Rows Fetched");
-            } else {
-                console.log("No results");
-            }
-        }
-
-        // Run next function in series
-        callback(err, result);
-    });
-}

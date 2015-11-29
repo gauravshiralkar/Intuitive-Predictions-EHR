@@ -326,7 +326,7 @@ exports.getRegionMapData = function(req, res){
 };
 
 //
-exports.getAcceptRejectMap = function(req, res){
+exports.showAcceptRejectMap = function(req, res){
 	res.render('acceptreject');
 };
 

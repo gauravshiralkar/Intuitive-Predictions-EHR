@@ -309,7 +309,7 @@ exports.test = function(req, res){
 // Region Map	
 
 exports.showRegionMap = function(req, res){
-	res.render('regionmap');
+	res.render('regionmap.ejs');
 };	
 
 exports.getRegionMapData = function(req, res){

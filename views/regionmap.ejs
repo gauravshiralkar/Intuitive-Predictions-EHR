@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
 <script src="https://code.highcharts.com/maps/modules/data.js"></script>
 <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
 <script>
+function showGraph(){
 $(function () {
 
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
-      //$.getJSON('/getRegionMapData&callback=?', function (data) {
-        // Make codes uppercase to match the map data
+    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
+	  $.get('/getRegionMapData', function (data) {
+	  
+        /* Make codes uppercase to match the map data
         $.each(data, function () {
             this.code = this.code.toUpperCase();
-        });
+        });*/
 
         // Instanciate the map
         $('#container').highcharts('Map', {
@@ -21,7 +24,7 @@ $(function () {
             },
 
             title : {
-                text : 'US population density (/km²)'
+                text : 'US population density (/kmÂ²)'
             },
 
             legend: {
@@ -63,16 +66,30 @@ $(function () {
                 },
                 name: 'Population density',
                 tooltip: {
-                    pointFormat: '{point.code}: {point.value}/km²'
+                    pointFormat: '{point.code}: {point.value}/kmÂ²'
                 }
             }]
         });
     });
 });
+}
+
+
+function showGraph1(){
+
+	alert('showgraph called');
+	$.get("/getRegionMapData", function(rows) {console.log(rows.length)});
+
+	
+}
+
+
 </script>
 
-<body>
+<body onload="showGraph()">
+<h1>ShowMap</h1>
 <div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+
 </body>
 
 

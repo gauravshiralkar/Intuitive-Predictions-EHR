@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
-	password : 'pass',
+	password : '',
+	//password : 'pass',
 	port : '3306',
 	database : '295Visualization'
 });
@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 //Region Map
 
 exports.getRegionMapData = function(callback){
-	var query = 'select avg(basicEHR) value , LOWER(regionCode) code  from adoptionpctv2 where regionCode<>"US" and regionCode<>"PR" and regionCode<>"WI" group by regionCode;';
+	var query = 'select avg(basicEHR)*100 value , regionCode code  from adoptionpctv2 where regionCode<>"US" and regionCode<>"PR" and regionCode<>"WI" group by regionCode;';
 	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 	});			

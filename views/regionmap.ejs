@@ -6,8 +6,8 @@
 <script>
 $(function () {
 
-    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
-      $.getJSON('/getRegionMapData&callback=?', function (data) {
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
+      //$.getJSON('/getRegionMapData&callback=?', function (data) {
         // Make codes uppercase to match the map data
         $.each(data, function () {
             this.code = this.code.toUpperCase();

@@ -37,7 +37,7 @@ app.get('/acceptrejectmap', routes.getAcceptRejectMap);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 
 //Region Map
-app.get('/showRegionMap', routes.getRegionMap);
+app.get('/showRegionMap', routes.showRegionMap);
 app.get('/getRegionMapData', routes.getRegionMapData);
 //
 

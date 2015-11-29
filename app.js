@@ -36,6 +36,11 @@ app.get('/patientaddress', routes.getPatientAddress);
 app.get('/acceptrejectmap', routes.getAcceptRejectMap);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 
+//Region Map
+app.get('/showRegionMap', routes.getRegionMap);
+app.get('/getRegionMapData', routes.getRegionMapData);
+//
+
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/getBarChart', routes.getBarChart);

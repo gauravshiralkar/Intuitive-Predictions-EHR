@@ -306,8 +306,21 @@ exports.test = function(req, res){
 	  res.render('testme');
 	};
 
+// Region Map	
 
+exports.showRegionMap = function(req, res){
+	res.render('regionmap');
+};	
 
+exports.getRegionMapData = function(req, res){
+	dbConn.getRegionMapData(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});	
+		  
+};
+
+//
 exports.getAcceptRejectMap = function(req, res){
 	res.render('acceptreject');
 };

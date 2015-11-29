@@ -7,6 +7,30 @@ var async = require('async');
 var client = new cassandra.Client({contactPoints: ['10.189.242.3:9042'], keyspace: 'cmpe295behr'});
 
 
+//Connect to MySQL
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host : 'localhost',
+	user : 'root',
+	//password : '',
+	password : 'pass',
+	port : '3306',
+	database : '295Visualization'
+});
+
+
+//Region Map
+
+exports.getRegionMapData = function(callback){
+	var query = 'select avg(basicEHR) value , LOWER(regionCode) code  from adoptionpctv2 where regionCode<>"US" and regionCode<>"PR" and regionCode<>"WI" group by regionCode;';
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+	});			
+}
+
+
+//
+
 //Routes
 exports.getPatientDetails = function (callback) {
 	var query = "select * from system.schema_keyspaces";

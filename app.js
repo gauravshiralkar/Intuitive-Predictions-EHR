@@ -44,17 +44,11 @@ app.get('/getRegionMapData', routes.getRegionMapData);
 app.get('/showAcceptRejectMap', routes.showAcceptRejectMap);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 
+
+
+
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
-app.get('/getBarChart', routes.getBarChart);
-app.get('/getBar/:strUser', routes.getBar);
-app.get('/calcInsu/:strUser', routes.calcInsu);
-app.get('/about', routes.about);
-app.get('/contact', routes.contact);
-app.get('/search', routes.search);
-app.get('/getScoreVizChart', routes.getScoreVizChart);
-app.get('/getScoreVizData', routes.getScoreVizData); 
-
 app.get('/showtest', function(req, res) {
 	res.render('test.ejs');
 });

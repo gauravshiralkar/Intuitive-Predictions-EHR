@@ -3,23 +3,21 @@
 var cassandra = require('cassandra-driver');
 var async = require('async');
 
-//Connect to the cluster
+//Connect to the cassandra cluster
 var client = new cassandra.Client({contactPoints: ['10.189.242.3:9042'], keyspace: 'cmpe295behr'});
 
 
 //Connect to MySQL
 var mysql = require('mysql');
-
-
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
 	password : 'pass',
-	port : '3306',
-	database : 'cmpe295ehr'
+	port : '3306'
 });
 
+//------------------------------MySQL Routes-----------------------------------
 
 //Region Map
 
@@ -35,7 +33,7 @@ exports.getRegionMapData = function(callback){
 //
 
 exports.getAcceptRejectData = function(callback){
-	
+	connection.query('use cmpe295ehr;');
 	var query = "select case \
 		   when (year(now())-year(dob))>=0 and (year(now())-year(dob))<=4 then '0-4' \
 		   when (year(now())-year(dob))>=5 and (year(now())-year(dob))<=9 then '5-9' \
@@ -65,7 +63,10 @@ exports.getAcceptRejectData = function(callback){
 	});			
 }
 
-//Routes
+//--------------------End of MySQL Routes--------------------------
+
+//------------------------------Cassandra Routes-----------------------------------
+
 exports.getPatientDetails = function (callback) {
 	var query = "select * from system.schema_keyspaces";
     client.execute(query, function (err, result) {
@@ -103,3 +104,4 @@ exports.getPatientAddress = function (callback) {
     });
 }
 
+//--------------------End of Cassandra Routes--------------------------

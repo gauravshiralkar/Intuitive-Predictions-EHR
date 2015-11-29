@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> eefe521... New branch created for final running project
 
@@ -138,10 +139,13 @@ exports.getBubble= function(req, res){
 /*
  * GET home page.
  */
+=======
+>>>>>>> b912e15... Route Fixes
 
 var dbConn = require('../model/dbConnection');
 
 exports.index = function(req, res){
+<<<<<<< HEAD
   res.render('index');
 <<<<<<< HEAD
 };
@@ -299,6 +303,9 @@ exports.getScoreVizData = function(req, res){
 >>>>>>> e9be4b1... Delete Unwanted
 =======
   //res.render('test');
+=======
+	res.render('index');
+>>>>>>> b912e15... Route Fixes
 };
 
 exports.showTemplate= function (req,res){
@@ -307,9 +314,8 @@ exports.showTemplate= function (req,res){
 };
 	
 exports.test = function(req, res){
-	  //res.render('index');
-	  res.render('testme');
-	};
+	res.render('testme');
+};
 
 // Region Map	
 
@@ -321,8 +327,7 @@ exports.getRegionMapData = function(req, res){
 	dbConn.getRegionMapData(function(err,rows){
 		console.log("index.js "+rows);
 		res.send(rows);
-	});	
-		  
+	});			  
 };
 
 //
@@ -334,8 +339,7 @@ exports.getAcceptRejectData = function(req, res){
 	dbConn.getAcceptRejectData(function(err,rows){
 		console.log("index.js "+rows);
 		res.send(rows);
-	});	
-		  
+	});			  
 };
 
 exports.getPatientDetails = function(req, res){

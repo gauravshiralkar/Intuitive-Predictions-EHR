@@ -371,6 +371,14 @@ exports.getPatientAddress = function(req, res){
 	  
 };
 
+exports.getPieData = function(req, res){
+	console.log("inside index");
+	dbConn.getPieData(function(err,rows){
+		//console.log(rows[0]);
+		res.send(rows);
+	},req.params.rCode);			  
+};
+
 exports.typeAhead= function(req,res){
 	dbConn.typeAhead(function(err,rows){
 		//console.log('Search key= '+req.query.key);

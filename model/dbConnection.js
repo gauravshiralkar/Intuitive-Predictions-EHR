@@ -32,6 +32,23 @@ exports.getRegionMapData = function(callback){
 
 //
 
+
+
+//pie combination chart Data
+
+exports.getPieData = function(callback,rCode){
+	//console.log(rCode);
+	console.log('inside dbconn');
+	connection.query('use 295Visualization;');
+	var query = 'select basicEHR, (primaryCareBasicEHR)*10 primaryCare, (ruralBasicEHR)*10 rural, (smallPracticeBasicEHR)*10 smallPractice ,period, regionCode, region, AdoptionPctId from adoptionpctv2 where regionCode="'+rCode+'";';
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
+
+//
+
 exports.getAcceptRejectData = function(callback){
 	connection.query('use cmpe295ehr;');
 	var query = "select case \

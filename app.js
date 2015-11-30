@@ -37,6 +37,11 @@ app.get('/patientaddress', routes.getPatientAddress);
 
 //dashboard
 app.get('/dashboard', routes.showDashboard);
+//
+
+//pie combination chart
+app.get('/getPieData/:rCode', routes.getPieData);
+//
 
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);

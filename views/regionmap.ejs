@@ -2,7 +2,8 @@
 <html lang="en">
 
 <% include template %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/maps/modules/map.js"></script>
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
@@ -19,7 +20,7 @@ $(function () {
     //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
 	  $.get('/getRegionMapData', function (data) {
 
-		  alert(data);	  
+		  alert(data[0].code);	  
         /* Make codes uppercase to match the map data
         $.each(data, function () {
             this.code = this.code.toUpperCase();
@@ -65,10 +66,10 @@ $(function () {
             	 series: {
                      cursor: 'pointer',
                      events: {
-                         click: function () {
-                             alert(this.name );
+                         click: function (e) {
+                             //alert(e.point.code);
 							
-                             drawPieChart();
+                             drawPieChart(e.point.code);
                          }
 
                         
@@ -101,18 +102,30 @@ $(function () {
     
 }
 <!--PieChart -->
-function drawPieChart(){
+function drawPieChart(rCode){
 $(function () {
+	 $.get('/getPieData/'+rCode, function (data) {
+    
+    var avg3 = (data[3].primaryCare+data[3].rural+data[3].smallPractice)/3;
+    var avg2 = (data[2].primaryCare+data[2].rural+data[2].smallPractice)/3;
+    var avg1 = (data[1].primaryCare+data[1].rural+data[1].smallPractice)/3;
+    var avg0 = (data[0].primaryCare+data[0].rural+data[0].smallPractice)/3;  
+
+    var pAvg = (data[3].primaryCare+data[2].primaryCare+data[1].primaryCare+data[0].primaryCare)/4;
+    var rAvg = (data[3].rural+data[2].rural+data[1].rural+data[0].rural)/4;
+    var sAvg = (data[3].smallPractice+data[2].smallPractice+data[1].smallPractice+data[0].smallPractice)/4;
+    
+     
     $('#container').highcharts({
         title: {
-            text: 'Combination chart'
+            text: 'Combination chart to depict yearly adoption of EHR in '+data[0].region
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+            categories: ['2010', '2011', '2012','2013']
         },
         labels: {
             items: [{
-                html: 'Total fruit consumption',
+                html: 'Yearly EHR Adoption',
                 style: {
                     left: '50px',
                     top: '18px',
@@ -122,20 +135,20 @@ $(function () {
         },
         series: [{
             type: 'column',
-            name: 'Jane',
-            data: [3, 2, 1, 3, 4]
+            name: 'Primary Care',
+            data: [data[3].primaryCare, data[2].primaryCare, data[1].primaryCare, data[0].primaryCare]
         }, {
             type: 'column',
-            name: 'John',
-            data: [2, 3, 5, 7, 6]
+            name: 'Rural',
+            data: [data[3].rural, data[2].rural, data[1].rural, data[0].rural]
         }, {
             type: 'column',
-            name: 'Joe',
-            data: [4, 3, 3, 9, 0]
+            name: 'Small Practices',
+            data: [data[3].smallPractice,data[2].smallPractice, data[1].smallPractice,data[0].smallPractice]
         }, {
             type: 'spline',
             name: 'Average',
-            data: [3, 2.67, 3, 6.33, 3.33],
+            data: [avg3, avg2, avg1, avg0],
             marker: {
                 lineWidth: 2,
                 lineColor: Highcharts.getOptions().colors[3],
@@ -143,18 +156,18 @@ $(function () {
             }
         }, {
             type: 'pie',
-            name: 'Total consumption',
+            name: 'Average Adoption',
             data: [{
-                name: 'Jane',
-                y: 13,
+                name: 'Primary Care',
+                y: pAvg,
                 color: Highcharts.getOptions().colors[0] // Jane's color
             }, {
-                name: 'John',
-                y: 23,
+                name: 'Rural',
+                y: rAvg,
                 color: Highcharts.getOptions().colors[1] // John's color
             }, {
-                name: 'Joe',
-                y: 19,
+                name: 'Small Practices',
+                y: sAvg,
                 color: Highcharts.getOptions().colors[2] // Joe's color
             }],
             center: [100, 80],
@@ -165,6 +178,7 @@ $(function () {
             }
         }]
     });
+});
 });
 
 }
@@ -177,9 +191,13 @@ $(function () {
 
 <body onload="showGraph()">
 
-<div id="box" style= "height: 80%">
-<div id="container" style=" position: relative; height: 100%"></div>
-</div>
+	<nav class="cl-effect-2">
+		<a href="/showRegionMap" style="width:20%"><span data-hover="Go Back">Go Back</span></a>
+	</nav>
+	
+	<div id="box" style="height: 80%">
+		<div id="container" style="position: relative; height: 100%"></div>
+	</div>
 
 </body>
 

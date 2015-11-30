@@ -62,6 +62,29 @@ COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected 
 	});			
 }
 
+exports.typeAhead = function(callback,field,table,q) {
+	connection.query('use cmpe295ehr;');
+	console.log('Search key= '+q);
+	connection.query('select '+field+' as first from '+table+' where '+field+' like "%'+q+'%"', 
+	function(err, rows) {
+		//console.log(rows);
+		//console.log(field);
+		var t="rows[i]."+field+"";
+		//console.log(field);
+		var data=[];
+	    for(i=0;i<rows.length;i++)
+	      {
+	        data.push('"'+rows[i].first+'"');
+	      }
+	    
+	    //console.log('Data= '+data);
+	    //console.log('Rows from dbconn= '+rows);
+	    rows=data;
+	    	callback(err, rows);
+	});
+};
+
+
 //--------------------End of MySQL Routes--------------------------
 
 //------------------------------Cassandra Routes-----------------------------------

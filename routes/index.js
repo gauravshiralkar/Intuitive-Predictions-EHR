@@ -370,6 +370,15 @@ exports.getPatientAddress = function(req, res){
 	});	
 	  
 };
+
+exports.typeAhead= function(req,res){
+	dbConn.typeAhead(function(err,rows){
+		//console.log('Search key= '+req.query.key);
+		//console.log('Rows from index= '+JSON.stringify(rows));
+		 res.send('['+rows+']');
+		 //res.send(rows);
+	},req.params.field,req.params.table,req.query.key);
+};
 /*
 
 exports.getScatter1 = function(req,res){

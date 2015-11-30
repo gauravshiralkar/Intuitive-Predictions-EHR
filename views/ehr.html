@@ -15,6 +15,19 @@ td {
 }
 
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#f1').typeahead({
+    	valueKey: 'name',
+        name: 'typeahead',
+        remote: 'http://localhost:3000/typeAhead/patientAddressStreet/patientaddress?key=%QUERY',
+        limit: 10 
+    });
+});
+
+
+</script>
 </head>
 <title>EHR Form</title>
 
@@ -32,7 +45,7 @@ td {
 
 		<tr class="spaceUnder">
 			<td ><font color= "white">Name</font></td>
-			<td align="left"><input type="text" name="empid" value="" /></td>
+			<td align="left"><input id="f1" type="text" name="empid" class="typeahead tt-query" value="" /></td>
 			<td ><font color= "white">DOB</font></td>
 			<td align="left"><input type="date" name="dob"></td>
 
@@ -48,7 +61,7 @@ td {
 		<tr class="spaceUnder">
 			
 			<td ><font color= "white">Street name</font></td>
-			<td align="left"><input type="text" name="empid" value="" /></td>
+			<td align="left"><input type="text" name="street" class="typeahead tt-query" value="" /></td>
 			<td ><font color= "white">House/Apt No.</font></td>
 			<td align="left"><input type="date" name="dob"></td>
 			

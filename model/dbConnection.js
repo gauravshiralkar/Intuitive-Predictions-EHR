@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
-	password : 'pass',
+	password : '',
+	//password : 'pass',
 	port : '3306'
 });
 
@@ -31,7 +31,20 @@ exports.getRegionMapData = function(callback){
 
 
 //
+//line chart
 
+exports.getLineData = function(callback){
+	//console.log(rCode);
+	console.log('inside dbconn');
+	connection.query('use 295Visualization;');
+	var query = 'select pct_md_pa_np_mu_aiu p, pct_md_pa_np_mu q, region, region_code from v3 group by region;';
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
+
+//
 
 
 //pie combination chart Data

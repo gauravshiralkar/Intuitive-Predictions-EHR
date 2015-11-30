@@ -348,6 +348,10 @@ exports.showAcceptRejectMap = function(req, res){
 	res.render('acceptreject');
 };
 
+exports.showLineChart = function(req, res){
+	res.render('linechart.ejs');
+};
+
 exports.getAcceptRejectData = function(req, res){
 	dbConn.getAcceptRejectData(function(err,rows){
 		console.log("index.js "+rows);
@@ -369,6 +373,14 @@ exports.getPatientAddress = function(req, res){
 		 res.send(rows);
 	});	
 	  
+};
+
+exports.getLineData = function(req, res){
+	console.log("inside index");
+	dbConn.getLineData(function(err,rows){
+		//console.log(rows[0]);
+		res.send(rows);
+	});			  
 };
 
 exports.getPieData = function(req, res){

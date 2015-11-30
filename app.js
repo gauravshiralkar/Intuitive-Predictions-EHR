@@ -43,6 +43,12 @@ app.get('/dashboard', routes.showDashboard);
 app.get('/getPieData/:rCode', routes.getPieData);
 //
 
+//line Chart
+app.get('/showLineChart', routes.showLineChart);
+app.get('/getLineData', routes.getLineData);
+
+//
+
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);
 app.get('/getRegionMapData', routes.getRegionMapData);

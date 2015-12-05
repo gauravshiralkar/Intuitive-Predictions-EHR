@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<% include template %>
-<script>
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/maps/modules/map.js"></script>
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
@@ -190,13 +188,21 @@ $(function () {
 
 <body onload="showGraph()">
 
-<section class="page-section "  style="background-image:url('../images/background.jpg'); min-height:100%; position: absolute">
-	
-	<br><br>
-	
-		<div id="container" style="position: relative; height:50%; align: center;border:0px ; "></div>
+<% include header %>
+<br><br><br><br>
+<div class="container">
 
-</section>
+<div id="container" style="position: relative; align: center;border:0px ; "></div>
+
+</div>	
+<br><br>
+<% include footer %>
+	
+	
+	
+		
+
+
 </body>
 
 

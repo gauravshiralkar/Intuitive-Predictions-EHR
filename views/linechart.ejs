@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<% include template %>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
 <script>
 function showGraph(){
 	 $.get('/getLineData', function (data) {
@@ -16,10 +13,7 @@ $(function () {
             type: 'line'
         },
         title: {
-            text: 'Percentage of Physicians, Physician Assistants, and Nurse Practitioners that have Demonstrated Meaningful Use of CEHRT and or AIU any EHR'
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: 'Percentage of Physicians, Physician Assistants, and Nurse Practitioners that have Demonstrated <br> Meaningful Use of CEHRT and or AIU any EHR'
         },
         
         xAxis: {
@@ -31,7 +25,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Percentage (%)'
             }
         },
         plotOptions: {
@@ -57,10 +51,14 @@ $(function () {
 }
 </script>
 
-
-
 <body onload="showGraph()">
+<% include header %>
+<br><br><br><br>
+<div class="container">
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>	
+<br><br><br>
+<% include footer %>
 
 </html>

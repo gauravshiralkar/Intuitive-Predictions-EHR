@@ -322,6 +322,7 @@ exports.showTemplate= function (req,res){
 	
 	res.render('template.ejs');
 };
+
 exports.showEHR= function (req,res){
 	
 	res.render('ehr.html');

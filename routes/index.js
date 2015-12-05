@@ -310,8 +310,12 @@ exports.getScoreVizData = function(req, res){
 =======
 exports.index = function(req, res){7
 	//res.render('index');
+<<<<<<< HEAD
 	res.render('index-Copy');
 >>>>>>> dd6ab00... Template from Scratch
+=======
+	res.render('index');
+>>>>>>> 0e49818... Super Clean UI
 };
 
 exports.showTemplate= function (req,res){
@@ -332,7 +336,8 @@ exports.showAboutUs = function(req, res){
 };
 
 exports.showDashboard = function(req, res){
-	res.render('newdashboard.ejs');
+	//res.render('newdashboard.ejs');
+	res.render('dashboard.ejs');
 };
 
 exports.callPieChart= function(req, res)

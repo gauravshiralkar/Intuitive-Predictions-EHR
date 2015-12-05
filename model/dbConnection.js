@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 	password : 'pass',
 	port : '3306'
 });
-
+connection.connect();
 //------------------------------MySQL Routes-----------------------------------
 
 //Region Map
@@ -113,7 +113,6 @@ exports.typeAhead = function(callback,field,table,q) {
 	    	callback(err, rows);
 	});
 };
-
 
 //--------------------End of MySQL Routes--------------------------
 

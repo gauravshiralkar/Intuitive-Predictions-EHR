@@ -49,6 +49,10 @@ app.get('/getLineData', routes.getLineData);
 
 //
 
+//about us
+app.get('/aboutus', routes.showAboutUs);
+//
+
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);
 app.get('/getRegionMapData', routes.getRegionMapData);

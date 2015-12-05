@@ -321,8 +321,12 @@ exports.test = function(req, res){
 	res.render('testme');
 };
 
+exports.showAboutUs = function(req, res){
+	res.render('aboutus.ejs');
+};
+
 exports.showDashboard = function(req, res){
-	res.render('dashboard.ejs');
+	res.render('newdashboard.ejs');
 };
 
 exports.callPieChart= function(req, res)

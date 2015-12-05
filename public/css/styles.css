@@ -208,7 +208,7 @@ a:hover {
 	-o-transition: all 0.3s linear;
 }
 .navbar-inverse {
-	background: transparent;
+	background-color: #005f8d;
 }
 .navbar-inverse .navbar-toggle {
 	background-color: #005f8d;
@@ -234,7 +234,7 @@ a:hover {
 	color: #fff !important;
 }
 .hero-text {
-	color: #000;
+	color: #ffffcc;
 	width: 83%;
 	text-align: center;
 	margin: 40% auto 24px auto;
@@ -264,7 +264,7 @@ a:hover {
 	padding: 10px 15px;
 	background: rgba(128, 180, 33, 0.80);
 	color: #FFFFFF;
-	text-shadow: none;
+	text-shadow: -1px -1px 0px;
 	font-weight: bold;
 	display: inline-block;
 }
@@ -315,7 +315,7 @@ a:hover {
 }
 .logo {
 	font-size: 2.2em;
-	text-shadow: none;
+	text-shadow: -1px -1px 0px
 	margin: 8px 0 0 0;
 }
 .logo:hover {
@@ -709,7 +709,7 @@ img, video, iframe, embed, object {
 	text-transform: uppercase;
 }
 #portfolio .filters li a, #portfolio .filters li a:hover, #portfolio .filters li a:focus {
-	color: #FF9393
+	color: #ffffcc
 }
 #portfolio .filters li a.active {
 	color: #fff

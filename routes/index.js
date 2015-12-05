@@ -358,6 +358,18 @@ exports.getRegionMapData = function(req, res){
 	});			  
 };
 
+exports.showStackedChart = function(req, res){
+	res.render('stacked.ejs');
+};
+
+
+exports.getStackedData = function(req, res){
+	dbConn.getStackedData(function(err,rows){
+		
+		res.send(rows);
+	});			  
+};
+
 //
 exports.showAcceptRejectMap = function(req, res){
 	res.render('acceptreject');

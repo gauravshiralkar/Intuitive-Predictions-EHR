@@ -45,7 +45,19 @@ exports.getLineData = function(callback){
 }
 
 //
+//stacked chart
+exports.getStackedData = function(callback){
+	//console.log(rCode);
+	//console.log('inside dbconn');
+	connection.query('use 295Visualization;');
+	var query = 'select period year, pctHospitalsBasicEHR WithNotes , pctHospitalBasicEHRNoNotes WithoutNotes from v1 group by period;';
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
 
+//
 
 //pie combination chart Data
 

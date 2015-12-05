@@ -38,6 +38,10 @@ app.get('/patientaddress', routes.getPatientAddress);
 //dashboard
 app.get('/dashboard', routes.showDashboard);
 //
+// stackedPie
+app.get('/showStackedChart', routes.showStackedChart);
+app.get('/getStackedData', routes.getStackedData);
+//
 
 //pie combination chart
 app.get('/getPieData/:rCode', routes.getPieData);

@@ -84,7 +84,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn, .form-control, .team-socials i {
 	border-radius: 5px !important;
-	position:fixed;
 }
 .form-group {
 	margin: 0 auto;
@@ -208,7 +207,7 @@ a:hover {
 	-o-transition: all 0.3s linear;
 }
 .navbar-inverse {
-	background-color: #005f8d;
+	background: transparent;
 }
 .navbar-inverse .navbar-toggle {
 	background-color: #005f8d;
@@ -234,7 +233,7 @@ a:hover {
 	color: #fff !important;
 }
 .hero-text {
-	color: #ffffcc;
+	color: #000;
 	width: 83%;
 	text-align: center;
 	margin: 40% auto 24px auto;
@@ -264,7 +263,7 @@ a:hover {
 	padding: 10px 15px;
 	background: rgba(128, 180, 33, 0.80);
 	color: #FFFFFF;
-	text-shadow: -1px -1px 0px;
+	text-shadow: none;
 	font-weight: bold;
 	display: inline-block;
 }
@@ -315,7 +314,7 @@ a:hover {
 }
 .logo {
 	font-size: 2.2em;
-	text-shadow: -1px -1px 0px
+	text-shadow: none;
 	margin: 8px 0 0 0;
 }
 .logo:hover {
@@ -643,8 +642,6 @@ img, video, iframe, embed, object {
 	margin: 2px;
 }
 #contactUs {
-	position: absolute;
-	bottom: 0;
 /*background: #005f8d;*/;
 }
 #contactUs .btn {
@@ -661,11 +658,9 @@ img, video, iframe, embed, object {
 	padding-top: 5px;
 }
 .team-socials {
-	position: fixed;
 	margin: 15px 0;
 	opacity: 0;
 	text-align: center;
-	bottom: 15px;
 }
 .team-member:hover .team-socials {
 	opacity: 1;
@@ -709,7 +704,7 @@ img, video, iframe, embed, object {
 	text-transform: uppercase;
 }
 #portfolio .filters li a, #portfolio .filters li a:hover, #portfolio .filters li a:focus {
-	color: #ffffcc
+	color: #FF9393
 }
 #portfolio .filters li a.active {
 	color: #fff
@@ -853,19 +848,13 @@ body {
 }
 .socialIcons li {
 	list-style: none;
+	display: inline;
 	margin-right: 6px;
 }
 footer {
 	border-top: 1px solid #e5e5e5;
 	padding: 45px 0;
 	background: #fff;
-
-	position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 69px;
-	
-	
 }
 .social a:hover {
 	color: #000;

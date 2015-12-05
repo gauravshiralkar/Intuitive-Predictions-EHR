@@ -144,6 +144,7 @@ exports.getBubble= function(req, res){
 
 var dbConn = require('../model/dbConnection');
 
+<<<<<<< HEAD
 exports.index = function(req, res){
 <<<<<<< HEAD
   res.render('index');
@@ -306,6 +307,11 @@ exports.getScoreVizData = function(req, res){
 =======
 	res.render('index');
 >>>>>>> b912e15... Route Fixes
+=======
+exports.index = function(req, res){7
+	//res.render('index');
+	res.render('index-Copy');
+>>>>>>> dd6ab00... Template from Scratch
 };
 
 exports.showTemplate= function (req,res){

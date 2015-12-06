@@ -328,8 +328,8 @@ exports.showEHR= function (req,res){
 	res.render('ehr-dwr.html');
 };
 	
-exports.test = function(req, res){
-	res.render('testme');
+exports.testme = function(req, res){
+	res.render('notifytest.ejs');
 };
 
 exports.showAboutUs = function(req, res){

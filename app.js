@@ -75,6 +75,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 app.get('/test', routes.getPatientDetails);
+app.get('/testme', routes.testme);
 
 app.get('/patientaddress', routes.getPatientAddress);
 

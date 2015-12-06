@@ -119,7 +119,6 @@ app.get('/callPieChart/state', routes.callPieChart);
 
 app.get('/typeAhead/:field/:table', routes.typeAhead);
 
-
 /*
 app.get('/getScatter1/:strUsr', routes.getScatter1);
 app.get('/showtest', function(req, res) {

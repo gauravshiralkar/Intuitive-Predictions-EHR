@@ -47,6 +47,11 @@
 
 
 </style>
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet">  -->
+<link href="css/typeahead.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/typeahead.min.js"></script>
+<script src="data/gaurav-typeahead.js"></script>
 </head>
 
 <body>
@@ -86,7 +91,7 @@ Sponser's SSN
     <tr>
       <td width="32%"><h5> 4.PATIENT'S NAME(Last Name, First Name, MI)</h5>
         <h5>
-          <input type="text" name="textfield6" id="textfield6" size="65" placeholder="Full Name">
+          <input id="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>5.DATE OF BIRTH</h5>
@@ -110,12 +115,12 @@ Female </p>
    <tr>
       <td width="32%"><h5> 7.ADDRESS</h5>
         <h5>
-          <input type="text" name="textfield6" id="textfield6" size="65" placeholder="Street/Apt #">
+          <input  id="paddress" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Street/Apt #">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>8.CITY</h5>
        <h5>
-         <input type="dob" name="textfield2" id="textfield2" size="45" placeholder="City">
+         <input id="pcity" class="typeahead tt-query" type="dob" name="textfield2" size="45" placeholder="City">
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>9.STATE</h5>
@@ -181,7 +186,7 @@ Female </p>
         
       </h5>
         <h5>
-          <input type="text" name="textfield4" id="textfield4" placeholder="Zip Code">
+          <input id="pzip" class="typeahead tt-query" type="text" name="textfield4" placeholder="Zip Code">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>11.TELEPHONE</h5>
@@ -246,5 +251,6 @@ Female </p>
 <center><a href="#" class="myButton">Submit</a></center>
 <hr width=150% color="#63b8ee">
 </div>
+<script src="data/gaurav-typeahead.js"></script>
 </body>
 </html>

@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
-	//password : 'pass',
+	//password : '',
+	password : 'pass',
 	port : '3306'
 });
 connection.connect();
@@ -149,7 +149,8 @@ COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected 
 exports.typeAhead = function(callback,field,table,q) {
 	connection.query('use cmpe295ehr;');
 	console.log('Search key= '+q);
-	connection.query('select '+field+' as first from '+table+' where '+field+' like "%'+q+'%"', 
+	console.log('select '+field+' as first from '+table+' where '+field+' like "%'+q+'%";');
+	connection.query('select '+field+' as first from '+table+' where '+field+' like "%'+q+'%";', 
 	function(err, rows) {
 		//console.log(rows);
 		//console.log(field);

@@ -510,6 +510,21 @@ exports.getRegionMapData = function(req, res){
 	});			  
 };
 
+
+//Tree map
+exports.showTree = function(req, res){
+	res.render('treemap.ejs');
+};
+
+exports.getTree = function(req, res){
+	console.log("inside index");
+	dbConn.getTree(function(err,rows){
+		console.log(rows);
+		res.send(rows);
+	});			  
+};
+//
+
 exports.getMapData = function(req, res){
 	console.log("inside index");
 	dbConn.getMapData(function(err,rows){

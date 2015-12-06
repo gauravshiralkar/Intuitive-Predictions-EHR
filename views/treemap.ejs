@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+#container {
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+</style>
+
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/treemap.js"></script>
+
+<script type="text/javascript">
+
+function showGraph(){
+	
+
+	    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
+		  $.get('/getTree', function (data) {
+
+
+			  $(function () {
+				    $('#container').highcharts({
+				        colorAxis: {
+				            minColor: '#d6f5f5',
+				            maxColor: Highcharts.getOptions().colors[7]
+				        },
+				        series: [{
+				            type: 'treemap',
+				            layoutAlgorithm: 'squarified',
+				            data: [{
+				                name: data[2].shortDescription,
+				                value: data[2].count,
+				                colorValue: 6
+				         
+				            }, {
+				            	 name: data[3].shortDescription,
+					             value: data[3].count,
+					             colorValue: 5
+				          
+				            }, {
+				            	name: data[0].shortDescription,
+					            value: data[0].count,
+					            colorValue: 4
+				             
+				            }, {
+				            	name: data[1].shortDescription,
+					            value: data[1].count,
+					            colorValue: 3
+				               
+				            }, {
+				            	name: data[4].shortDescription,
+					            value: data[4].count,
+					            colorValue: 2
+				           
+				            }]
+				        }],
+				        title: {
+				            text: 'Tree Map displaying types of ailments'
+				        }
+				    });
+				});
+
+
+
+
+		  });
+	
+	
+	}	  
+
+</script>
+
+<body onload="showGraph()">
+
+	<% include header %>
+<br><br><br><br>
+	<div id="container"></div>
+<br><br>
+	<% include footer %>
+</body>
+</html>

@@ -72,6 +72,17 @@ exports.getMapData = function(callback,q){
 }
 
 //
+//Tree Map
+
+exports.getTree = function(callback){
+	console.log('inside dbconn');
+	connection.query('use cmpe295B;');
+	var query =  "select 'spine' as shortDescription, count(*) count  from diagnosisCodes where shortDescription like '%spine%' union all select 'chest' , count(*) from diagnosisCodes where shortDescription like '%chest%' union all select 'Body Pain' , count(*) from diagnosisCodes where shortDescription like '%pain%' union all select 'dental' , count(*) from diagnosisCodes where shortDescription like '%dental%' union all select 'Abdominal' , count(*) from diagnosisCodes where shortDescription like '%Abdominal%';";
+	connection.query(query, function(err, rows) {	
+		console.log(rows)
+			callback(err, rows);
+	});			
+}
 
 //line chart
 

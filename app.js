@@ -114,6 +114,13 @@ app.get('/getPie',routes.getPie);
 app.get('/aboutus', routes.showAboutUs);
 //
 
+//tree map
+
+app.get('/showTree', routes.showTree);
+app.get('/getTree', routes.getTree);
+
+//
+
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);
 app.get('/getRegionMapData', routes.getRegionMapData);

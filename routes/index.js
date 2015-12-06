@@ -325,7 +325,7 @@ exports.showTemplate= function (req,res){
 
 exports.showEHR= function (req,res){
 	
-	res.render('ehr.html');
+	res.render('ehr-dwr.html');
 };
 	
 exports.test = function(req, res){

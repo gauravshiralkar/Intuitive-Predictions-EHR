@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ehr2</title>
+<style type="text/css">
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf));
+	background:-moz-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+	background:-webkit-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+	background:-o-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+	background:-ms-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf',GradientType=0);
+	background-color:#63b8ee;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #3866a3;
+	display:inline-block;
+	cursor:pointer;
+	color:#14396a;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #7cacde;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee));
+	background:-moz-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+	background:-webkit-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+	background:-o-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+	background:-ms-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+	background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee',GradientType=0);
+	background-color:#468ccf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+</style>
+</head>
+
+<body>
+<br><br>
+<div class="container">
+<hr width=150% color="63b8ee">
+<h3 align="center"> Intuitive Electronic Health Record Form</h3>
+<table width="90%" border="1" align="center">
+  <tbody >
+    <tr>
+      <td width="32%"><h5> 1. MEDICARE  &nbsp; &nbsp; MEDICAID &nbsp; &nbsp;TRICARE </h5>
+        <h5>
+          <input type="checkbox" name="checkbox" id="checkbox">
+        (Medicare#)
+        <input type="checkbox" name="checkbox2" id="checkbox2">
+(medicaid#)&nbsp;
+<input type="checkbox" name="checkbox3" id="checkbox3">
+Sponser's SSN
+
+<label for="checkbox2"></label>
+&nbsp;
+<label for="checkbox2"></label>
+<label for="checkbox3"></label>
+        </h5>
+      <p>&nbsp;</p></td>
+     <td width="22%"><h5>2.INSURANCE ID</h5>
+       <h5>
+         <input type="text" name="textfield10" id="textfield10" placeholder="Insurance ID" >
+       </h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>3. INSURANCE PROVIDER NAME</h5>
+        <p>
+          <input name="textfield" type="text" required id="textfield" size="45" placeholder="Provider Name">
+        </p>
+      <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="32%"><h5> 4.PATIENT'S NAME(Last Name, First Name, MI)</h5>
+        <h5>
+          <input type="text" name="textfield6" id="textfield6" size="65" placeholder="Full Name">
+        </h5>
+      <p>&nbsp;</p></td>
+     <td><h5>5.DATE OF BIRTH</h5>
+       <h5>
+         <input type="date" name="textfield2" id="textfield2" size="45" placeholder="date of birth">
+       </h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>6.GENDER</h5>
+        <p>
+          <input type = "checkbox"
+                 id = "m1"
+                 />
+Male
+<input type = "checkbox"
+                 id = "m2"
+                 />
+Female </p>
+      <p>&nbsp;</p></td>
+    </tr>
+        
+   <tr>
+      <td width="32%"><h5> 7.ADDRESS</h5>
+        <h5>
+          <input type="text" name="textfield6" id="textfield6" size="65" placeholder="Street/Apt #">
+        </h5>
+      <p>&nbsp;</p></td>
+     <td><h5>8.CITY</h5>
+       <h5>
+         <input type="dob" name="textfield2" id="textfield2" size="45" placeholder="City">
+       </h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>9.STATE</h5>
+        <p>
+          <select name="select">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </p>
+      <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="32%"><h5> 10.ZIP CODE
+        
+      </h5>
+        <h5>
+          <input type="text" name="textfield4" id="textfield4" placeholder="Zip Code">
+        </h5>
+      <p>&nbsp;</p></td>
+     <td><h5>11.TELEPHONE</h5>
+       <h5>
+         <input type="tel" name="textfield10" id="textfield10" placeholder="(___)-(___)-(____)" >
+       </h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>12. INSURANCE PLAN</h5>
+        <p>
+          <select name="select2">
+            <option value="AL">Gold</option>
+            <option value="AK">Silver</option>
+            <option value="AZ">Bronze</option>
+           
+            
+          </select>
+        </p>
+      <p>&nbsp;</p></td>
+    </tr>
+      <td width="32%"><h5> 13.FILING DATE
+            <input type="date" name="textfield8" id="textfield8">
+      </h5>
+          <h5>&nbsp;</h5>
+        <h5>&nbsp;</h5>
+      <p>&nbsp;</p></td>
+     <td><h5>14.INSURACE EXPIRY
+       <input type="date" name="textfield12" id="textfield12" >
+     </h5>
+       <h5>&nbsp;</h5>
+       <h5>&nbsp;</h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>15.PATIENT STATUS </h5>
+        <h5>
+          <input type="checkbox" name="checkbox8" id="checkbox8">
+          Single
+  <input type="checkbox" name="checkbox9" id="checkbox9">
+          Married
+  <input type="checkbox" name="checkbox11" id="checkbox11">
+          Other </h5>
+        <h5> &nbsp;
+          <input type="checkbox" name="checkbox4" id="checkbox4">
+          Employed
+  <input type="checkbox" name="checkbox9" id="checkbox9">
+          Full Time Student </h5>
+      <p>&nbsp;</p></td>
+      <TR>
+     <td width="32%"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
+         <input type="text" name="textfield9" id="textfield9" placeholder="Employer/School Name">
+     </h5>
+      <p>&nbsp;</p></td>
+     <td><h5>17.TREATMENT CODE
+         <input type="Ddate" name="textfield15" id="textfield15" placeholder="Treatment Code">
+     </h5>
+      <p>&nbsp;</p></td>
+      <td width="46%"><h5>18.DIAGNOSIS CODE
+          <input type="text" name="textfield11" id="textfield11" placeholder="Diagnosis Code">
+      </h5>
+      <p>&nbsp;</p></td> 
+      </TR>
+  </tbody>
+</table>
+<center><a href="#" class="myButton">Submit</a></center>
+<hr width=150% color="#63b8ee">
+</div>
+</body>
+</html>

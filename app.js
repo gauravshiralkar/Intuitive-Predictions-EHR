@@ -9,6 +9,48 @@ var express = require('express')
 
 var app = express();
 
+/*pdfjson
+var nodeUtil = require("util"),
+fs = require('fs'),
+_ = require('underscore'),
+PDFParser = require("pdf2json/pdfparser");
+
+var pdfParser = new PDFParser();
+
+pdfParser.on("pdfParser_dataReady", function (data){console.log(data)});
+
+//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
+
+var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
+
+pdfParser.loadPDF(pdfFilePath);
+//console.log(pdfParser);
+
+// or call directly with buffer
+fs.readFile(pdfFilePath, function (err, pdfBuffer) {
+if (!err) {
+pdfParser.parseBuffer(pdfBuffer);
+//console.log(pdfBuffer);
+}
+})
+*/
+
+
+/*pdf
+var pdfText = require('pdf-text');
+
+var pathToPdf = "C:/Users/Grv/Desktop/a.pdf";
+
+pdfText(pathToPdf, function(err, chunks) {
+  //chunks is an array of strings 
+  //loosely corresponding to text objects within the pdf
+
+  //for a more concrete example, view the test file in this repo
+	console.log(chunks);
+});
+*/
+
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');

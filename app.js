@@ -101,7 +101,8 @@ app.get('/getLineData', routes.getLineData);
 app.get('/getMapData/:type', routes.getMapData);
 
 //
-
+app.get('/showPie',routes.showPie);
+app.get('/getPie',routes.getPie);
 //about us
 app.get('/aboutus', routes.showAboutUs);
 //

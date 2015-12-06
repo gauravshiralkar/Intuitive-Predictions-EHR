@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> eefe521... New branch created for final running project
 
@@ -459,3 +460,184 @@ exports.getScatter1 = function(req,res){
 };
 */
 >>>>>>> 86a1744... Integrated Cassandra
+=======
+
+var dbConn = require('../model/dbConnection');
+
+exports.index = function(req, res){7
+	//res.render('index');
+	res.render('index');
+};
+
+exports.showTemplate= function (req,res){
+	
+	res.render('template.ejs');
+};
+
+exports.showEHR= function (req,res){
+	
+	res.render('ehr-dwr.html');
+};
+	
+exports.testme = function(req, res){
+	res.render('notifytest.ejs');
+};
+
+exports.showAboutUs = function(req, res){
+	res.render('aboutus.ejs');
+};
+
+exports.showDashboard = function(req, res){
+	//res.render('newdashboard.ejs');
+	res.render('dashboard.ejs');
+};
+
+exports.callPieChart= function(req, res)
+{
+	res.send("hello");
+}
+
+// Region Map	
+
+exports.showRegionMap = function(req, res){
+	res.render('regionmap.ejs');
+};	
+
+exports.getRegionMapData = function(req, res){
+	dbConn.getRegionMapData(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});			  
+};
+
+exports.getMapData = function(req, res){
+	console.log("inside index");
+	dbConn.getMapData(function(err,rows){
+		//console.log("index.js "+rows);
+		res.send(rows);
+	},req.params.type);			  
+};
+
+
+exports.showStackedChart = function(req, res){
+	res.render('stacked.ejs');
+};
+exports.showPie = function(req, res){
+	res.render('pie.ejs');
+};
+
+exports.getStackedData = function(req, res){
+	dbConn.getStackedData(function(err,rows){
+		
+		res.send(rows);
+	});			  
+};
+
+exports.getPie = function(req, res){
+	dbConn.getPie(function(err,rows){
+		
+		res.send(rows);
+	});			  
+};
+
+//
+exports.showAcceptRejectMap = function(req, res){
+	res.render('acceptreject');
+};
+
+exports.showLineChart = function(req, res){
+	res.render('linechart.ejs');
+};
+
+exports.getAcceptRejectData = function(req, res){
+	dbConn.getAcceptRejectData(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});			  
+};
+
+exports.getPatientDetails = function(req, res){
+	dbConn.getPatientDetails(function(err,rows){
+		console.log("index.js "+rows);
+		res.send(rows);
+	});	
+		  
+};
+
+exports.getPatientAddress = function(req, res){
+	dbConn.getPatientAddress(function(err,rows){
+		console.log("index.js "+rows);
+		 res.send(rows);
+	});	
+	  
+};
+
+exports.getLineData = function(req, res){
+	console.log("inside index");
+	dbConn.getLineData(function(err,rows){
+		//console.log(rows[0]);
+		res.send(rows);
+	});			  
+};
+
+exports.getPieData = function(req, res){
+	console.log("inside index");
+	dbConn.getPieData(function(err,rows){
+		//console.log(rows[0]);
+		res.send(rows);
+	},req.params.rCode);			  
+};
+
+exports.typeAhead= function(req,res){
+	dbConn.typeAhead(function(err,rows){
+		//console.log('Search key= '+req.query.key);
+		//console.log('Rows from index= '+JSON.stringify(rows));
+		console.log(req.params.field,req.params.table);
+		 res.send('['+rows+']');
+		 //res.send(rows);
+	},req.params.field,req.params.table,req.query.key);
+};
+
+/*
+
+exports.getScatter1 = function(req,res){
+	dbConn.getScatter1(function(err,rows){
+		console.log(rows);
+		console.log(req.params.strUser);
+		 res.send(rows);
+	},req.params.strUsr);
+	
+};
+*/
+//
+
+//  Prediction Logic //
+exports.bayeNetMethod = function(req,res){
+	
+//	dbConn.bayeNetMethod(function(err,rows){
+//		console.log(req.param)		
+//	});
+
+	var bayes = require('bayes');
+	var classifier = bayes();
+	
+	// teach it positive phrases
+	classifier.learn('amazing, awesome movie!! Yeah!! Oh boy.', 'positive')
+	classifier.learn('Sweet, this is incredibly, amazing, perfect, great!!', 'positive')
+
+	// teach it a negative phrase
+	classifier.learn('terrible, shitty thing. Damn. Sucks!!', 'negative')
+
+	// now ask it to categorize a document it has never seen before
+	var result = classifier.categorize('awesome, cool, amazing!! Yay.')
+	console.log(result);
+	// => 'positive'
+	res.send(result);
+
+	// serialize the classifier's state as a JSON string.
+	var stateJson = classifier.toJson()
+
+	// load the classifier back from its JSON representation.
+	var revivedClassifier = bayes.fromJson(stateJson)
+}
+>>>>>>> 89a35c8... Prediction Logic modularized 

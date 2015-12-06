@@ -51,27 +51,11 @@ pdfText(pathToPdf, function(err, chunks) {
 */
 
 //-----------------------Bayes Net Method--------------------------------------------------------------------------
-var bayes = require('bayes')
-var classifier = bayes()
-
-// teach it positive phrases
-classifier.learn('amazing, awesome movie!! Yeah!! Oh boy.', 'positive')
-classifier.learn('Sweet, this is incredibly, amazing, perfect, great!!', 'positive')
-
-// teach it a negative phrase
-classifier.learn('terrible, shitty thing. Damn. Sucks!!', 'negative')
-
-// now ask it to categorize a document it has never seen before
-var result = classifier.categorize('awesome, cool, amazing!! Yay.')
-//console.log(result);
-// => 'positive'
-
-// serialize the classifier's state as a JSON string.
-var stateJson = classifier.toJson()
-
-// load the classifier back from its JSON representation.
-var revivedClassifier = bayes.fromJson(stateJson)
+var bayes = require('bayes');
+var classifier = bayes();
+app.get('/getPrediction', routes.bayeNetMethod);
 //--------------------End Of BayeNet Method--------------------------------------------------------------------------
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);

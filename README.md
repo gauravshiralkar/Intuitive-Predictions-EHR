@@ -1,4 +1,4 @@
-CMPE-295A Project by SudoCoders
+CMPE-295B Project by SudoCoders
 ================
 
 - San Jose State University

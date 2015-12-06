@@ -359,13 +359,31 @@ exports.getRegionMapData = function(req, res){
 	});			  
 };
 
-exports.showStackedChart = function(req, res){
-	res.render('stacked.ejs');
+exports.getMapData = function(req, res){
+	console.log("inside index");
+	dbConn.getMapData(function(err,rows){
+		//console.log("index.js "+rows);
+		res.send(rows);
+	},req.params.type);			  
 };
 
 
+exports.showStackedChart = function(req, res){
+	res.render('stacked.ejs');
+};
+exports.showPie = function(req, res){
+	res.render('pie.ejs');
+};
+
 exports.getStackedData = function(req, res){
 	dbConn.getStackedData(function(err,rows){
+		
+		res.send(rows);
+	});			  
+};
+
+exports.getPie = function(req, res){
+	dbConn.getPie(function(err,rows){
 		
 		res.send(rows);
 	});			  

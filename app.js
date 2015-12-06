@@ -96,6 +96,12 @@ app.get('/getLineData', routes.getLineData);
 
 //
 
+//Map for ehr trends
+
+app.get('/getMapData/:type', routes.getMapData);
+
+//
+
 //about us
 app.get('/aboutus', routes.showAboutUs);
 //

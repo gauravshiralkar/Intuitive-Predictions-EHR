@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
-	password : 'pass',
+	password : '',
+	//password : 'pass',
 	port : '3306'
 });
 connection.connect();
@@ -30,7 +30,49 @@ exports.getRegionMapData = function(callback){
 }
 
 
+
 //
+
+//Pie chart
+
+exports.getPie = function(callback){
+	connection.query('use 295Visualization;');
+	var query = 'select avg(pctHospitalsBasicEHR) comprehensive, avg(pctRuralHospitalsBasicEHR) ruralHospitals, avg(pctSmallHospitalsBasicEHR) smallHospitals from v1 ;';
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+	});			
+}
+
+//
+
+//trends map
+
+exports.getMapData = function(callback,q){
+	connection.query('use 295Visualization;');
+	if(q=="Comprehensive")
+		{
+	var query = 'select pctHospitalsBasicEHR*10 value, regionCode code from v1 where regionCode<>"US" group by region;';
+		}
+	else if(q=="Rural Hospitals")
+	{
+		var query = 'select case \
+			when pctRuralHospitalsBasicEHR=0 then 1 \
+			else pctRuralHospitalsBasicEHR*10 \
+			end as value, \
+			regionCode code from v1 where regionCode<>"US" group by region;';
+			}
+	else if(q=="Small Hospitals")
+		{
+		var query = 'select pctSmallHospitalsBasicEHR*10 value, regionCode code from v1 where regionCode<>"US" group by region;';
+		}
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
+
+//
+
 //line chart
 
 exports.getLineData = function(callback){

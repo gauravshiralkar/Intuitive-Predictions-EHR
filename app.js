@@ -50,21 +50,6 @@ pdfText(pathToPdf, function(err, chunks) {
 });
 */
 
-//-----------------------Bayes Net Method--------------------------------------------------------------------------
-var bayes = require('bayes');
-var classifier = bayes();
-app.get('/TrainData', routes.TrainData);
-app.get('/getPrediction/:dataObj', routes.bayeNetMethod);
-app.set('dbuntrained',true);
-
-//--------------------End Of BayeNet Method--------------------------------------------------------------------------
-
-//-----------------------K Means Method----------------------------------------------------------------------------------
-var kmeans = require('node-kmeans');
-app.get('/getClusters', routes.KMeanClusters);
-
-//-----------------------K Means Method----------------------------------------------------------------------------------
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -150,6 +135,21 @@ app.get('/typeAhead/:field/:table', routes.typeAhead);
 app.get('/check/:table/:field/:val', routes.check);
 app.get('/checkTreatCode/:dcode/:tcode', routes.checkTreatCode);
 //
+
+//-----------------------Bayes Net Method--------------------------------------------------------------------------
+
+app.get('/TrainData', routes.TrainData);
+app.get('/getPrediction/:dataObj', routes.bayeNetMethod);
+app.set('dbuntrained',true);
+
+//--------------------End Of BayeNet Method--------------------------------------------------------------------------
+
+//-----------------------K Means Method----------------------------------------------------------------------------------
+
+app.get('/getClusters', routes.KMeanClusters);
+
+//-----------------------K Means Method----------------------------------------------------------------------------------
+
 
 
 

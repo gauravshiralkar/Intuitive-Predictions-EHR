@@ -13,7 +13,8 @@ var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
 	//password : '',
-	password : 'password123',
+	//password : 'password123',
+	password : 'pass',
 	port : '3306'
 });
 connection.connect();
@@ -179,6 +180,17 @@ exports.typeAhead = function(callback,field,table,q) {
 	    	callback(err, rows);
 	});
 };
+
+exports.check = function(callback,field,val){
+	console.log(val);
+	//console.log('inside dbconn');
+	connection.query('use cmpe295ehr;');
+	var query = 'select '+field+' from scratch where '+field+'='+val;
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
 
 exports.bayeNetMethod = function(callback,rCode){
 	//console.log(rCode);

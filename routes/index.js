@@ -613,17 +613,11 @@ exports.typeAhead= function(req,res){
 	},req.params.field,req.params.table,req.query.key);
 };
 
-/*
-
-exports.getScatter1 = function(req,res){
-	dbConn.getScatter1(function(err,rows){
-		console.log(rows);
-		console.log(req.params.strUser);
-		 res.send(rows);
-	},req.params.strUsr);
-
+exports.check = function(req, res){
+	dbConn.check(function(err,rows){
+		res.send(rows);
+	},req.params.field,req.params.val);			  
 };
- */
 
 
 //Prediction Logic //

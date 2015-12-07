@@ -519,6 +519,18 @@ exports.showDashboard = function(req, res){
 	res.render('dashboard.ejs');
 };
 
+
+//get Tree data for table
+
+exports.getTreeData = function(req, res){
+	console.log("inside index");
+	dbConn.getTreeData(function(err,rows){
+		console.log(rows);
+		res.send(rows);
+	},req.params.name);			  
+};
+
+//
 exports.callPieChart= function(req, res)
 {
 	res.send("hello");

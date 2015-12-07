@@ -110,6 +110,11 @@ app.get('/getLineData', routes.getLineData);
 
 //
 
+//get data for tree table
+app.get('/getTreeData/:name', routes.getTreeData);
+
+//
+
 //Map for ehr trends
 
 app.get('/getMapData/:type', routes.getMapData);

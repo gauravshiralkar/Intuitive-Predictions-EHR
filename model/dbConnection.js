@@ -12,8 +12,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
-	password : 'password123',
+	password : '',
+	//password : 'password123',
 	//password : 'pass',
 	port : '3306'
 });
@@ -108,6 +108,25 @@ exports.getStackedData = function(callback){
 	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 			console.log(rows);
+	});			
+}
+
+
+//
+
+//tree data in table
+
+exports.getTreeData = function(callback,name){
+	connection.query('use cmpe295B;');
+	if(name =="Body Pain"){
+		var query = "select ShortDescription, procedureCodes from procedurecodes where ShortDescription like '%xray%';";
+		
+	}
+	else{
+	var query = "select ShortDescription, procedureCodes from procedurecodes where ShortDescription like '%"+name+"%';";
+	}
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
 	});			
 }
 

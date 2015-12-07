@@ -4,10 +4,30 @@
 <style>
 
 #container {
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 40%;
+    max-width: 50%;
     margin: 0 auto;
+    
 }
+
+
+
+  table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    left-margin: 20%;
+    padding: 2%
+  }
+  table td{
+    border: 1px solid black;
+  
+ }
+ 
+ #tableDiv{
+ margin-right:15%;
+ 
+ }
+
 </style>
 
 
@@ -34,6 +54,22 @@ function showGraph(){
 				            minColor: '#d6f5f5',
 				            maxColor: Highcharts.getOptions().colors[7]
 				        },
+				        plotOptions: {
+				               
+			            	 series: {
+			                     cursor: 'pointer',
+			                     events: {
+			                         click: function (e) {
+			                             //alert(e.point.name);
+										
+			                             getTreeData(e.point.name);
+			                         }
+
+			                        
+			                     }
+			                 }
+			             
+			            },
 				        series: [{
 				            type: 'treemap',
 				            layoutAlgorithm: 'squarified',
@@ -76,16 +112,76 @@ function showGraph(){
 		  });
 	
 	
-	}	  
+	}	
 
-</script>
+function getTreeData(name){
+	
+    document.getElementById("container").style.float="left";
+    document.getElementById("aParent").style.clear="none";
+ 
+	document.getElementById("tableDiv").style.display= "block";
+	document.getElementById("tableDiv").style.float= "right";
+	
+	
+
+	document.getElementById("tableDiv").innerHTML = "";
+	$(function () {
+		 $.get('/getTreeData/'+name, function (data) {
+
+			 var c, r, t;
+			  
+		 	 t = document.createElement('table');
+		 	
+		 	 	 	 var ctr=0;
+		 	 $.each(data,function(){
+			 	 //alert("inside"+e);
+			 if (ctr==0){
+			 	 r = t.insertRow(ctr); 
+			     c = r.insertCell(0);
+			     c.innerHTML = "Disease Description".bold();
+			     c = r.insertCell(1);
+			     c.innerHTML = "Procedure Codes".bold();
+			     ctr++;
+			 }
+
+			 else
+				 {
+
+				 r = t.insertRow(ctr); 
+			     c = r.insertCell(0);
+			     c.innerHTML = data[ctr-1].ShortDescription;
+			     c = r.insertCell(1);
+			     c.innerHTML = data[ctr-1].procedureCodes;
+			     ctr++;
+				 }
+		 	});
+		 	document.getElementById("tableDiv").appendChild(t);
+		 });
+	});
+}
+			 </script>
+
+		  
+
+
 
 <body onload="showGraph()">
 
 	<% include header %>
 <br><br><br><br>
+<div id="aParent">
 	<div id="container"></div>
-<br><br>
-	<% include footer %>
+    
+	<div id="tableDiv" style="display:none; "  >
+	<table><tr></tr></table>
+	<table>
+	
+	</table>
+	
+	
+	</div>
+</div>
+
+
 </body>
 </html>

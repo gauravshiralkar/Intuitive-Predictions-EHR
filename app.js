@@ -58,6 +58,11 @@ app.get('/getPrediction/:dataObj', routes.bayeNetMethod);
 
 //--------------------End Of BayeNet Method--------------------------------------------------------------------------
 
+//-----------------------K Means Method----------------------------------------------------------------------------------
+var kmeans = require('node-kmeans');
+app.get('/getClusters', routes.KMeanClusters);
+
+//-----------------------K Means Method----------------------------------------------------------------------------------
 
 // all environments
 app.set('port', process.env.PORT || 3000);

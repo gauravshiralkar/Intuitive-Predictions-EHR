@@ -12,9 +12,9 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
+	password : '',
 	//password : 'password123',
-	password : 'pass',
+	//password : 'pass',
 	port : '3306'
 });
 connection.connect();
@@ -77,7 +77,7 @@ exports.getMapData = function(callback,q){
 
 exports.getTree = function(callback){
 	console.log('inside dbconn');
-	connection.query('use cmpe295B;');
+	connection.query('use cmpe295ehr;');
 	var query =  "select 'spine' as shortDescription, count(*) count  from diagnosisCodes where shortDescription like '%spine%' union all select 'chest' , count(*) from diagnosisCodes where shortDescription like '%chest%' union all select 'Body Pain' , count(*) from diagnosisCodes where shortDescription like '%pain%' union all select 'dental' , count(*) from diagnosisCodes where shortDescription like '%dental%' union all select 'Abdominal' , count(*) from diagnosisCodes where shortDescription like '%Abdominal%';";
 	connection.query(query, function(err, rows) {	
 		console.log(rows)
@@ -117,7 +117,7 @@ exports.getStackedData = function(callback){
 //tree data in table
 
 exports.getTreeData = function(callback,name){
-	connection.query('use cmpe295B;');
+	connection.query('use cmpe295ehr;');
 	if(name =="Body Pain"){
 		var query = "select ShortDescription, procedureCodes from procedurecodes where ShortDescription like '%xray%';";
 		
@@ -225,9 +225,9 @@ exports.checkTreatCode = function(callback,dcode,tcode){
 exports.bayeNetMethod = function(callback,rCode){
 	//console.log(rCode);
 	console.log('inside dbconn');
-	connection.query('use cmpe295b;');
+	connection.query('use cmpe295ehr;');
 	var query = 'select basicEHR, (primaryCareBasicEHR)*10 primaryCare, (ruralBasicEHR)*10 rural, (smallPracticeBasicEHR)*10 smallPractice ,period, regionCode, region, AdoptionPctId from adoptionpctv2 where regionCode="'+rCode+'";';
-	var query2 = 'select patientAddressCity, patientAddressState,diagnosisCode,ProcedureCode, StatusAtFiling, CodesStatus, insuranceDetailsStatus from cmpe295b.scratch ' 
+	var query2 = 'select patientAddressCity, patientAddressState,diagnosisCode,ProcedureCode, StatusAtFiling, CodesStatus, insuranceDetailsStatus from cmpe295ehr.scratch ' 
 	connection.query(query2, function(err, rows) {		
 			callback(err, rows);
 //			console.log(rows);
@@ -258,7 +258,7 @@ exports.getPatientDetails = function (callback) {
 
 
 exports.getPatientAddress = function (callback) {
-	var query = "select * from cmpe295behr.patientaddress";
+	var query = "select * from cmpe295ehr.patientaddress";
     client.execute(query, function (err, result) {
         if (!err){
         	

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -85,17 +86,23 @@ function showGraph(){
 }
 
 function drawMap(type){
+	
+	document.getElementById("back").style.display="block";
 
 	$(function () {
 		 $.get('/getMapData/'+type, function (data) {
 
 
+			
+			    
 			 $('#container').highcharts('Map', {
 
 		            chart : {
 		                borderWidth : 1,
 		                backgroundColor: 'white '
 		            },
+		            
+		            
 
 		            title : {
 		                text : 'Trends in EHR Adoption Rate'
@@ -180,10 +187,19 @@ function drawMap(type){
 <body onload="showGraph()">
 
 	<% include header %>
-<br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div id="container"
-		style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-<br><br>
-	<% include footer %>
+		style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+		
+	</div>
+	
+	<div id="back" style="display:none;"> <nav class="cl-effect-3">
+			<a href="#" onClick="showGraph()">Go Back</a>
+		</nav></div>
+	<br>
+	<br> <% include footer %>
 </body>
 </html>

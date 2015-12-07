@@ -15,6 +15,10 @@
 
 <script>
 function showGraph(){
+	//document.getElementById("back").style.display="none";
+
+	document.getElementById("backtodash").style.display="block";
+
 $(function () {
 
     //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=us-population-density.json&callback=?', function (data) {
@@ -71,6 +75,7 @@ $(function () {
                              //alert(e.point.code);
 							
                              drawPieChart(e.point.code);
+                             
                          }
 
                         
@@ -104,6 +109,12 @@ $(function () {
 }
 <!--PieChart -->
 function drawPieChart(rCode){
+
+	document.getElementById("backtodash").style.display="none";
+	document.getElementById("back").style.display="block";
+	document.getElementById("back").align="right";
+	
+
 $(function () {
 	 $.get('/getPieData/'+rCode, function (data) {
     
@@ -183,6 +194,12 @@ $(function () {
 });
 
 }
+
+function showGraphAgain(){
+document.getElementById("back").style.display="none";
+	showGraph();
+}
+
 //Change
 </script>
 
@@ -190,11 +207,17 @@ $(function () {
 
 <% include header %>
 <br><br><br><br>
-<div class="container">
+<div>
+<div id="back" style="display: none; margin-right:25%;" align="right">
+		<a href="#" onClick="showGraphAgain()">Go Back</a>
+	</div>
+	<div id="backtodash" style="margin-right:25%;" align="right">
+		<a href="/#dashboard">Go Back</a>
+	</div>
 
-<div id="container" style="position: relative; align: center;border:0px ; "></div>
+<div id="container" style="min-width:50%; height:50%; margin: 0 auto"></div>
 
-</div>	
+</div>
 <br><br>
 <% include footer %>
 	

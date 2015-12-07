@@ -2,38 +2,33 @@
 <html lang="en">
 <head>
 <style>
-
 #container {
-    min-width: 40%;
-    max-width: 50%;
-    margin: 0 auto;
-    
+	min-width: 40%;
+	max-width: 50%;
+	margin: 0 auto;
 }
 
+table {
+	border-collapse: collapse;
+	border: 1px solid black;
+	left-margin: 20%;
+	padding: 2%
+}
 
+table td {
+	border: 1px solid black;
+}
 
-  table{
-    border-collapse: collapse;
-    border: 1px solid black;
-    left-margin: 20%;
-    padding: 2%
-  }
-  table td{
-    border: 1px solid black;
-  
- }
- 
- #tableDiv{
- margin-right:15%;
- 
- }
-
+#tableDiv {
+	margin-right: 15%;
+}
 </style>
 
 
 </head>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/heatmap.js"></script>
@@ -116,6 +111,10 @@ function showGraph(){
 
 function getTreeData(name){
 	
+
+    document.getElementById("backtodash").align="center";	
+    
+    
     document.getElementById("container").style.float="left";
     document.getElementById("aParent").style.clear="none";
  
@@ -159,28 +158,38 @@ function getTreeData(name){
 		 });
 	});
 }
+
 			 </script>
 
-		  
+
 
 
 
 <body onload="showGraph()">
 
 	<% include header %>
-<br><br><br><br>
-<div id="aParent">
-	<div id="container"></div>
-    
-	<div id="tableDiv" style="display:none; "  >
-	<table><tr></tr></table>
-	<table>
-	
-	</table>
-	
-	
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="aParent">
+		<div id="backtodash" style="margin-right: 25%;" align="right">
+			<a href="/#dashboard">Go Back</a>
+		</div>
+		<div id="container"></div>
+
+
+		<div id="tableDiv" style="display: none;">
+			<table>
+				<tr></tr>
+			</table>
+			<table>
+
+			</table>
+
+
+		</div>
 	</div>
-</div>
 
 
 </body>

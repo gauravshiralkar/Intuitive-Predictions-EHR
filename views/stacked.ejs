@@ -92,8 +92,12 @@ jQuery('.chart-input').off().on('input change',function() {
 <body onload="getData()">
 <% include header %>
 <br><br><br>
-<div class="container">
-<div id="chartdiv"></div>
+<div class="container" style="min-width:50%; height:50%; margin: 0 auto">
+
+<div id="backtodash" style="margin-right:25%;" align="right">
+		<a href="/#dashboard">Go Back</a>
+	</div>
+<div id="chartdiv" ></div>
 <div class="container-fluid">
   <div class="row text-center" style="overflow:hidden;">
 		<div class="col-sm-3" style="float: none !important;display: inline-block;">

@@ -470,15 +470,15 @@ exports.index = function(req, res){7
 };
 
 exports.showTemplate= function (req,res){
-	
+
 	res.render('template.ejs');
 };
 
 exports.showEHR= function (req,res){
-	
+
 	res.render('ehr-dwr.html');
 };
-	
+
 exports.testme = function(req, res){
 	res.render('notifytest.ejs');
 };
@@ -497,7 +497,7 @@ exports.callPieChart= function(req, res)
 	res.send("hello");
 }
 
-// Region Map	
+//Region Map	
 
 exports.showRegionMap = function(req, res){
 	res.render('regionmap.ejs');
@@ -523,7 +523,7 @@ exports.getTree = function(req, res){
 		res.send(rows);
 	});			  
 };
-//
+
 
 exports.getMapData = function(req, res){
 	console.log("inside index");
@@ -543,19 +543,19 @@ exports.showPie = function(req, res){
 
 exports.getStackedData = function(req, res){
 	dbConn.getStackedData(function(err,rows){
-		
+
 		res.send(rows);
 	});			  
 };
 
 exports.getPie = function(req, res){
 	dbConn.getPie(function(err,rows){
-		
+
 		res.send(rows);
 	});			  
 };
 
-//
+
 exports.showAcceptRejectMap = function(req, res){
 	res.render('acceptreject');
 };
@@ -576,15 +576,15 @@ exports.getPatientDetails = function(req, res){
 		console.log("index.js "+rows);
 		res.send(rows);
 	});	
-		  
+
 };
 
 exports.getPatientAddress = function(req, res){
 	dbConn.getPatientAddress(function(err,rows){
 		console.log("index.js "+rows);
-		 res.send(rows);
+		res.send(rows);
 	});	
-	  
+
 };
 
 exports.getLineData = function(req, res){
@@ -608,8 +608,8 @@ exports.typeAhead= function(req,res){
 		//console.log('Search key= '+req.query.key);
 		//console.log('Rows from index= '+JSON.stringify(rows));
 		console.log(req.params.field,req.params.table);
-		 res.send('['+rows+']');
-		 //res.send(rows);
+		res.send('['+rows+']');
+		//res.send(rows);
 	},req.params.field,req.params.table,req.query.key);
 };
 
@@ -621,38 +621,59 @@ exports.getScatter1 = function(req,res){
 		console.log(req.params.strUser);
 		 res.send(rows);
 	},req.params.strUsr);
-	
-};
-*/
-//
 
-//  Prediction Logic //
+};
+ */
+
+
+//Prediction Logic //
 exports.bayeNetMethod = function(req,res){
-	
-//	dbConn.bayeNetMethod(function(err,rows){
-//		console.log(req.param)		
-//	});
 
 	var bayes = require('bayes');
 	var classifier = bayes();
-	
-	// teach it positive phrases
-	classifier.learn('amazing, awesome movie!! Yeah!! Oh boy.', 'positive')
-	classifier.learn('Sweet, this is incredibly, amazing, perfect, great!!', 'positive')
 
-	// teach it a negative phrase
-	classifier.learn('terrible, shitty thing. Damn. Sucks!!', 'negative')
+	dbConn.bayeNetMethod(function(err,rows){
+		console.log(rows.length);
+		console.log(req.param)		
 
-	// now ask it to categorize a document it has never seen before
-	var result = classifier.categorize('awesome, cool, amazing!! Yay.')
-	console.log(result);
-	// => 'positive'
-	res.send(result);
+		var train=[];
+		var category=[];
+		
+		for (i = 0; i < rows.length; i++) 
+		{ 
+			train.push(rows[i].patientAddressCity +" " + rows[i].patientAddressState +" " + rows[i].diagnosisCode +" " +rows[i].ProcedureCode+" " +  rows[i].StatusAtFiling+" "+rows[i].CodesStatus); 
+			category.push(rows[i].insuranceDetailsStatus); 
+			
+		}
 
-	// serialize the classifier's state as a JSON string.
-	var stateJson = classifier.toJson()
+		for (i = 0; i < 299; i++) 
+		{
 
+			classifier.learn(train[i], category[i]);
+		}
+		
+		
+		console.log(rows[300]);
+		
+		console.log("Training of 300:");
+		console.log(train[300]);
+		
+		var result = classifier.categorize(train[300])
+		console.log("Result is:");
+		
+		console.log(result);
+
+		var stateJson = classifier.toJson()
+//		load the classifier back from its JSON representation.
+		var revivedClassifier = bayes.fromJson(stateJson)	
+
+<<<<<<< HEAD
 	// load the classifier back from its JSON representation.
 	var revivedClassifier = bayes.fromJson(stateJson)
 }
 >>>>>>> 89a35c8... Prediction Logic modularized 
+=======
+		res.send(result);
+	});
+};
+>>>>>>> b2bb1b0... Module of BayesNet 

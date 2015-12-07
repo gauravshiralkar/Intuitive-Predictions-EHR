@@ -470,28 +470,8 @@ var kmeans = require('node-kmeans');
 
 
 exports.index = function(req, res){
-	//res.render('index');
-	dbConn.bayeNetMethod(function(err,rows){
-		console.log(rows.length);
-		console.log(req.param)		
-
-		var train=[];
-		var category=[];
-		
-		for (i = 0; i < rows.length; i++) 
-		{ 
-			train.push(rows[i].patientAddressCity +" " + rows[i].patientAddressState +" " + rows[i].diagnosisCode +" " +rows[i].ProcedureCode+" " +  rows[i].StatusAtFiling+" "+rows[i].CodesStatus); 
-			category.push(rows[i].insuranceDetailsStatus); 
-			
-		}
-
-		for (i = 0; i < 299; i++) 
-		{
-
-			classifier.learn(train[i], category[i]);
-		}
-	
-	});
+	console.log(req.app.get('dbuntrained'));
+	if (req.app.get('dbuntrained')){res.redirect('/TrainData');}
 	res.render('index');
 
 };
@@ -667,6 +647,36 @@ exports.checkTreatCode = function(req, res){
 
 
 //Prediction Logic //
+
+
+
+exports.TrainData = function(req,res){
+	dbConn.bayeNetMethod(function(err,rows){
+		console.log(rows.length);
+		console.log(req.param)		
+
+		var train=[];
+		var category=[];
+		
+		for (i = 0; i < rows.length; i++) 
+		{ 
+			train.push(rows[i].patientAddressCity +" " + rows[i].patientAddressState +" " + rows[i].diagnosisCode +" " +rows[i].ProcedureCode+" " +  rows[i].StatusAtFiling+" "+rows[i].CodesStatus); 
+			category.push(rows[i].insuranceDetailsStatus); 
+			
+		}
+
+		for (i = 0; i < 299; i++) 
+		{
+
+			classifier.learn(train[i], category[i]);
+		}
+		console.log('Data trained for '+train.length+ ' records');
+		req.app.set('dbuntrained',false);
+		res.redirect('/');
+	});
+	
+};
+
 exports.bayeNetMethod = function(req,res){
 
 <<<<<<< HEAD

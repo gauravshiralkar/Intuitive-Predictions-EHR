@@ -53,7 +53,9 @@ pdfText(pathToPdf, function(err, chunks) {
 //-----------------------Bayes Net Method--------------------------------------------------------------------------
 var bayes = require('bayes');
 var classifier = bayes();
-app.get('/getPrediction', routes.bayeNetMethod);
+//app.get('/TrainData', routes.TrainData);
+app.get('/getPrediction/:dataObj', routes.bayeNetMethod);
+
 //--------------------End Of BayeNet Method--------------------------------------------------------------------------
 
 

@@ -464,9 +464,35 @@ exports.getScatter1 = function(req,res){
 
 var dbConn = require('../model/dbConnection');
 
-exports.index = function(req, res){7
+var bayes = require('bayes');
+var classifier = bayes();
+
+
+exports.index = function(req, res){
 	//res.render('index');
+	dbConn.bayeNetMethod(function(err,rows){
+		console.log(rows.length);
+		console.log(req.param)		
+
+		var train=[];
+		var category=[];
+		
+		for (i = 0; i < rows.length; i++) 
+		{ 
+			train.push(rows[i].patientAddressCity +" " + rows[i].patientAddressState +" " + rows[i].diagnosisCode +" " +rows[i].ProcedureCode+" " +  rows[i].StatusAtFiling+" "+rows[i].CodesStatus); 
+			category.push(rows[i].insuranceDetailsStatus); 
+			
+		}
+
+		for (i = 0; i < 299; i++) 
+		{
+
+			classifier.learn(train[i], category[i]);
+		}
+	
+	});
 	res.render('index');
+
 };
 
 exports.showTemplate= function (req,res){
@@ -623,6 +649,7 @@ exports.check = function(req, res){
 //Prediction Logic //
 exports.bayeNetMethod = function(req,res){
 
+<<<<<<< HEAD
 	var bayes = require('bayes');
 	var classifier = bayes();
 
@@ -671,3 +698,42 @@ exports.bayeNetMethod = function(req,res){
 	});
 };
 >>>>>>> b2bb1b0... Module of BayesNet 
+=======
+	var result = classifier.categorize(req.params.dataObj);
+	console.log("Result is:");
+	
+	console.log(result);
+
+	var stateJson = classifier.toJson()
+//	load the classifier back from its JSON representation.
+	var revivedClassifier = bayes.fromJson(stateJson)	
+
+	res.send(result);
+};
+
+//exports.TrainData = function (req,res){
+//	
+//	dbConn.bayeNetMethod(function(err,rows){
+//		console.log(rows.length);
+//		console.log(req.param)		
+//
+//		var train=[];
+//		var category=[];
+//		
+//		for (i = 0; i < rows.length; i++) 
+//		{ 
+//			train.push(rows[i].patientAddressCity +" " + rows[i].patientAddressState +" " + rows[i].diagnosisCode +" " +rows[i].ProcedureCode+" " +  rows[i].StatusAtFiling+" "+rows[i].CodesStatus); 
+//			category.push(rows[i].insuranceDetailsStatus); 
+//			
+//		}
+//
+//		for (i = 0; i < 299; i++) 
+//		{
+//
+//			classifier.learn(train[i], category[i]);
+//		}
+//	
+//	});
+//	
+//};
+>>>>>>> 6190d41... Working Bayesian

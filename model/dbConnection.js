@@ -12,9 +12,9 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
+	//password : '',
 	//password : 'password123',
-	//password : 'pass',
+	password : 'pass',
 	port : '3306'
 });
 connection.connect();
@@ -200,11 +200,22 @@ exports.typeAhead = function(callback,field,table,q) {
 	});
 };
 
-exports.check = function(callback,field,val){
+exports.check = function(callback,table,field,val){
 	console.log(val);
 	//console.log('inside dbconn');
 	connection.query('use cmpe295ehr;');
-	var query = 'select '+field+' from scratch where '+field+'='+val;
+	var query = 'select '+field+' from ' +table+ ' where '+field+'='+val;
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
+
+
+exports.checkTreatCode = function(callback,dcode,tcode){
+	//console.log('inside dbconn');
+	connection.query('use cmpe295ehr;');
+	var query = 'select '+tcode+' from diagnostoprocedure where diagnosiscodes = '+dcode+' and procedureCodes ='+tcode;
 	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 			console.log(rows);

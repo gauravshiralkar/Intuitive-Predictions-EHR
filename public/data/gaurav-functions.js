@@ -6,10 +6,18 @@
 });*/
 
 
-function checkFromDB(field,formfield) {
+function checkFromDB(table,field,formfield) {
 	var val = document.getElementById(formfield).value;
-	$.get("/check/"+field+"/"+val, function(results) {
-		console.log(results.length);
+	if (val ==="") {
+			$.notify({
+				title: '<strong>Danger</strong>',
+				message: ''+formfield+' Cannot be Blank'
+			},{
+				type: 'danger'
+			});
+	}
+	else{
+		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
 		if (results.length == 0) {
 			$.notify({
 				title: '<strong>Danger</strong>',
@@ -26,6 +34,32 @@ function checkFromDB(field,formfield) {
 			});
 		}
 		
-	});
+		});
+	}
 	
+}
+
+
+function checkTreatCode() {
+	var dcode = document.getElementById('diagcode').value;
+	var tcode = document.getElementById('treatcode').value;
+	
+	$.get("/checktreatcode/"+dcode+"/"+tcode, function(results) {
+		if (results.length == 0) {
+			$.notify({
+				title: '<strong>Danger</strong>',
+				message: 'InValid Treatment Code for given Diagnosis Code '+dcode
+			},{
+				type: 'danger'
+			});
+		}else{
+			$.notify({
+				title: '<strong>Success</strong>',
+				message: 'Valid Treatment Code'
+			},{
+				type: 'success'
+			});
+		}
+		
+		});
 }

@@ -146,7 +146,8 @@ app.get('/callPieChart/state', routes.callPieChart);
 app.get('/typeAhead/:field/:table', routes.typeAhead);
 
 //Javascript Functions
-app.get('/check/:field/:val', routes.check);
+app.get('/check/:table/:field/:val', routes.check);
+app.get('/checkTreatCode/:dcode/:tcode', routes.checkTreatCode);
 //
 
 

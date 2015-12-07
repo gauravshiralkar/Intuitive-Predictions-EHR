@@ -655,7 +655,14 @@ exports.typeAhead= function(req,res){
 exports.check = function(req, res){
 	dbConn.check(function(err,rows){
 		res.send(rows);
-	},req.params.field,req.params.val);			  
+	},req.params.table,req.params.field,req.params.val);			  
+};
+
+
+exports.checkTreatCode = function(req, res){
+	dbConn.checkTreatCode(function(err,rows){
+		res.send(rows);
+	},req.params.dcode,req.params.tcode);			  
 };
 
 

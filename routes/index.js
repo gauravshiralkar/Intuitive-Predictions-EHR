@@ -814,40 +814,36 @@ exports.KMeanCluster = function(req,res){
 =======
 
 exports.KMeanClustertwo = function(req,res){
-	var data1;
 	var vectors = new Array();
 	
 	dbConn.GetKMeanRowstwo(function(err,rows){
-	data1 = rows;
-
-	for (var i = 0 ; i < data1.length ; i++)
-		vectors[i] = [ data1[i].one, data1[i].two];
 	
-	var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,rows) {
-		  if (err) console.error(err)
-		  else console.log(rows);
-		  res.send(rows);
-		});
+		for (var i = 0 ; i < rows.length ; i++)
+			vectors[i] = [ rows[i].one, rows[i].two];
+	
+		var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,result) {
+					if (err) console.error(err)
+					else console.log(result);
+					res.send(result);
+					});
 			
 	},req.params.one,req.params.two);	
 };
 
 
 exports.KMeanClusterone = function(req,res){
-	var data1;
 	var vectors = new Array();
 	
 	dbConn.GetKMeanRowsone(function(err,rows){
-	data1 = rows;
 
-	for (var i = 0 ; i < data1.length ; i++)
-		vectors[i] = [ data1[i].one ];
+		for (var i = 0 ; i < rows.length ; i++)
+			vectors[i] = [ rows[i].one ];
 	
-	var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,rows) {
-		  if (err) console.error(err)
-		  else console.log(rows);
-		  res.send(rows);
-		});
+		 KResult = kmeans.clusterize(vectors, {k: 10}, function(err,result) {
+			 		if (err) console.error(err)
+			 		else console.log(result);
+			 		res.send(result);
+		 });
 			
 	},req.params.one);	
 };

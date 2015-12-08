@@ -138,7 +138,7 @@ app.get('/searchkey/:getval/:field/:key', routes.searchkey);
 //
 
 //Insert into database
-app.get('/showEHR/:dataObject', routes.InsertData);
+app.get('/insertData/:dataObject', routes.InsertData);
 
 
 //-----------------------Bayes Net Method--------------------------------------------------------------------------

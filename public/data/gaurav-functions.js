@@ -70,6 +70,7 @@ function addrow() {
     var clone = row.cloneNode(true); // copy children too
     clone.id = "newID"; // change id or other attributes/contents
     table.appendChild(clone); // add new row to end of table
+    $("newID").closest("td").prev().empty();
     $j('#diagkey').typeahead({
     	valueKey: 'diagcode',
         name: 'diagcode',
@@ -84,6 +85,17 @@ function addrow() {
     });
  
 }
+
+function addtreatrow() {
+    var table = document.getElementById("myTable"); // find table to append to
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell2.colspan=2;
+    cell2.innerHTML="SKDGKA";
+}
+
 
 
 function delrow(o) {

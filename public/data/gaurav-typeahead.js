@@ -38,3 +38,9 @@
         remote: 'http://localhost:3000/typeAhead/ProcedureDesc/diagnostoprocedure?key=%QUERY',
         limit: 10 
     });
+    $j('#providername').typeahead({
+    	valueKey: 'providername',
+        name: 'providername',
+        remote: 'http://localhost:3000/typeAhead/insuranceProviderName/scratch?key=%QUERY',
+        limit: 10 
+    });

@@ -254,12 +254,12 @@ Female </p>
       
       <TR id="rowToClone">
      
-      <td colspan="1.5"><h5>DIAGNOSIS CODE
-          <input type="text" name="textfield11" id="diagcode" placeholder="Enter Diagnosis Code" onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');"> OR <input type="search" placeholder="Search By Keyword"><i class='fa fa-search'></i>
+      <td colspan="1"><h5>DIAGNOSIS CODE
+          <input type="text" name="textfield11" id="diagcode" placeholder="Enter Diagnosis Code" onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');"> OR <input id="diagkey" type="search" class="typeahead tt-query" placeholder="Search By Keyword"><i class='fa fa-search' onclick="getDCode()"></i>
       </h5>
       <p>&nbsp;</p></td>
       <td colspan="2"><h5>TREATMENT CODE
-         <input type="Ddate" name="textfield15" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();"> OR <input type="search" placeholder="Search By Keyword"><i class='fa fa-search'></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="addrow()">ADD</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="delrow(this)">DEL</button>
+         <input type="Ddate" name="textfield15" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();"> OR <input id="treatkey" type="search" class="typeahead tt-query" placeholder="Search By Keyword" onchange="getTCode();"><i class='fa fa-search'></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="addrow()">ADD</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="delrow(this)">DEL</button>
      </h5>
       <p>&nbsp;</p></td> 
  

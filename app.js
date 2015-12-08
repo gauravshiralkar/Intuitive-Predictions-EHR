@@ -129,11 +129,12 @@ app.get('/showEHR', routes.showEHR);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 app.get('/callPieChart/state', routes.callPieChart);
 
-app.get('/typeAhead/:field/:table', routes.typeAhead);
 
 //Javascript Functions
+app.get('/typeAhead/:field/:table', routes.typeAhead);
 app.get('/check/:table/:field/:val', routes.check);
 app.get('/checkTreatCode/:dcode/:tcode', routes.checkTreatCode);
+app.get('/searchkey/:getval/:field/:key', routes.searchkey);
 //
 
 //-----------------------Bayes Net Method--------------------------------------------------------------------------

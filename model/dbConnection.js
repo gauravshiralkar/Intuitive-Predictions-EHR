@@ -12,9 +12,9 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	//password : '',
+	password : 'pass',
 	//password : 'password123',
-	password : 'password123',
+	//password : 'password123',
 	port : '3306'
 });
 connection.connect();
@@ -211,6 +211,17 @@ exports.check = function(callback,table,field,val){
 	});			
 }
 
+exports.searchkey = function(callback,getval,field,key){
+	//console.log(val);
+	//console.log('inside dbconn');
+	connection.query('use cmpe295ehr;');
+	var query = 'select '+getval+' as first from diagnostoprocedure where '+field+'='+'"'+key+'"';
+	console.log(query);
+	connection.query(query, function(err, rows) {		
+			callback(err, rows);
+			console.log(rows);
+	});			
+}
 
 exports.checkTreatCode = function(callback,dcode,tcode){
 	//console.log('inside dbconn');

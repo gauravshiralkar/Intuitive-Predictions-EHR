@@ -70,9 +70,32 @@ function addrow() {
     var clone = row.cloneNode(true); // copy children too
     clone.id = "newID"; // change id or other attributes/contents
     table.appendChild(clone); // add new row to end of table
+    $j('#diagkey').typeahead({
+    	valueKey: 'diagcode',
+        name: 'diagcode',
+        remote: 'http://localhost:3000/typeAhead/DiagnosticDesc/diagnostoprocedure?key=%QUERY',
+        limit: 10 
+    });
+    $j('#treatkey').typeahead({
+    	valueKey: 'treatcode',
+        name: 'treatcode',
+        remote: 'http://localhost:3000/typeAhead/ProcedureDesc/diagnostoprocedure?key=%QUERY',
+        limit: 10 
+    });
  
 }
 
+
 function delrow(o) {
 	$(o).closest('tr').remove()
+}
+
+
+function getDCode() {
+	var dkey = document.getElementById('diagkey').value;
+	//document.getElementById('diagcode').value='results';
+	$.get("/searchkey/diagnosiscodes/DiagnosticDesc/"+dkey, function(results) {
+			console.log(results);
+			document.getElementById('diagcode').value=results[0].first;
+		});
 }

@@ -638,6 +638,12 @@ exports.check = function(req, res){
 	},req.params.table,req.params.field,req.params.val);			  
 };
 
+exports.searchkey = function(req, res){
+	dbConn.searchkey(function(err,rows){
+		res.send(rows);
+	},req.params.getval,req.params.field,req.params.key);			  
+};
+
 
 exports.checkTreatCode = function(req, res){
 	dbConn.checkTreatCode(function(err,rows){

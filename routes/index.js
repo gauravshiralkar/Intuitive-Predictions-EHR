@@ -782,7 +782,7 @@ exports.KMeanClusters = function(req,res){
 	
 	var vectors = new Array();
 	for (var i = 0 ; i < data.length ; i++)
-	  vectors[i] = [ data[i]['size']] , data[i]['revenue']];
+		  vectors[i] = [ data[i]['size'] , data[i]['revenue']];
 	
 
 	var KResult = kmeans.clusterize(vectors, {k: 2}, function(err,res) {

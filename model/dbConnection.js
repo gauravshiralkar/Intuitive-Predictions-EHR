@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 	user : 'root',
 	//password : '',
 	//password : 'password123',
-	password : 'pass',
+	password : 'password123',
 	port : '3306'
 });
 connection.connect();
@@ -232,16 +232,16 @@ exports.TrainData = function(callback){
 	});			
 }
 
-exports.GetKMeanRows = function(callback,rCode){
+exports.GetKMeanRows = function(callback,one, two){
 	//console.log(rCode);
 	console.log('inside dbconn');
-	connection.query('use cmpe295b;');
-	var query = 'select basicEHR, (primaryCareBasicEHR)*10 primaryCare, (ruralBasicEHR)*10 rural, (smallPracticeBasicEHR)*10 smallPractice ,period, regionCode, region, AdoptionPctId from adoptionpctv2 where regionCode="'+rCode+'";';
-	var query2 = 'select patientAddressCity, patientAddressState,diagnosisCode,ProcedureCode, StatusAtFiling, CodesStatus, insuranceDetailsStatus from cmpe295b.scratch ' 
-	
-		connection.query(query2, function(err, rows) {		
+	connection.query('use cmpe295ehr;');
+	var query = 'select '+one+' as one, '+two+' as two from scratch'
+	console.log(query);
+		connection.query(query, function(err, rows) {		
+			//console.log(rows);	
 			callback(err, rows);
-//			console.log(rows);
+			
 	});			
 }
 

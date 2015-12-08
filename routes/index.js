@@ -742,6 +742,7 @@ exports.bayeNetMethod = function(req,res){
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //exports.TrainData = function (req,res){
 //	
 //	dbConn.bayeNetMethod(function(err,rows){
@@ -770,6 +771,9 @@ exports.bayeNetMethod = function(req,res){
 >>>>>>> 6190d41... Working Bayesian
 =======
 exports.KMeanClusters = function(req,res){
+=======
+exports.KMeanCluster = function(req,res){
+>>>>>>> 8005fb5... Kmean Method finished
 	
 	var data = [ 
 	            {'company': 'Microsoft' , 'size': 91259, 'revenue': 60420},
@@ -799,10 +803,15 @@ exports.KMeanClusters = function(req,res){
 =======
 
 exports.KMeanClusters = function(req,res){
-	
+	var data1;
 	
 	dbConn.GetKMeanRows(function(err,rows){
-		res.send(rows);
+	data1 = rows;
+	console.log("Data Is:");
+	//console.log(data1);
+	callKMean(data1);
+	//res.send(rows);
+			
 	},req.params.one,req.params.two);	
 	
 	var data = [ 
@@ -815,16 +824,23 @@ exports.KMeanClusters = function(req,res){
 	          ];
 	
 	var vectors = new Array();
-	for (var i = 0 ; i < data.length ; i++)
-	  vectors[i] = [ data[i]['size'], data[i]['revenue']];
 	
-
-	var KResult = kmeans.clusterize(vectors, {k: 4}, function(err,res) {
-	  if (err) console.error(err)
-	  else console.log(res);
-	  //console.log(res.cluster);
-	  //res.send(KResult.cluster);
-	});
+	
+	function callKMean(data1) {
+		
+		console.log("Inside K mean Function");
+		console.log(data1.length);
+		for (var i = 0 ; i < data1.length ; i++)
+			vectors[i] = [ data1[i].one, data1[i].two];
+		
+		var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,res) {
+			  if (err) console.error(err)
+			  else console.log(res);
+			  //console.log(res.cluster);
+			  //res.send(KResult.cluster);
+			});
+	}
+	
 	
 	//res.send(KResult.cluster);
 };

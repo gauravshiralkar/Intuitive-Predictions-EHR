@@ -651,7 +651,12 @@ exports.checkTreatCode = function(req, res){
 	},req.params.dcode,req.params.tcode);			  
 };
 
-
+exports.InsertData = function(req,res){
+	dbConn.InsertData(function(err,rows){
+		res.send(rows);
+	},req.params.dataObject);
+	
+}
 //Prediction Logic //
 
 

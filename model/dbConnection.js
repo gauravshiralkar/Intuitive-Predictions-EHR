@@ -232,11 +232,24 @@ exports.TrainData = function(callback){
 	});			
 }
 
-exports.GetKMeanRows = function(callback,one, two){
+exports.GetKMeanRowstwo = function(callback,one, two){
 	//console.log(rCode);
 	console.log('inside dbconn');
 	connection.query('use cmpe295ehr;');
 	var query = 'select '+one+' as one, '+two+' as two from scratch'
+	console.log(query);
+		connection.query(query, function(err, rows) {		
+			//console.log(rows);	
+			callback(err, rows);
+			
+	});			
+}
+
+exports.GetKMeanRowsone = function(callback,one){
+	//console.log(rCode);
+	console.log('inside dbconn');
+	connection.query('use cmpe295ehr;');
+	var query = 'select '+one+' as one from scratch';
 	console.log(query);
 		connection.query(query, function(err, rows) {		
 			//console.log(rows);	

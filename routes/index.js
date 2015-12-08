@@ -802,47 +802,46 @@ exports.KMeanCluster = function(req,res){
 >>>>>>> 87e5cdd... DB CHANGE and kmeans
 =======
 
-exports.KMeanClusters = function(req,res){
+exports.KMeanClustertwo = function(req,res){
 	var data1;
-	
-	dbConn.GetKMeanRows(function(err,rows){
-	data1 = rows;
-	console.log("Data Is:");
-	//console.log(data1);
-	callKMean(data1);
-	//res.send(rows);
-			
-	},req.params.one,req.params.two);	
-	
-	var data = [ 
-	            {'company': 'Microsoft' , 'size': 91259, 'revenue': 60420},
-	            {'company': 'IBM' , 'size': 400000, 'revenue': 98787},
-	            {'company': 'Skype' , 'size': 700, 'revenue': 716},
-	            {'company': 'SAP' , 'size': 48000, 'revenue': 11567},
-	            {'company': 'Yahoo!' , 'size': 14000 , 'revenue': 6426 },
-	            {'company': 'eBay' , 'size': 15000, 'revenue': 8700},
-	          ];
-	
 	var vectors = new Array();
 	
+	dbConn.GetKMeanRowstwo(function(err,rows){
+	data1 = rows;
+
+	for (var i = 0 ; i < data1.length ; i++)
+		vectors[i] = [ data1[i].one, data1[i].two];
 	
-	function callKMean(data1) {
-		
-		console.log("Inside K mean Function");
-		console.log(data1.length);
-		for (var i = 0 ; i < data1.length ; i++)
-			vectors[i] = [ data1[i].one, data1[i].two];
-		
-		var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,res) {
-			  if (err) console.error(err)
-			  else console.log(res);
-			  //console.log(res.cluster);
-			  //res.send(KResult.cluster);
-			});
-	}
-	
-	
-	//res.send(KResult.cluster);
+	var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,rows) {
+		  if (err) console.error(err)
+		  else console.log(rows);
+		  res.send(rows);
+		});
+			
+	},req.params.one,req.params.two);	
 };
 
+
+exports.KMeanClusterone = function(req,res){
+	var data1;
+	var vectors = new Array();
+	
+	dbConn.GetKMeanRowsone(function(err,rows){
+	data1 = rows;
+
+	for (var i = 0 ; i < data1.length ; i++)
+		vectors[i] = [ data1[i].one ];
+	
+	var KResult = kmeans.clusterize(vectors, {k: 10}, function(err,rows) {
+		  if (err) console.error(err)
+		  else console.log(rows);
+		  res.send(rows);
+		});
+			
+	},req.params.one);	
+};
+<<<<<<< HEAD
+
 >>>>>>> 110640c... K Mean code Addition
+=======
+>>>>>>> aae63be... One Param Cluster and Two Param Cluster 

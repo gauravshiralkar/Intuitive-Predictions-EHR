@@ -148,7 +148,9 @@ app.set('dbuntrained',true);
 
 var kmeans = require('node-kmeans');
 app.get('/getCluster', routes.KMeanCluster);
-app.get('/getClusters/:one/:two', routes.KMeanClusters);
+app.get('/getClustersOne/:one', routes.KMeanClusterone);
+app.get('/getClustersTwo/:one/:two', routes.KMeanClustertwo);
+
 //-----------------------K Means Method----------------------------------------------------------------------------------
 
 

@@ -794,4 +794,39 @@ exports.KMeanClusters = function(req,res){
 	
 	//res.send(KResult.cluster);
 };
+<<<<<<< HEAD
 >>>>>>> 87e5cdd... DB CHANGE and kmeans
+=======
+
+exports.KMeanClusters = function(req,res){
+	
+	
+	dbConn.GetKMeanRows(function(err,rows){
+		res.send(rows);
+	},req.params.one,req.params.two);	
+	
+	var data = [ 
+	            {'company': 'Microsoft' , 'size': 91259, 'revenue': 60420},
+	            {'company': 'IBM' , 'size': 400000, 'revenue': 98787},
+	            {'company': 'Skype' , 'size': 700, 'revenue': 716},
+	            {'company': 'SAP' , 'size': 48000, 'revenue': 11567},
+	            {'company': 'Yahoo!' , 'size': 14000 , 'revenue': 6426 },
+	            {'company': 'eBay' , 'size': 15000, 'revenue': 8700},
+	          ];
+	
+	var vectors = new Array();
+	for (var i = 0 ; i < data.length ; i++)
+	  vectors[i] = [ data[i]['size'], data[i]['revenue']];
+	
+
+	var KResult = kmeans.clusterize(vectors, {k: 4}, function(err,res) {
+	  if (err) console.error(err)
+	  else console.log(res);
+	  //console.log(res.cluster);
+	  //res.send(KResult.cluster);
+	});
+	
+	//res.send(KResult.cluster);
+};
+
+>>>>>>> 110640c... K Mean code Addition

@@ -47,8 +47,8 @@
 
 
 </style>
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet">  -->
-<link href="css/typeahead.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/mytypeahead.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/typeahead.min.js"></script>
 <script> var $j = $.noConflict();  // use $jQ instead of $ for normal jQuery </script>
@@ -72,7 +72,7 @@
 <div class="container">
 <hr width=150% color="63b8ee">
 <h3 align="center"> Intuitive Electronic Health Record Form</h3>
-<table width="90%" border="1" align="center">
+<table width="90%" border="1" align="center" id="myTable">
   <tbody >
     <tr>
       <td width="32%"><h5> 1. MEDICARE  &nbsp; &nbsp; MEDICAID &nbsp; &nbsp;TRICARE </h5>
@@ -246,19 +246,25 @@ Female </p>
           Full Time Student </h5>
       <p>&nbsp;</p></td>
       <TR>
-     <td width="32%"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
+     <td width="32%" colspan="3"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
          <input type="text" name="textfield9" id="textfield9" placeholder="Employer/School Name">
      </h5>
-      <p>&nbsp;</p></td>
-     <td><h5>17.TREATMENT CODE
-         <input type="Ddate" name="textfield15" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();">
-     </h5>
-      <p>&nbsp;</p></td>
-      <td width="46%"><h5>18.DIAGNOSIS CODE
-          <input type="text" name="textfield11" id="diagcode" placeholder="Diagnosis Code" onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');">
-      </h5>
       <p>&nbsp;</p></td> 
       </TR>
+      
+      <TR id="rowToClone">
+     
+      <td colspan="1.5"><h5>DIAGNOSIS CODE
+          <input type="text" name="textfield11" id="diagcode" placeholder="Enter Diagnosis Code" onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');"> OR <input type="search" placeholder="Search By Keyword"><i class='fa fa-search'></i>
+      </h5>
+      <p>&nbsp;</p></td>
+      <td colspan="2"><h5>TREATMENT CODE
+         <input type="Ddate" name="textfield15" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();"> OR <input type="search" placeholder="Search By Keyword"><i class='fa fa-search'></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="addrow()">ADD</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="delrow(this)">DEL</button>
+     </h5>
+      <p>&nbsp;</p></td> 
+ 
+      </TR>
+ 
   </tbody>
 </table>
 <center><a href="#" class="myButton">Submit</a></center>

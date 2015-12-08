@@ -222,13 +222,11 @@ exports.checkTreatCode = function(callback,dcode,tcode){
 	});			
 }
 
-exports.bayeNetMethod = function(callback,rCode){
-	//console.log(rCode);
-	console.log('inside dbconn');
+exports.TrainData = function(callback){
+	//console.log('inside dbconn');
 	connection.query('use cmpe295ehr;');
-	var query = 'select basicEHR, (primaryCareBasicEHR)*10 primaryCare, (ruralBasicEHR)*10 rural, (smallPracticeBasicEHR)*10 smallPractice ,period, regionCode, region, AdoptionPctId from adoptionpctv2 where regionCode="'+rCode+'";';
-	var query2 = 'select patientAddressCity, patientAddressState,diagnosisCode,ProcedureCode, StatusAtFiling, CodesStatus, insuranceDetailsStatus from cmpe295ehr.scratch ' 
-	connection.query(query2, function(err, rows) {		
+	var query = 'select patientAddressCity, patientAddressState,diagnosisCode,ProcedureCode, StatusAtFiling, CodesStatus, insuranceDetailsStatus from cmpe295ehr.scratch ' 
+	connection.query(query, function(err, rows) {		
 			callback(err, rows);
 //			console.log(rows);
 	});			

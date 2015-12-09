@@ -93,19 +93,19 @@ Sponser's SSN
       <p>&nbsp;</p></td>
      <td width="22%"><h5>2.INSURANCE ID</h5>
        <h5>
-         <input required type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onchange="checkFromDB('scratch','insuranceDetailsId','insuranceId');">
+         <input required type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onblur="checkFromDB('scratch','insuranceDetailsId','insuranceId','Insurance Id');">
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>3. INSURANCE PROVIDER NAME</h5>
         <p>
-          <input required name="providername" class="typeahead tt-query" type="text" id="providername" size="45" placeholder="Provider Name" onchange="checkFromDB('scratch','insuranceDetailsProviderName','providername');">
+          <input required name="providername" class="typeahead tt-query" type="text" id="providername" size="45" placeholder="Provider Name" onblur="checkFromDB('scratch','insuranceDetailsProviderName','providername','Provider Name');">
         </p>
       <p>&nbsp;</p></td>
     </tr>
     <tr>
       <td width="32%"><h5> 4.PATIENT'S NAME(Last Name, First Name, MI)</h5>
         <h5>
-          <input required id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
+          <input onblur="basicvalidation('pname','Patient Name');" required id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>5.DATE OF BIRTH</h5>
@@ -115,12 +115,14 @@ Sponser's SSN
       <p>&nbsp;</p></td>
       <td width="46%"><h5>6.GENDER</h5>
         <p>
-          <input type = "checkbox"
+          <input type = "radio"
                  id = "m1"
+                 name="gender"
                  />
 Male
-<input type = "checkbox"
+<input type = "radio"
                  id = "m2"
+                 name="gender"
                  />
 Female </p>
       <p>&nbsp;</p></td>
@@ -129,12 +131,12 @@ Female </p>
    <tr>
       <td width="32%"><h5> 7.ADDRESS</h5>
         <h5>
-          <input required id="paddress" class="typeahead tt-query" type="text" name="street"  size="65" placeholder="Street/Apt #">
+          <input onblur="basicvalidation('paddress','Address');"  required id="paddress" class="typeahead tt-query" type="text" name="street"  size="65" placeholder="Street/Apt #">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>8.CITY</h5>
        <h5>
-         <input required id="pcity" class="typeahead tt-query" type="dob" name="city" size="45" placeholder="City">
+         <input onblur="basicvalidation('pcity','City');" required id="pcity" class="typeahead tt-query" type="dob" name="city" size="45" placeholder="City">
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>9.STATE</h5>
@@ -200,12 +202,12 @@ Female </p>
         
       </h5>
         <h5>
-          <input id="pzip" class="typeahead tt-query" type="text" name="zip" placeholder="Zip Code">
+          <input id="pzip" onblur="basicvalidation('pzip','Zip Code');" class="typeahead tt-query" type="text" name="zip" placeholder="Zip Code">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>11.TELEPHONE</h5>
        <h5>
-         <input type="tel" name="textfield10" id="textfield10" placeholder="(___)-(___)-(____)" >
+         <input onblur="basicvalidation('ptel','Telephone Number');" type="tel" name="textfield10" id="ptel" placeholder="(___)-(___)-(____)" >
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>12. INSURANCE PLAN</h5>
@@ -248,7 +250,7 @@ Female </p>
       <p>&nbsp;</p></td>
       <TR>
      <td width="32%" colspan="3"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
-         <input type="text" name="textfield9" id="textfield9" placeholder="Employer/School Name">
+         <input onblur="basicvalidation('pesname','Employer/School Name');" type="text" name="textfield9" id="pesname" placeholder="Employer/School Name">
      </h5>
       <p>&nbsp;</p></td> 
       </TR>

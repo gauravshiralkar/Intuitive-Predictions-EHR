@@ -9,15 +9,63 @@ function predicting() {
 }
 
 
-function checkFromDB(table,field,formfield) {
+function basicvalidation(formfield,dispname) {
 	var val = document.getElementById(formfield).value;
 	if (val ==="") {
+		$.notify({
+			message: ''+dispname+' Cannot be Blank'
+		},{
+			type: 'danger'
+		});
+		return;
+	}
+	
+	if (formfield==='pname'){
+		if (!(/^[-A-Z ]+$/i.test(val))){
 			$.notify({
+				message: ''+dispname+' is not valid'
+			},{
+				type: 'danger'
+			});	
+		}
+		return;
+	}
+	
+	if (formfield==='pzip'){
+		if (!(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val))){
+			$.notify({
+				message: ''+dispname+' is not valid'
+			},{
+				type: 'danger'
+			});	
+		}
+		return;
+	}
+	
+	if (formfield==='ptel'){
+		if (!(/^(\+|1\s)?\d{10}[0-9]$/.test(val))){
+			$.notify({
+				message: ''+dispname+' is not valid'
+			},{
+				type: 'danger'
+			});	
+		}
+		return;
+	}		
+	
+}
+
+
+function checkFromDB(table,field,formfield,dispname) {
+	basicvalidation(formfield,dispname);
+	var val = document.getElementById(formfield).value;
+	if (val ==="") {
+			/*$.notify({
 				title: '<strong>Danger</strong>',
 				message: ''+formfield+' Cannot be Blank'
 			},{
 				type: 'danger'
-			});
+			});*/
 	}
 	else{
 		$.get("/check/"+table+"/"+field+"/"+val, function(results) {

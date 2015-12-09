@@ -145,7 +145,14 @@ exports.getPieData = function(callback,rCode){
 	});			
 }
 
-
+exports.autopopulate = function(callback,val){
+	connection.query('use cmpe295ehr;');
+	var query = 'select * from scratch  where insuranceDetailsProviderId="'+val+'";';
+	connection.query(query, function(err, rows) {
+		console.log(rows);
+		callback(err, rows);		
+	});			
+}
 
 exports.getAcceptRejectData = function(callback){
 	connection.query('use cmpe295ehr;');

@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
 <title>Result</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="/data/gauge-functions.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 
-<body onload="">
+<body onload="showGraph()">
 <% include header %>
 <br><br><br>
 <div class="container">
-
+<div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
 <h2>Probability is <%= result %>  </h2>
 
 </div>	

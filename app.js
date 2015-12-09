@@ -105,6 +105,7 @@ app.get('/typeAhead/:field/:table', routes.typeAhead);
 app.get('/check/:table/:field/:val', routes.check);
 app.get('/checkTreatCode/:dcode/:tcode', routes.checkTreatCode);
 app.get('/searchkey/:getval/:field/:key', routes.searchkey);
+app.get('/autopopulate/:val', routes.autopopulate);
 //
 
 //Insert into database

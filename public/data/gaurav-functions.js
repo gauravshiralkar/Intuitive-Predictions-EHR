@@ -15,13 +15,30 @@ function basicvalidation(formfield,dispname) {
 		$.notify({
 			message: ''+dispname+' Cannot be Blank'
 		},{
-			type: 'danger'
+			type: 'danger',
+			placement: {
+					from: "top",
+					align: "center"
+					}
 		});
+		document.getElementById(formfield).focus();
 		return false;
 	}
 	
 	if (formfield==='insuranceId'){
 		if (isNaN(document.getElementById(formfield).value)) {
+			$.notify({
+				message: ''+dispname+' is not valid'
+			},{
+				type: 'danger'
+			});	
+			return false;
+		}
+		
+	}
+	
+	if (formfield==='providername'){
+		if (!(/^[-A-Z ]+$/i.test(val))){
 			$.notify({
 				message: ''+dispname+' is not valid'
 			},{
@@ -66,7 +83,8 @@ function basicvalidation(formfield,dispname) {
 			return false;
 		}
 		
-	}		
+	}	
+	
 	return true;
 }
 
@@ -74,7 +92,7 @@ function checkAll() {
 	var flag=true;
 	//$(":text, :file, :checkbox, select, textarea").each(function() {
 	//$(":input").each(function() {
-	$(":text, :radio, :checkbox, select, textarea").each(function() {
+	$(":text, :radio, :checkbox, select").each(function() {
 	   if($(this).val() === "")
 	   {
 		   $.notify({
@@ -95,9 +113,34 @@ function checkAll() {
 	}
 }
 
+function autopopulate(val){
+	$.get("/autopopulate/"+val, function(results) {
+		document.getElementById('providername').value = results[0].insuranceProviderName;
+		document.getElementById('pname').value = results[0].patientFullName;
+		document.getElementById('textfield2').value = results[0].dob;
+		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}else{document.getElementById('m2').checked=true;}
+		document.getElementById('paddress').value = results[0].patientAddressStreet;
+		document.getElementById('pcity').value = results[0].patientAddressCity;
+		document.getElementById('pzip').value = results[0].patientAddressZip;
+		document.getElementById('pstate').value = results[0].patientAddressState;
+		document.getElementById('ptel').value = results[0].tel;
+		document.getElementById('pplan').value = results[0].insuranceDetailsPlan;
+		document.getElementById('textfield8').value = results[0].filingDate;
+		document.getElementById('textfield12').value = results[0].insuranceDetailsExpiryDate;
+		document.getElementById('pesname').value = results[0].patientESName;
+		document.getElementById('ptel').value = results[0].tel;
+		document.getElementById('dcode').focus();
+		/*$(":text").each(function() {
+			$(this).attr("disabled",true);
+		});*/
+	});
+	
+}
+
 function checkFromDB(table,field,formfield,dispname) {
 	var retval=basicvalidation(formfield,dispname);
 	var val = document.getElementById(formfield).value;
+	if(formfield==='providername'){val=val.toUpperCase();alert(val);}
 if (retval){
 	if (formfield==='insuranceId') {
 		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
@@ -110,11 +153,12 @@ if (retval){
 				});
 			}else{
 				$.notify({
-					title: '<strong>Success</strong>',
+					title: '<strong>Autopopulating</strong>',
 					message: 'Found record for '+dispname
 				},{
 					type: 'success'
 				});
+				autopopulate(val);
 			}
 			
 			});

@@ -627,6 +627,12 @@ exports.getPieData = function(req, res){
 	},req.params.rCode);			  
 };
 
+exports.autopopulate = function(req, res){
+	dbConn.autopopulate(function(err,rows){
+		res.send(rows);
+	},req.params.val);			  
+};
+
 exports.typeAhead= function(req,res){
 	dbConn.typeAhead(function(err,rows){
 		//console.log('Search key= '+req.query.key);

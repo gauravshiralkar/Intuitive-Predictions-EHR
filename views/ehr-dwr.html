@@ -69,7 +69,7 @@
 
 </script>
 <br><br>
-<form action="/insertData" method="post">
+<form id="ehrform" action="/insertData" method="post">
 <div class="container">
 <hr width=150% color="63b8ee">
 <h3 align="center"> Intuitive Electronic Health Record Form</h3>
@@ -93,19 +93,19 @@ Sponser's SSN
       <p>&nbsp;</p></td>
      <td width="22%"><h5>2.INSURANCE ID</h5>
        <h5>
-         <input type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onchange="checkFromDB('scratch','insuranceDetailsId','insuranceId');">
+         <input required type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onchange="checkFromDB('scratch','insuranceDetailsId','insuranceId');">
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>3. INSURANCE PROVIDER NAME</h5>
         <p>
-          <input name="providername" class="typeahead tt-query" type="text" id="providername" size="45" placeholder="Provider Name" onchange="checkFromDB('scratch','insuranceDetailsProviderName','providername');">
+          <input required name="providername" class="typeahead tt-query" type="text" id="providername" size="45" placeholder="Provider Name" onchange="checkFromDB('scratch','insuranceDetailsProviderName','providername');">
         </p>
       <p>&nbsp;</p></td>
     </tr>
     <tr>
       <td width="32%"><h5> 4.PATIENT'S NAME(Last Name, First Name, MI)</h5>
         <h5>
-          <input id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
+          <input required id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>5.DATE OF BIRTH</h5>
@@ -129,12 +129,12 @@ Female </p>
    <tr>
       <td width="32%"><h5> 7.ADDRESS</h5>
         <h5>
-          <input  id="paddress" class="typeahead tt-query" type="text" name="street"  size="65" placeholder="Street/Apt #">
+          <input required id="paddress" class="typeahead tt-query" type="text" name="street"  size="65" placeholder="Street/Apt #">
         </h5>
       <p>&nbsp;</p></td>
      <td><h5>8.CITY</h5>
        <h5>
-         <input id="pcity" class="typeahead tt-query" type="dob" name="city" size="45" placeholder="City">
+         <input required id="pcity" class="typeahead tt-query" type="dob" name="city" size="45" placeholder="City">
        </h5>
       <p>&nbsp;</p></td>
       <td width="46%"><h5>9.STATE</h5>
@@ -267,9 +267,9 @@ Female </p>
       </TR>
  
   </tbody>
-</table>
-<center><a href="#" class="myButton">Submit</a></center>
-<center><button type="submit" >Submit Form</button></center>
+</table><br>
+<center><a onclick="predicting()" class="myButton">Submit</a></center>
+<center><button type="submit" onclick="predicting()">Submit Check</button></center>
 </form>
 <hr width=150% color="#63b8ee">
 </div>

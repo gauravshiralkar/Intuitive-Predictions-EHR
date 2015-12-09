@@ -1,9 +1,12 @@
 
-/*var notify = $.notify('<strong>Predicting</strong> Please wait...', {
-	type: 'success',
-	allow_dismiss: false,
-	showProgressbar: true
-});*/
+function predicting() {
+	var notify = $.notify('<strong>Predicting</strong> Please wait...', {
+			type: 'success',
+			allow_dismiss: false,
+			showProgressbar: true
+	});
+	setTimeout(function () {document.getElementById("ehrform").submit();},6000);
+}
 
 
 function checkFromDB(table,field,formfield) {

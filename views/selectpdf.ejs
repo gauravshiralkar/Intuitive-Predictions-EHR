@@ -17,26 +17,35 @@ function alertFilename()
                 window.location='/generatefromPDF/'+name;
             }
 </script>
+<style>
+
+#container {
+	min-width: 60%;
+	height:500px;
+	margin: 0 auto;
+}
+
+
+</style>
 
 </head>
 
 <body onload="">
 <% include header %>
 <br><br><br>
-<div class="container">
+<div class="container" align="center" style="background-color:#00a1cb; ">
 
-<div style="width:800px; margin:0 auto;">
-     Open EHR Form
-	 <br>
-	 <br>
-	 <br>
+<div >
+    <table><tr> <td>
 	 <input id="i_file" name="i_file" type="file" name="file" >
-	 <br>
-	 <input type="button" id="i_submit" value="Submit" onclick="alertFilename()">
-
+	</td>
+	<td> <input type="button" id="i_submit" value="Submit" class="btn btn-info" onclick="alertFilename()"></td></tr>
+	 </table>
+</div>
 
 </div>	
-<br><br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <% include footer %>
 </body>
 </html>

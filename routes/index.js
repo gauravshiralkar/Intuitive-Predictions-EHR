@@ -493,7 +493,7 @@ exports.showTemplate= function (req,res){
 
 exports.showEHR= function (req,res){
 
-	res.render('ehr-dwr.html');
+	res.render('ehr-dwr.html',{filepth: ""});
 };
 
 exports.showOCR= function (req,res){
@@ -504,6 +504,11 @@ exports.showOCR= function (req,res){
 exports.selectPDF= function (req,res){
 
 	res.render('selectpdf.ejs');
+};
+
+exports.generatefromPDF= function (req,res){
+	console.info(req.params.path);
+	res.render('ehr-dwr.html',{filepth: req.params.path});
 };
 
 exports.testme = function(req, res){
@@ -660,7 +665,7 @@ exports.pdfpopulate = function(req, res){
 
 	//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
 
-	var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
+	var pdfFilePath = "C:/Users/Grv/Desktop/"+req.params.path;
 	//var pdfFilePath = req.params.path;
 
 	pdfParser.loadPDF(pdfFilePath);

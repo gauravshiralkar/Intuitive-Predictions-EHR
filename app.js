@@ -98,6 +98,7 @@ app.get('/showAcceptRejectMap', routes.showAcceptRejectMap);
 app.get('/showEHR', routes.showEHR);
 app.get('/showOCR', routes.showOCR);
 app.get('/selectPDF', routes.selectPDF);
+app.get('/generatefromPDF/:path', routes.generatefromPDF);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 app.get('/callPieChart/state', routes.callPieChart);
 

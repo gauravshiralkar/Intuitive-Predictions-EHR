@@ -187,7 +187,7 @@ exports.getAcceptRejectData = function(callback){
 		end as 'age' \
 		, \
 		COUNT(CASE insuranceDetailsStatus  WHEN 'Accepted' THEN 1 END) AS accepted, \
-		COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END)*(-1) AS rejected \
+		(100 - COUNT(CASE insuranceDetailsStatus  WHEN 'Rejected' THEN 1 END))*(-1) AS rejected \
 		from patientdetails,insurancedetails where patientDetailsInsuranceId=insuranceDetailsId group by 1 order by 1 desc;";
 	connection.query(query, function(err, rows) {		
 		callback(err, rows);

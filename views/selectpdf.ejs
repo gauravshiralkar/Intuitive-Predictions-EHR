@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Template</title>
+<title>Select PDF</title>
 <style>
 /* Inline Style Here */
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script type="text/javascript">
-/* Inline Script Here */
+function alertFilename()
+            {
+                var thefile = document.getElementById('i_file');
+                var name = thefile.value.replace(/^.*[\\\/]/, '');
+                //name="C:/Users/Grv/Desktop/"+name;
+                //alert(name);
+                window.location='/generatefromPDF/'+name;
+            }
 </script>
 
 </head>
@@ -22,8 +30,10 @@
 	 <br>
 	 <br>
 	 <br>
-	 <input type="file" name="file" >
-    </div>
+	 <input id="i_file" name="i_file" type="file" name="file" >
+	 <br>
+	 <input type="button" id="i_submit" value="Submit" onclick="alertFilename()">
+
 
 </div>	
 <br><br>

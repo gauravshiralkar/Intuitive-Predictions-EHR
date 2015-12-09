@@ -1,3 +1,35 @@
+if(document.getElementById('filep').val != ""){
+	
+	$.get('/pdfpopulate/'+document.getElementById('filep').val, function (results) {
+		$.notify({
+			title: '<strong>Autopopulating</strong>',
+			message: 'From PDF'
+		},{
+			type: 'success'
+		});
+		console.log(results);
+		document.getElementById('insuranceId').value = results[0].insuranceDetailsId;
+		document.getElementById('providername').value = results[0].insuranceProviderName;
+		document.getElementById('pname').value = results[0].patientFullName;
+		
+		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}else{document.getElementById('m2').checked=true;}
+		document.getElementById('paddress').value = results[0].patientAddressStreet;
+		document.getElementById('pcity').value = results[0].patientAddressCity;
+		document.getElementById('pzip').value = results[0].patientAddressZip;
+		document.getElementById('pstate').value = results[0].patientAddressState;
+		document.getElementById('ptel').value = results[0].tel;
+		document.getElementById('pplan').value = results[0].insuranceDetailsPlan;
+		
+		document.getElementById('pesname').value = results[0].patientESName;
+		document.getElementById('ptel').value = results[0].tel;
+		
+		document.getElementById('dcode').focus();
+		
+		document.getElementById('textfield2').value = results[0].dob;
+		document.getElementById('textfield8').value = results[0].filingDate;
+		document.getElementById('textfield12').value = results[0].insuranceDetailsExpiryDate;
+	});
+}
 
 function predicting() {
 	var notify = $.notify('<strong>Predicting</strong> Please wait...', {

@@ -28,7 +28,7 @@ $(function () {
             
             subtitle: {
                 text: 'CLick on each state to view the EHR Adoption yearly'
-            }
+            },
 
             legend: {
                 layout: 'horizontal',
@@ -36,7 +36,7 @@ $(function () {
               
                 floating: true,
                 verticalAlign: 'top',
-                y: 25
+                y: 40
             },
 
             mapNavigation: {

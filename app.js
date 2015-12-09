@@ -84,6 +84,10 @@ app.get('/showTree', routes.showTree);
 app.get('/getTree', routes.getTree);
 
 //
+//k means chart
+
+app.get('/showKmeans', routes.showKmeans);
+//
 
 //Region Map
 app.get('/showRegionMap', routes.showRegionMap);

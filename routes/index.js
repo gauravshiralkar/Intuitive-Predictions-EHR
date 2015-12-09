@@ -516,6 +516,11 @@ exports.callPieChart= function(req, res)
 	res.send("hello");
 }
 
+exports.showKmeans= function (req,res){
+
+	res.render('kmeanchart.ejs');
+};
+
 //Region Map	
 
 exports.showRegionMap = function(req, res){

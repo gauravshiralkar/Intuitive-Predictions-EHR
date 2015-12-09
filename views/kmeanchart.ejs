@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+#container {
+	min-width: 40%;
+	max-width: 50%;
+	margin: 0 auto;
+}
+
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="data/kmeanschart-functions.js"></script>
+
+
+
+
+
+
+<% include header %>
+<br><br><br><br>
+<body onload="showGraph()">
+<div id="aParent">
+<div style="margin-right: 10%;" align="right"> 
+<a href="#" class="btn btn-info" id="bubble"> Show Bubble Chart</a>
+<a href="#" class="btn btn-info" id="line"> SHow Line Chart</a>
+
+
+</div>
+<div style="margin-right: 10%;" align="right">
+
+<select name="Clustering Parameters" onchange="showGraph();" id="cluster">
+                <option value="Insurance Provider Id">Insurance Provider Id</option>
+                <option value="Patient Address Zip">Patient Address Zip</option>
+                <option value="Diagnosis Code">Diagnosis Code</option>
+                <option value="Procedure Code">Procedure code</option>
+                <option value="Age">Age</option>
+        </select>
+        </div>
+<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto;"></div>
+
+</div>
+<br><br>
+
+<% include footer %>
+
+
+
+</body>
+
+
+
+</html>

@@ -96,6 +96,8 @@ app.get('/getRegionMapData', routes.getRegionMapData);
 
 app.get('/showAcceptRejectMap', routes.showAcceptRejectMap);
 app.get('/showEHR', routes.showEHR);
+app.get('/showOCR', routes.showOCR);
+app.get('/selectPDF', routes.selectPDF);
 app.get('/getAcceptRejectData', routes.getAcceptRejectData);
 app.get('/callPieChart/state', routes.callPieChart);
 
@@ -106,6 +108,7 @@ app.get('/check/:table/:field/:val', routes.check);
 app.get('/checkTreatCode/:dcode/:tcode', routes.checkTreatCode);
 app.get('/searchkey/:getval/:field/:key', routes.searchkey);
 app.get('/autopopulate/:val', routes.autopopulate);
+app.get('/pdfpopulate/:path', routes.pdfpopulate);
 //
 
 //Insert into database
@@ -127,47 +130,6 @@ app.get('/getClustersOne/:one', routes.KMeanClusterone);
 app.get('/getClustersTwo/:one/:two', routes.KMeanClustertwo);
 
 //-----------------------K Means Method----------------------------------------------------------------------------------
-
-/*pdfjson
-var nodeUtil = require("util"),
-fs = require('fs'),
-_ = require('underscore'),
-PDFParser = require("pdf2json/pdfparser");
-
-var pdfParser = new PDFParser();
-
-pdfParser.on("pdfParser_dataReady", function (data){console.log(data)});
-
-//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
-
-var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
-
-pdfParser.loadPDF(pdfFilePath);
-//console.log(pdfParser);
-
-// or call directly with buffer
-fs.readFile(pdfFilePath, function (err, pdfBuffer) {
-if (!err) {
-pdfParser.parseBuffer(pdfBuffer);
-//console.log(pdfBuffer);
-}
-})
-*/
-
-
-/*pdf
-var pdfText = require('pdf-text');
-
-var pathToPdf = "C:/Users/Grv/Desktop/a.pdf";
-
-pdfText(pathToPdf, function(err, chunks) {
-  //chunks is an array of strings 
-  //loosely corresponding to text objects within the pdf
-
-  //for a more concrete example, view the test file in this repo
-	console.log(chunks);
-});
-*/
 
 
 http.createServer(app).listen(app.get('port'), function(){

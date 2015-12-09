@@ -154,6 +154,16 @@ exports.autopopulate = function(callback,val){
 	});			
 }
 
+exports.pdfpopulate = function(callback,val){
+	console.log('psfpop value:'+val);
+	connection.query('use cmpe295ehr;');
+	var query = 'select * from scratch  where insuranceDetailsProviderId="'+val+'";';
+	connection.query(query, function(err, rows) {
+		console.log(rows);
+		callback(err, rows);		
+	});			
+}
+
 exports.getAcceptRejectData = function(callback){
 	connection.query('use cmpe295ehr;');
 	var query = "select case \

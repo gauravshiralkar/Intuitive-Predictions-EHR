@@ -468,6 +468,16 @@ var bayes = require('bayes');
 var classifier = bayes();
 var kmeans = require('node-kmeans');
 
+//pdfjson
+var nodeUtil = require("util"),
+fs = require('fs'),
+_ = require('underscore'),
+PDFParser = require("pdf2json/pdfparser");
+
+var pdfText = require('pdf-text');
+
+
+
 
 exports.index = function(req, res){
 	console.log(req.app.get('dbuntrained'));
@@ -484,6 +494,16 @@ exports.showTemplate= function (req,res){
 exports.showEHR= function (req,res){
 
 	res.render('ehr-dwr.html');
+};
+
+exports.showOCR= function (req,res){
+
+	res.render('ocr.ejs');
+};
+
+exports.selectPDF= function (req,res){
+
+	res.render('selectpdf.ejs');
 };
 
 exports.testme = function(req, res){
@@ -631,6 +651,48 @@ exports.autopopulate = function(req, res){
 	dbConn.autopopulate(function(err,rows){
 		res.send(rows);
 	},req.params.val);			  
+};
+
+exports.pdfpopulate = function(req, res){
+	var pdfParser = new PDFParser();
+	var idtxt = 100;
+	pdfParser.on("pdfParser_dataReady", function (data){console.log(data)});
+
+	//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
+
+	var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
+	//var pdfFilePath = req.params.path;
+
+	pdfParser.loadPDF(pdfFilePath);
+	//console.log(pdfParser);
+
+	// or call directly with buffer
+	fs.readFile(pdfFilePath, function (err, pdfBuffer) {
+	if (!err) {
+	pdfParser.parseBuffer(pdfBuffer);
+	//console.log(pdfBuffer);
+	}
+	})
+	//
+
+
+	/*pdf
+
+
+	var pathToPdf = "C:/Users/Grv/Desktop/a.pdf";
+
+	pdfText(pathToPdf, function(err, chunks) {
+	  //chunks is an array of strings 
+	  //loosely corresponding to text objects within the pdf
+
+	  //for a more concrete example, view the test file in this repo
+		console.log(chunks);
+	});
+	*/
+
+	dbConn.pdfpopulate(function(err,rows){
+		res.send(rows);
+	},idtxt);			  
 };
 
 exports.typeAhead= function(req,res){

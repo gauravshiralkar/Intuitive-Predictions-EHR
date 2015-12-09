@@ -20,6 +20,10 @@ function showGraph(){
         },
         title: {
             text: 'Trends in EHR Adoption by Rural and Small Hospitals in U.S'
+            	
+        },
+        subtitle: {
+            text: 'Click on pie sections to view the EHR Adoption in each state in U.S'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

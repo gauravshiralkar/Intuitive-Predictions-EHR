@@ -3,16 +3,17 @@
 
 
 function showGraph(){
+	$("#line").on('click', function() {
+		 //alert ("inside onclick");
+		showGraph();
+	});
 
 	$("#bubble").on('click', function() {
 		// alert ("inside onclick");
 		showGraphBubble();
 	});
 
-	$("#line").on('click', function() {
-		// alert ("inside onclick");
-		showGraph();
-	});
+	
 
 	var clusterParam = document.getElementById("cluster").value;
 	console.log(clusterParam);

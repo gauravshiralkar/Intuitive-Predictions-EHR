@@ -59,7 +59,10 @@ function showGraph(){
 				        }],
 				        title: {
 				            text: 'Tree Map displaying types of ailments'
-				        }
+				        },
+				        subtitle: {
+			                text: 'Click on ailments to view their procedure codes'
+			            }
 				    });
 				});
 
@@ -74,7 +77,7 @@ function showGraph(){
 function getTreeData(name){
 	
 
-    document.getElementById("backtodash").align="center";	
+    document.getElementById("backtodash").align="right";	
     
     
     document.getElementById("container").style.float="left";

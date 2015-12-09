@@ -25,6 +25,10 @@ $(function () {
             title : {
                 text : 'Basic EHR Adoption Rate'
             },
+            
+            subtitle: {
+                text: 'CLick on each state to view the EHR Adoption yearly'
+            }
 
             legend: {
                 layout: 'horizontal',

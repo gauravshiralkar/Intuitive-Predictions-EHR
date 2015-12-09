@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+#container {
+	min-width: 60%;
+	max-width: 70%;
+	margin: 0 auto;
+}
+
+
+</style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/maps/modules/map.js"></script>
@@ -15,14 +25,14 @@
 <% include header %>
 <br><br><br><br>
 <div>
-<div id="back" style="display: none; margin-right:25%;" align="right">
-		<a href="#" onClick="showGraphAgain()">Go Back</a>
+<div id="back" style="display: none; margin-right:15%;" align="right">
+		<a href="#" onClick="showGraphAgain()" class="btn btn-info">Go Back</a>
 	</div>
-	<div id="backtodash" style="margin-right:25%;" align="right">
+	<div id="backtodash" style="margin-right:15%;" align="right">
 		<a href="/#dashboard" class="btn btn-info">Go Back</a>
 	</div>
 
-<div id="container" style="min-width:50%; height:50%; margin: 0 auto"></div>
+<div id="container" ></div>
 
 </div>
 <br><br>

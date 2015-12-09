@@ -652,9 +652,13 @@ exports.checkTreatCode = function(req, res){
 };
 
 exports.InsertData = function(req,res){
+	console.log(req.body.providername);
 	dbConn.InsertData(function(err,rows){
-		res.send(rows);
-	},req.params.dataObject);
+		
+		console.log('index insertData');
+		console.log(rows);
+		res.redirect('/getPrediction/'+rows);
+	},req);
 	
 }
 //Prediction Logic //
@@ -689,6 +693,7 @@ exports.TrainData = function(req,res){
 };
 
 exports.bayeNetMethod = function(req,res){
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 	var bayes = require('bayes');
@@ -740,6 +745,9 @@ exports.bayeNetMethod = function(req,res){
 };
 >>>>>>> b2bb1b0... Module of BayesNet 
 =======
+=======
+    console.log(req.params.dataObj);
+>>>>>>> 7b8682d... Prediction Logic added
 	var result = classifier.categorize(req.params.dataObj);
 	console.log("Result is:");
 	
@@ -749,6 +757,7 @@ exports.bayeNetMethod = function(req,res){
 //	load the classifier back from its JSON representation.
 	var revivedClassifier = bayes.fromJson(stateJson)	
 
+<<<<<<< HEAD
 	res.send(result);
 };
 
@@ -808,6 +817,12 @@ exports.KMeanCluster = function(req,res){
 	});
 	
 	//res.send(KResult.cluster);
+=======
+	//res.send(result);
+	res.render('resultPage.ejs',{result: result});
+	req.story=result;
+	//res.redirect('/testme');
+>>>>>>> 7b8682d... Prediction Logic added
 };
 <<<<<<< HEAD
 >>>>>>> 87e5cdd... DB CHANGE and kmeans

@@ -269,20 +269,29 @@ exports.GetKMeanRowsone = function(callback,one){
 	});			
 }
 
-exports.InsertData = function (callback, data){
-
+exports.InsertData = function (callback,req){
+	var dataObj;
 	console.log("Inside dbconn Insert Data method");
+	//console.log(req.body.providername);
 	connection.query('use cmpe295ehr;');
-var query = "insert into scratch(InsuranceId, insuranceProviderName, patientFullName, dob, gender, patientAddressStreet, patientAddressCity, patientAddressState, patientAddressZip, insuranceDetailsPlan, filingDate, insuranceDetailsExpiryDate,DiagnosisCode, ProcedureCode, mobile)values('"+ 
-	data.firstName +"','"+ data.lastName+"','"+data.emailId+"','"+
-	data.mobile+"')";
-
-		connection.query(query, function(err, rows) {		
-			//console.log(rows);	
-			callback(err, rows);
-
-		});	
-
+	var query = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus)" +
+			"values('"+ req.body.pname +"','" +
+					 + req.body.insuranceId+"','"
+					 + req.body.providername+"','"
+					 + req.body.street+"','"
+					 + req.body.city+"','"
+					 + req.body.zip+"','"
+					 + req.body.dcode+"','"
+					 + req.body.tcode+"','expired','Match')";
+	connection.query(query, function(err, rows) {		
+			if (err) {console.log(err);}
+	});
+	query='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId;
+	connection.query(query, function(err, rows) {
+				console.log(rows);
+				//dataObj=rows;	
+				callback(err, rows);
+	});	
 }
 //--------------------End of MySQL Routes--------------------------
 

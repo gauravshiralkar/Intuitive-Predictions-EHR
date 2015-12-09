@@ -8,47 +8,13 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
+var bodyParser = require('body-parser');
 
-/*pdfjson
-var nodeUtil = require("util"),
-fs = require('fs'),
-_ = require('underscore'),
-PDFParser = require("pdf2json/pdfparser");
+var jsonParser = bodyParser.json()
 
-var pdfParser = new PDFParser();
+//create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-pdfParser.on("pdfParser_dataReady", function (data){console.log(data)});
-
-//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
-
-var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
-
-pdfParser.loadPDF(pdfFilePath);
-//console.log(pdfParser);
-
-// or call directly with buffer
-fs.readFile(pdfFilePath, function (err, pdfBuffer) {
-if (!err) {
-pdfParser.parseBuffer(pdfBuffer);
-//console.log(pdfBuffer);
-}
-})
-*/
-
-
-/*pdf
-var pdfText = require('pdf-text');
-
-var pathToPdf = "C:/Users/Grv/Desktop/a.pdf";
-
-pdfText(pathToPdf, function(err, chunks) {
-  //chunks is an array of strings 
-  //loosely corresponding to text objects within the pdf
-
-  //for a more concrete example, view the test file in this repo
-	console.log(chunks);
-});
-*/
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -138,8 +104,8 @@ app.get('/searchkey/:getval/:field/:key', routes.searchkey);
 //
 
 //Insert into database
-app.get('/insertData/:dataObject', routes.InsertData);
-
+//app.get('/insertData/:dataObject', routes.InsertData);
+app.post('/insertData',urlencodedParser,routes.InsertData);
 
 //-----------------------Bayes Net Method--------------------------------------------------------------------------
 
@@ -152,13 +118,51 @@ app.set('dbuntrained',true);
 //-----------------------K Means Method----------------------------------------------------------------------------------
 
 var kmeans = require('node-kmeans');
-app.get('/getCluster', routes.KMeanCluster);
 app.get('/getClustersOne/:one', routes.KMeanClusterone);
 app.get('/getClustersTwo/:one/:two', routes.KMeanClustertwo);
 
 //-----------------------K Means Method----------------------------------------------------------------------------------
 
+/*pdfjson
+var nodeUtil = require("util"),
+fs = require('fs'),
+_ = require('underscore'),
+PDFParser = require("pdf2json/pdfparser");
 
+var pdfParser = new PDFParser();
+
+pdfParser.on("pdfParser_dataReady", function (data){console.log(data)});
+
+//pdfParser.on("pdfParser_dataError", _.bind(_onPFBinDataError, self));
+
+var pdfFilePath = "C:/Users/Grv/Desktop/a.pdf";
+
+pdfParser.loadPDF(pdfFilePath);
+//console.log(pdfParser);
+
+// or call directly with buffer
+fs.readFile(pdfFilePath, function (err, pdfBuffer) {
+if (!err) {
+pdfParser.parseBuffer(pdfBuffer);
+//console.log(pdfBuffer);
+}
+})
+*/
+
+
+/*pdf
+var pdfText = require('pdf-text');
+
+var pathToPdf = "C:/Users/Grv/Desktop/a.pdf";
+
+pdfText(pathToPdf, function(err, chunks) {
+  //chunks is an array of strings 
+  //loosely corresponding to text objects within the pdf
+
+  //for a more concrete example, view the test file in this repo
+	console.log(chunks);
+});
+*/
 
 
 http.createServer(app).listen(app.get('port'), function(){

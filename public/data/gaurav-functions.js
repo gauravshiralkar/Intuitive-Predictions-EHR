@@ -111,3 +111,14 @@ function getDCode() {
 			document.getElementById('diagcode').value=results[0].first;
 		});
 }
+
+function getTCode() {
+	var dkey = document.getElementById('treatkey').value;
+	//document.getElementById('diagcode').value='results';
+	$.get("/searchkey/procedureCodes/ProcedureDesc/"+dkey, function(results) {
+			console.log(results);
+			document.getElementById('treatcode').value=results[0].first;
+		});
+	setTimeout(checkTreatCode, 100);
+	//checkTreatCode;
+}

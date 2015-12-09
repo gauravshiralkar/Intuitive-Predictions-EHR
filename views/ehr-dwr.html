@@ -44,7 +44,20 @@
 	position:relative;
 	top:1px;
 }
+input.error {
+    text-color: red;
+}
+table {
 
+	text-align: center;
+	height: 50%;
+}
+td {
+	
+}
+tr {
+	height: 20px;
+}
 
 </style>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -73,10 +86,22 @@
 <div class="container">
 <hr width=150% color="63b8ee">
 <h3 align="center"> Intuitive Electronic Health Record Form</h3>
-<table width="90%" border="1" align="center" id="myTable">
+<table  border="1" align="center" id="myTable">
+<colgroup>
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+    </colgroup>
   <tbody >
     <tr>
-      <td width="32%"><h5> 1. MEDICARE  &nbsp; &nbsp; MEDICAID &nbsp; &nbsp;TRICARE </h5>
+      <td colspan="33"><h5> 1. MEDICARE  &nbsp; &nbsp; MEDICAID &nbsp; &nbsp;TRICARE </h5>
         <h5>
           <input type="checkbox" name="checkbox" id="checkbox">
         (Medicare#)
@@ -91,29 +116,29 @@ Sponser's SSN
 <label for="checkbox3"></label>
         </h5>
       <p>&nbsp;</p></td>
-     <td width="22%"><h5>2.INSURANCE ID</h5>
+     <td colspan="33"><h5>2.INSURANCE ID</h5>
        <h5>
-         <input required type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onblur="checkFromDB('scratch','insuranceDetailsId','insuranceId','Insurance Id');">
+         <input   alt="Insurance Id" type="text" name="insuranceId" id="insuranceId" placeholder="Insurance ID" onblur="checkFromDB('scratch','insuranceDetailsId','insuranceId','Insurance Id');">
        </h5>
       <p>&nbsp;</p></td>
-      <td width="46%"><h5>3. INSURANCE PROVIDER NAME</h5>
+      <td colspan="33"><h5>3. INSURANCE PROVIDER NAME</h5>
         <p>
-          <input required name="providername" class="typeahead tt-query" type="text" id="providername" size="45" placeholder="Provider Name" onblur="checkFromDB('scratch','insuranceDetailsProviderName','providername','Provider Name');">
+          <input   name="providername" class="typeahead tt-query" type="text" id="providername" placeholder="Provider Name" onblur="checkFromDB('scratch','insuranceDetailsProviderName','providername','Provider Name');">
         </p>
       <p>&nbsp;</p></td>
     </tr>
     <tr>
-      <td width="32%"><h5> 4.PATIENT'S NAME(Last Name, First Name, MI)</h5>
+      <td colspan="34"><h5> 4.PATIENT'S NAME(Last Name, First Name)</h5>
         <h5>
-          <input onblur="basicvalidation('pname','Patient Name');" required id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6"  size="65" placeholder="Full Name">
+          <input onblur="basicvalidation('pname','Patient Name');"   id="pname" name="pname" class="typeahead tt-query" type="text" name="textfield6" placeholder="Full Name">
         </h5>
       <p>&nbsp;</p></td>
-     <td><h5>5.DATE OF BIRTH</h5>
+     <td colspan="33"><h5>5.DATE OF BIRTH</h5>
        <h5>
-         <input type="date" name="textfield2" id="textfield2" size="45" placeholder="date of birth">
+         <input type="date" name="textfield2" id="textfield2" placeholder="date of birth">
        </h5>
       <p>&nbsp;</p></td>
-      <td width="46%"><h5>6.GENDER</h5>
+      <td colspan="33"><h5>6.GENDER</h5>
         <p>
           <input type = "radio"
                  id = "m1"
@@ -129,17 +154,17 @@ Female </p>
     </tr>
         
    <tr>
-      <td width="32%"><h5> 7.ADDRESS</h5>
+      <td colspan="34"><h5> 7.ADDRESS</h5>
         <h5>
-          <input onblur="basicvalidation('paddress','Address');"  required id="paddress" class="typeahead tt-query" type="text" name="street"  size="65" placeholder="Street/Apt #">
+          <input onblur="basicvalidation('paddress','Address');"    id="paddress" class="typeahead tt-query" type="text" name="street" placeholder="Street/Apt #">
         </h5>
       <p>&nbsp;</p></td>
-     <td><h5>8.CITY</h5>
+     <td colspan="33"><h5>8.CITY</h5>
        <h5>
-         <input onblur="basicvalidation('pcity','City');" required id="pcity" class="typeahead tt-query" type="dob" name="city" size="45" placeholder="City">
+         <input onblur="basicvalidation('pcity','City');"   id="pcity" class="typeahead tt-query" type="dob" name="city" placeholder="City">
        </h5>
       <p>&nbsp;</p></td>
-      <td width="46%"><h5>9.STATE</h5>
+      <td colspan="33"><h5>9.STATE</h5>
         <p>
           <select name="select">
             <option value="AL">Alabama</option>
@@ -198,19 +223,19 @@ Female </p>
       <p>&nbsp;</p></td>
     </tr>
     <tr>
-      <td width="32%"><h5> 10.ZIP CODE
+      <td colspan="34"><h5> 10.ZIP CODE
         
       </h5>
         <h5>
           <input id="pzip" onblur="basicvalidation('pzip','Zip Code');" class="typeahead tt-query" type="text" name="zip" placeholder="Zip Code">
         </h5>
       <p>&nbsp;</p></td>
-     <td><h5>11.TELEPHONE</h5>
+     <td colspan="33"><h5>11.TELEPHONE</h5>
        <h5>
          <input onblur="basicvalidation('ptel','Telephone Number');" type="tel" name="textfield10" id="ptel" placeholder="(___)-(___)-(____)" >
        </h5>
       <p>&nbsp;</p></td>
-      <td width="46%"><h5>12. INSURANCE PLAN</h5>
+      <td colspan="33"><h5>12. INSURANCE PLAN</h5>
         <p>
           <select name="select2">
             <option value="AL">Gold</option>
@@ -222,19 +247,19 @@ Female </p>
         </p>
       <p>&nbsp;</p></td>
     </tr>
-      <td width="32%"><h5> 13.FILING DATE
+      <td colspan="34"><h5> 13.FILING DATE
             <input type="date" name="textfield8" id="textfield8">
       </h5>
           <h5>&nbsp;</h5>
         <h5>&nbsp;</h5>
       <p>&nbsp;</p></td>
-     <td><h5>14.INSURACE EXPIRY
+     <td colspan="33"><h5>14.INSURACE EXPIRY
        <input type="date" name="textfield12" id="textfield12" >
      </h5>
        <h5>&nbsp;</h5>
        <h5>&nbsp;</h5>
       <p>&nbsp;</p></td>
-      <td width="46%"><h5>15.PATIENT STATUS </h5>
+      <td colspan="33"><h5>15.PATIENT STATUS </h5>
         <h5>
           <input type="checkbox" name="checkbox8" id="checkbox8">
           Single
@@ -249,29 +274,29 @@ Female </p>
           Full Time Student </h5>
       <p>&nbsp;</p></td>
       <TR>
-     <td width="32%" colspan="3"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
+     <td colspan="100"><h5>16.EMPLOYER NAME OR SCHOOL NAME:
          <input onblur="basicvalidation('pesname','Employer/School Name');" type="text" name="textfield9" id="pesname" placeholder="Employer/School Name">
      </h5>
       <p>&nbsp;</p></td> 
       </TR>
+
       
       <TR id="rowToClone">
      
-      <td colspan="1"><h5>DIAGNOSIS CODE
+      <td colspan="50"><h5>DIAGNOSIS CODE
           <input type="text" name="dcode" id="diagcode" placeholder="Enter Diagnosis Code" onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');"> OR <input id="diagkey" type="search" class="typeahead tt-query" placeholder="Search By Keyword"><i class='fa fa-search' onclick="getDCode()"></i>
       </h5>
-      <p>&nbsp;</p></td>
-      <td colspan="2"><h5>TREATMENT CODE
-         <input type="Ddate" name="tcode" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();"> OR <input id="treatkey" type="search" class="typeahead tt-query" placeholder="Search By Keyword"><i class='fa fa-search' onclick="getTCode()"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="addrow()">ADD</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="delrow(this)">DEL</button>
+      </td>
+      <td colspan="50"><h5>TREATMENT CODE
+         <input type="Ddate" name="tcode" id="treatcode" placeholder="Treatment Code" onchange="checkTreatCode();"> OR <input id="treatkey" type="search" class="typeahead tt-query" placeholder="Search By Keyword"><i class='fa fa-search' onclick="getTCode()"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="addrow()">ADD</button><button type="button" onclick="delrow(this)">DEL</button>
      </h5>
-      <p>&nbsp;</p></td> 
+      </td> 
  
       </TR>
  
   </tbody>
 </table><br>
-<center><a onclick="predicting()" class="myButton">Submit</a></center>
-<center><button type="submit" onclick="predicting()">Submit Check</button></center>
+<center><a onclick="checkAll()" class="myButton">Submit</a></center>
 </form>
 <hr width=150% color="#63b8ee">
 </div>

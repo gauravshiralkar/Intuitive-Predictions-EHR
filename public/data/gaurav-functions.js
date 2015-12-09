@@ -17,7 +17,19 @@ function basicvalidation(formfield,dispname) {
 		},{
 			type: 'danger'
 		});
-		return;
+		return false;
+	}
+	
+	if (formfield==='insuranceId'){
+		if (isNaN(document.getElementById(formfield).value)) {
+			$.notify({
+				message: ''+dispname+' is not valid'
+			},{
+				type: 'danger'
+			});	
+			return false;
+		}
+		
 	}
 	
 	if (formfield==='pname'){
@@ -27,8 +39,9 @@ function basicvalidation(formfield,dispname) {
 			},{
 				type: 'danger'
 			});	
+			return false;
 		}
-		return;
+		
 	}
 	
 	if (formfield==='pzip'){
@@ -38,8 +51,9 @@ function basicvalidation(formfield,dispname) {
 			},{
 				type: 'danger'
 			});	
+			return false;
 		}
-		return;
+		
 	}
 	
 	if (formfield==='ptel'){
@@ -49,23 +63,61 @@ function basicvalidation(formfield,dispname) {
 			},{
 				type: 'danger'
 			});	
+			return false;
 		}
-		return;
+		
 	}		
-	
+	return true;
 }
 
-
-function checkFromDB(table,field,formfield,dispname) {
-	basicvalidation(formfield,dispname);
-	var val = document.getElementById(formfield).value;
-	if (val ==="") {
-			/*$.notify({
-				title: '<strong>Danger</strong>',
-				message: ''+formfield+' Cannot be Blank'
+function checkAll() {
+	var flag=true;
+	//$(":text, :file, :checkbox, select, textarea").each(function() {
+	//$(":input").each(function() {
+	$(":text, :radio, :checkbox, select, textarea").each(function() {
+	   if($(this).val() === "")
+	   {
+		   $.notify({
+				message: ''+$(this).attr('alt')+' cannot be left blank'
 			},{
 				type: 'danger'
-			});*/
+			});	
+		   //$(this).addClass("error");
+		   //$(this).val("Fill "+$(this).attr('alt'));
+		   //document.getElementById($(this).attr('id')+'lbl').className += "error";
+		   $(this).focus();
+		   flag=false;
+		   return false;
+	   }
+	});
+	if(flag){
+	   predicting();
+	}
+}
+
+function checkFromDB(table,field,formfield,dispname) {
+	var retval=basicvalidation(formfield,dispname);
+	var val = document.getElementById(formfield).value;
+if (retval){
+	if (formfield==='insuranceId') {
+		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
+			if (results.length == 0) {
+				$.notify({
+					title: '<strong>Warning</strong>',
+					message: 'Please verify '+dispname
+				},{
+					type: 'warning'
+				});
+			}else{
+				$.notify({
+					title: '<strong>Success</strong>',
+					message: 'Found record for '+dispname
+				},{
+					type: 'success'
+				});
+			}
+			
+			});
 	}
 	else{
 		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
@@ -87,7 +139,7 @@ function checkFromDB(table,field,formfield,dispname) {
 		
 		});
 	}
-	
+}
 }
 
 

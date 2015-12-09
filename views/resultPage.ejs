@@ -11,17 +11,31 @@
 <script type="text/javascript">
 
 </script>
+<style>
+#container {
+	min-width: 40%;
+	max-width: 50%;
+	margin: 0 auto;
+}
+</style>
 </head>
 
 <body onload="showGraph()">
 <% include header %>
 <br><br><br>
-<div class="container">
-<div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
-<h2>Probability is <%= result %>  </h2>
+<div id="aParent" >
+<div  style="margin-right:18%; float:right;">
 
-</div>	
-<br><br>
+<div><h2  >Probability is <%= result %>  </h2></div>
+<div>
+		<a href="/#dashboard" class="btn btn-info">Go Back</a></div>
+
+</div>
+<div id="container"  style="margin-left:10% ;float:left;"> </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <% include socialfooter %>
 </body>
 </html>

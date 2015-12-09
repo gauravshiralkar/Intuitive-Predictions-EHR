@@ -12,7 +12,7 @@ function showGraph(){
 	        },
 
 	        title: {
-	            text: 'Speedometer'
+	            text: 'Accuracymeter for Predictions'
 	        },
 
 	        pane: {
@@ -51,7 +51,7 @@ function showGraph(){
 	        // the value axis
 	        yAxis: {
 	            min: 0,
-	            max: 200,
+	            max: 100,
 
 	            minorTickInterval: 'auto',
 	            minorTickWidth: 1,
@@ -69,7 +69,7 @@ function showGraph(){
 	                rotation: 'auto'
 	            },
 	            title: {
-	                text: 'km/h'
+	                text: 'Based on 50,000 records'
 	            },
 	            plotBands: [{
 	                from: 0,

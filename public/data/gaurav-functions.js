@@ -124,7 +124,7 @@ function checkAll() {
 	var flag=true;
 	//$(":text, :file, :checkbox, select, textarea").each(function() {
 	//$(":input").each(function() {
-	$(":text, :radio, :checkbox, select").each(function() {
+	/*$(":text, :radio, :checkbox, select").each(function() {
 	   if($(this).val() === "")
 	   {
 		   $.notify({
@@ -139,7 +139,7 @@ function checkAll() {
 		   flag=false;
 		   return false;
 	   }
-	});
+	});*/
 	if(flag){
 	   predicting();
 	}

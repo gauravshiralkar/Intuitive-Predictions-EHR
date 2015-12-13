@@ -27,7 +27,7 @@ if(document.getElementById('filep').val != ""){
 		
 		document.getElementById('textfield2').value = results[0].dob;
 		document.getElementById('textfield8').value = results[0].filingDate;
-		document.getElementById('textfield12').value = results[0].insuranceDetailsExpiryDate;
+		document.getElementById('iexpdate').value = results[0].insuranceDetailsExpiryDate;
 	});
 }
 
@@ -47,11 +47,7 @@ function basicvalidation(formfield,dispname) {
 		$.notify({
 			message: ''+dispname+' Cannot be Blank'
 		},{
-			type: 'danger',
-			placement: {
-					from: "top",
-					align: "center"
-					}
+			type: 'danger'
 		});
 		document.getElementById(formfield).focus();
 		return false;
@@ -158,7 +154,7 @@ function autopopulate(val){
 		document.getElementById('ptel').value = results[0].tel;
 		document.getElementById('pplan').value = results[0].insuranceDetailsPlan;
 		document.getElementById('textfield8').value = results[0].filingDate;
-		document.getElementById('textfield12').value = results[0].insuranceDetailsExpiryDate;
+		document.getElementById('iexpdate').value = results[0].insuranceDetailsExpiryDate;
 		document.getElementById('pesname').value = results[0].patientESName;
 		document.getElementById('ptel').value = results[0].tel;
 		document.getElementById('dcode').focus();

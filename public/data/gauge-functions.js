@@ -12,7 +12,7 @@ function showGraph(){
 	        },
 
 	        title: {
-	            text: 'Accuracymeter for Predictions'
+	            text: 'Accuracy meter for Predictions'
 	        },
 
 	        pane: {
@@ -69,7 +69,7 @@ function showGraph(){
 	                rotation: 'auto'
 	            },
 	            title: {
-	                text: 'Based on 50,000 records'
+	                text: 'Based on available records'
 	            },
 	            plotBands: [{
 	                from: 0,
@@ -87,10 +87,10 @@ function showGraph(){
 	        },
 
 	        series: [{
-	            name: 'Speed',
+	            name: 'Accuracy',
 	            data: [80],
 	            tooltip: {
-	                valueSuffix: ' km/h'
+	                valueSuffix: ' %'
 	            }
 	        }]
 
@@ -108,7 +108,7 @@ function showGraph(){
 	                    newVal = point.y - inc;
 	                }
 
-	                point.update(newVal);
+	                //point.update(newVal);
 
 	            }, 3000);
 	        }

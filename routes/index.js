@@ -733,9 +733,9 @@ exports.InsertData = function(req,res){
 	console.log(req.body.providername);
 	dbConn.InsertData(function(err,rows){
 		
-		console.log('index insertData');
-		console.log(rows);
-		res.redirect('/getPrediction/'+rows);
+		console.log('Rows being sent to get prediction'+rows);
+		res.render('resultPage.ejs',{result: rows});
+		//res.redirect('/getPrediction/'+rows);
 	},req);
 	
 }
@@ -834,6 +834,7 @@ exports.bayeNetMethod = function(req,res){
 	var stateJson = classifier.toJson()
 //	load the classifier back from its JSON representation.
 	var revivedClassifier = bayes.fromJson(stateJson)	
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 	res.send(result);
@@ -899,6 +900,12 @@ exports.KMeanCluster = function(req,res){
 	//res.send(result);
 	res.render('resultPage.ejs',{result: result});
 	req.story=result;
+=======
+	//console.log(stateJson,revivedClassifier);
+	res.send(result);
+		//res.render('resultPage.ejs',{result: result});
+		//req.story=result;
+>>>>>>> 20a2e79... Rectification
 	//res.redirect('/testme');
 >>>>>>> 7b8682d... Prediction Logic added
 };

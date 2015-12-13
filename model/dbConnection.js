@@ -12,7 +12,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : '',
+	password : 'pass',
 	//password : 'password123',
 	//password : 'password123',
 	port : '3306'
@@ -291,7 +291,19 @@ exports.InsertData = function (callback,req){
 	console.log("Inside dbconn Insert Data method");
 	//console.log(req.body.providername);
 	connection.query('use cmpe295ehr;');
-	var query = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus)" +
+	var date = new Date();
+	var age;
+	var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+    var curr = month +'/' + day+'/'+year;
+    console.info(curr);
+    var stat,cstat;
+	/*var query = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus)" +
 			"values('"+ req.body.pname +"','" +
 					 + req.body.insuranceId+"','"
 					 + req.body.providername+"','"
@@ -302,12 +314,94 @@ exports.InsertData = function (callback,req){
 					 + req.body.tcode+"','expired','Match')";
 	connection.query(query, function(err, rows) {		
 			if (err) {console.log(err);}
-	});
-	query='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId;
+	});*/
+	var query='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId+' order by filingDate';
 	connection.query(query, function(err, rows) {
+				console.log(query);
 				console.log(rows);
+				if(rows.length > 0){
+					/*if(date > rows.insuranceDetailsExpiryDate){
+						stat = 'expired';
+					}else {
+						stat = 'valid';
+					}*/
+					//console.log(stat);
+					if(req.body.dcode == ""){
+						cstat = 'Match';
+						stat = 'valid';
+					}else{
+						var q = 'select * from diagnostoprocedure where diagnosiscodes = '+req.body.dcode+' and procedureCodes ='+req.body.tcode;
+						connection.query(q, function(err, retrow) {
+							if(retrow.length > 0){
+								cstat = 'Match';
+							}else {
+								cstat = 'Mismatch';
+							}
+							console.log(cstat);
+							console.log(stat);
+						});
+					}
+					var q2 = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
+					"values('"+ rows.patientFullName +"','" +
+							 + rows[0].insuranceDetailsProviderId+"','"
+							 + rows[0].insuranceProviderName+"','"
+							 + rows[0].patientAddressStreet+"','"
+							 + rows[0].patientAddressCity+"','"
+							 + rows[0].patientAddressZip+"','"
+							 + req.body.dcode+"','"
+							 + req.body.tcode+"','"
+							 + stat+"','"
+							 + cstat+"',"
+							 + curr+")";
+					console.log(q2);
+			connection.query(q2, function(err, retrows) {		
+					if (err) {console.log(err);}
+			});
+				}else{
+					if(date > req.body.iexpdate){
+						stat = 'expired';
+					}else {
+						stat = 'valid';
+					}
+					console.log(stat);
+					if(req.body.dcode == ""){
+						cstat = 'Match';
+					}else{
+						var q = 'select * from diagnostoprocedure where diagnosiscodes = '+req.body.dcode+' and procedureCodes ='+req.body.tcode;
+						connection.query(q, function(err, retrow) {
+							if(retrow.length > 0){
+								cstat = 'Match';
+							}else {
+								cstat = 'Mismatch';
+							}
+							console.log(cstat);
+						});
+					}
+					var q2 = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
+					"values('"+ req.body.pname +"','" +
+							 + req.body.insuranceId+"','"
+							 + req.body.providername+"','"
+							 + req.body.street+"','"
+							 + req.body.city+"','"
+							 + req.body.zip+"','"
+							 + req.body.dcode+"','"
+							 + req.body.tcode+"','"
+							 + stat+"','"
+							 + cstat+"','"
+							 + date+"')";
+			connection.query(q2, function(err, retrows) {		
+					if (err) {console.log(err);}
+			});
+				}
+				var q3='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId+' order by filingDate desc limit 1';
+				connection.query(q3, function(err, results) {		
+					if (err) {console.log(err);}
+					console.log(q3);
+					console.log(JSON.stringify(results));
+					callback(err, JSON.stringify(results));
+				});
 				//dataObj=rows;	
-				callback(err, rows);
+				//callback(err, rows);
 	});	
 }
 //--------------------End of MySQL Routes--------------------------

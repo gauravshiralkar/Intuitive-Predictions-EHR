@@ -8,9 +8,7 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="/data/gauge-functions.js"></script>
-<script type="text/javascript">
 
-</script>
 <style>
 #container {
 	min-width: 40%;
@@ -26,14 +24,27 @@
 <div id="aParent" >
 <div  style="margin-right:18%; float:right;">
 
-<div><h2  >Probability is <%= result %>  </h2></div>
+<!-- <div><h2  >Probability is <%= result %>  </h2></div>  -->
+<div id="divA"></div>
+<div id="divB"></div>
+<input id="res" hidden="true" val="<%= result %>">
 <div>
 		<a href="/#dashboard" class="btn btn-info">Go Back</a></div>
 
 </div>
 <div id="container"  style="margin-left:10% ;float:left;"> </div>
 </div>
+<script type="text/javascript">
+var result = "<%= result %>";
+$.get("/getPrediction/"+result, function(results) {
+		//alert(results);
+		document.getElementById("divA").textContent = "Probability is "+ results;
+		if(results=="Rejected"){
+			document.getElementById("divB").textContent = "Possible reasons of rejection are";
+		}
 
+	});
+</script>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <% include socialfooter %>

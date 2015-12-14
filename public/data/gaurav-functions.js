@@ -1,4 +1,4 @@
-if(document.getElementById('filep').val != ""){
+if(document.getElementById('filep').val != "no"){
 	
 	$.get('/pdfpopulate/'+document.getElementById('filep').val, function (results) {
 		$.notify({
@@ -12,7 +12,8 @@ if(document.getElementById('filep').val != ""){
 		document.getElementById('providername').value = results[0].insuranceProviderName;
 		document.getElementById('pname').value = results[0].patientFullName;
 		
-		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}else{document.getElementById('m2').checked=true;}
+		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}
+		if (results[0].gender==='F'){document.getElementById('m2').checked=true;}
 		document.getElementById('paddress').value = results[0].patientAddressStreet;
 		document.getElementById('pcity').value = results[0].patientAddressCity;
 		document.getElementById('pzip').value = results[0].patientAddressZip;
@@ -25,10 +26,22 @@ if(document.getElementById('filep').val != ""){
 		
 		document.getElementById('dcode').focus();
 		
-		document.getElementById('textfield2').value = results[0].dob;
-		document.getElementById('textfield8').value = results[0].filingDate;
-		document.getElementById('iexpdate').value = results[0].insuranceDetailsExpiryDate;
+		document.getElementById('pdob').value = formatd(results[0].dob);
+		document.getElementById('ifildate').value = formatd(new Date());
+		document.getElementById('iexpdate').value = formatd(results[0].insuranceDetailsExpiryDate);
 	});
+}
+
+function formatd(d){
+	var date = new Date(d);
+	var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+    return year +'-' + month+'-'+day;
 }
 
 function predicting() {
@@ -56,10 +69,11 @@ function basicvalidation(formfield,dispname) {
 	if (formfield==='insuranceId'){
 		if (isNaN(document.getElementById(formfield).value)) {
 			$.notify({
-				message: ''+dispname+' is not valid'
+				message: ''+dispname+' should be a Number'
 			},{
 				type: 'danger'
 			});	
+			document.getElementById('insuranceId').focus(); 
 			return false;
 		}
 		
@@ -68,9 +82,10 @@ function basicvalidation(formfield,dispname) {
 	if (formfield==='providername'){
 		if (!(/^[-A-Z ]+$/i.test(val))){
 			$.notify({
+				title: '<strong>Warning:</strong>',
 				message: ''+dispname+' is not valid'
 			},{
-				type: 'danger'
+				type: 'warning'
 			});	
 			return false;
 		}
@@ -80,9 +95,10 @@ function basicvalidation(formfield,dispname) {
 	if (formfield==='pname'){
 		if (!(/^[-A-Z ]+$/i.test(val))){
 			$.notify({
+				title: '<strong>Warning:</strong>',
 				message: ''+dispname+' is not valid'
 			},{
-				type: 'danger'
+				type: 'warning'
 			});	
 			return false;
 		}
@@ -92,9 +108,10 @@ function basicvalidation(formfield,dispname) {
 	if (formfield==='pzip'){
 		if (!(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(val))){
 			$.notify({
+				title: '<strong>Warning:</strong>',
 				message: ''+dispname+' is not valid'
 			},{
-				type: 'danger'
+				type: 'warning'
 			});	
 			return false;
 		}
@@ -104,9 +121,10 @@ function basicvalidation(formfield,dispname) {
 	if (formfield==='ptel'){
 		if (!(/^(\+|1\s)?\d{10}[0-9]$/.test(val))){
 			$.notify({
+				title: '<strong>Warning:</strong>',
 				message: ''+dispname+' is not valid'
 			},{
-				type: 'danger'
+				type: 'warning'
 			});	
 			return false;
 		}
@@ -118,11 +136,75 @@ function basicvalidation(formfield,dispname) {
 
 function checkAll() {
 	var flag=true;
+	var table = document.getElementById("myTable");
+	$('tr', table).each(function() {
+	
+		$('input:text', this).each(function() {
+			
+			if($(this).attr('id')!=undefined){
+				//alert(document.getElementById($(this).attr('id')).value);
+				if(document.getElementById($(this).attr('id')).value==""){
+					$.notify({
+						message: ''+$(this).attr('alt')+' cannot be left blank'
+					},{
+						type: 'danger'
+					});	
+					$(this).focus();
+					flag=false;
+					return false;
+				}
+			}
+		});
+		if(!(flag)) {
+		    return false;
+		} 
+	});
+	if(flag){
+		if (!$("input[name='gender']:checked").val()) {
+		$.notify({
+			message: 'Please select Gender'
+		},{
+			type: 'danger'
+		});	
+			flag=false;
+			return false;
+	    }
+	}
+	if(flag){
+		if ($("input[name='iexpdate']").val()=="") {
+		$.notify({
+			message: 'Please select Insurance Expiry Date'
+		},{
+			type: 'danger'
+		});	
+			flag=false;
+			return false;
+	    }
+		if ($("input[name='ifildate']").val()=="") {
+			$.notify({
+				message: 'Please select Insurance Filing Date'
+			},{
+				type: 'danger'
+			});	
+				flag=false;
+				return false;
+		    }
+		if ($("input[name='pdob']").val()=="") {
+			$.notify({
+				message: 'Please select DOB'
+			},{
+				type: 'danger'
+			});	
+				flag=false;
+				return false;
+		    }
+	}
 	//$(":text, :file, :checkbox, select, textarea").each(function() {
 	//$(":input").each(function() {
-	/*$(":text, :radio, :checkbox, select").each(function() {
-	   if($(this).val() === "")
-	   {
+	//$(":text").each(function() {
+	//$(":text, :radio, :checkbox, select").each(function() {
+	   /*if($(this).val() === "")
+	   {	alert($(this).attr('id'));
 		   $.notify({
 				message: ''+$(this).attr('alt')+' cannot be left blank'
 			},{
@@ -143,21 +225,43 @@ function checkAll() {
 
 function autopopulate(val){
 	$.get("/autopopulate/"+val, function(results) {
+		$('#insuranceId').attr('val',results[0].insuranceDetailsId);
+		$('#providername').attr('val',results[0].insuranceProviderName);
+		$('#pname').attr('val',results[0].patientFullName);
+		$('#pdob').attr('val',formatd(results[0].dob));
+		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}
+		if (results[0].gender==='F'){document.getElementById('m2').checked=true;}
+		$('#paddress').attr('val',results[0].patientAddressStreet);
+		$('#pcity').attr('val',results[0].patientAddressCity);
+		$('#pzip').attr('val',results[0].patientAddressZip);
+		$('#pstate').attr('val',results[0].patientAddressState);
+		$('#ptel').attr('val',results[0].tel);
+		$('#pplan').attr('val',results[0].insuranceDetailsPlan);
+		$('#ifildate').attr('val',formatd(new Date()));
+		$('#iexpdate').attr('val',formatd(results[0].insuranceDetailsExpiryDate));
+		$('#pesname').attr('val',results[0].patientESName);
+		$('#ptel').attr('val',results[0].tel);
+		//$('#flagdp').attr('val','1');
+		
+		document.getElementById('insuranceId').value = results[0].insuranceDetailsId;
 		document.getElementById('providername').value = results[0].insuranceProviderName;
 		document.getElementById('pname').value = results[0].patientFullName;
-		document.getElementById('textfield2').value = results[0].dob;
-		if (results[0].gender==='M'){document.getElementById('m1').checked=true;}else{document.getElementById('m2').checked=true;}
+		
+		
 		document.getElementById('paddress').value = results[0].patientAddressStreet;
 		document.getElementById('pcity').value = results[0].patientAddressCity;
 		document.getElementById('pzip').value = results[0].patientAddressZip;
 		document.getElementById('pstate').value = results[0].patientAddressState;
 		document.getElementById('ptel').value = results[0].tel;
 		document.getElementById('pplan').value = results[0].insuranceDetailsPlan;
-		document.getElementById('textfield8').value = results[0].filingDate;
-		document.getElementById('iexpdate').value = results[0].insuranceDetailsExpiryDate;
+		
 		document.getElementById('pesname').value = results[0].patientESName;
 		document.getElementById('ptel').value = results[0].tel;
-		document.getElementById('dcode').focus();
+		
+		document.getElementById('pdob').value = formatd(results[0].dob);
+		document.getElementById('ifildate').value = formatd(new Date());
+		document.getElementById('iexpdate').value = formatd(results[0].insuranceDetailsExpiryDate);
+		$('#diagcode').focus();
 		/*$(":text").each(function() {
 			$(this).attr("disabled",true);
 		});*/
@@ -193,16 +297,15 @@ if (retval){
 	}
 	else{
 		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
+			if(formfield=='diagcode'){formfield = "Diagnosis Code";}
 		if (results.length == 0) {
 			$.notify({
-				title: '<strong>Danger</strong>',
 				message: 'InValid '+formfield
 			},{
 				type: 'danger'
 			});
 		}else{
 			$.notify({
-				title: '<strong>Success</strong>',
 				message: 'Valid '+formfield
 			},{
 				type: 'success'
@@ -222,18 +325,20 @@ function checkTreatCode() {
 	$.get("/checktreatcode/"+dcode+"/"+tcode, function(results) {
 		if (results.length == 0) {
 			$.notify({
-				title: '<strong>Danger</strong>',
 				message: 'InValid Treatment Code for given Diagnosis Code '+dcode
 			},{
 				type: 'danger'
 			});
+			$('#checkmenow').attr('val','0');
+			console.log('flag unset');
 		}else{
 			$.notify({
-				title: '<strong>Success</strong>',
 				message: 'Valid Treatment Code'
 			},{
 				type: 'success'
 			});
+			$('#checkmenow').attr('val','1');
+			console.log('flag set');
 		}
 		
 		});
@@ -243,9 +348,20 @@ function addrow() {
 	var row = document.getElementById("rowToClone"); // find row to copy
     var table = document.getElementById("myTable"); // find table to append to
     var clone = row.cloneNode(true); // copy children too
-    clone.id = "newID"; // change id or other attributes/contents
+    clone.id = "rowToClone"; // change id or other attributes/contents
+    row.id="";
+    $('input', clone).each(function() {
+    		$(this).val("");
+    	});
+    $('input', row).each(function() {
+		$(this).attr('id','');
+		$(this).attr('readOnly',true);	 
+	});
+
+    //$('#newID td input[type=text]').val('');
+    //clone.hidden="false";
     table.appendChild(clone); // add new row to end of table
-    $("newID").closest("td").prev().empty();
+    //$("newID").closest("tr").prev().empty();
     $j('#diagkey').typeahead({
     	valueKey: 'diagcode',
         name: 'diagcode',
@@ -297,3 +413,5 @@ function getTCode() {
 	setTimeout(checkTreatCode, 100);
 	//checkTreatCode;
 }
+
+

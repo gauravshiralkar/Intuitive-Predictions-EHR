@@ -147,8 +147,9 @@ exports.getPieData = function(callback,rCode){
 
 exports.autopopulate = function(callback,val){
 	connection.query('use cmpe295ehr;');
-	var query = 'select * from scratch  where insuranceDetailsProviderId="'+val+'";';
+	var query = 'select * from scratch  where insuranceDetailsId='+val+' order by filingDate limit 1;';
 	connection.query(query, function(err, rows) {
+		console.log(query);
 		console.log(rows);
 		callback(err, rows);		
 	});			
@@ -157,7 +158,7 @@ exports.autopopulate = function(callback,val){
 exports.pdfpopulate = function(callback,val){
 	console.log('psfpop value:'+val);
 	connection.query('use cmpe295ehr;');
-	var query = 'select * from scratch  where insuranceDetailsProviderId="'+val+'";';
+	var query = 'select * from scratch  where insuranceDetailsId='+val+' order by filingDate limit 1;';
 	connection.query(query, function(err, rows) {
 		console.log(rows);
 		callback(err, rows);		
@@ -286,23 +287,26 @@ exports.GetKMeanRowsone = function(callback,one){
 	});			
 }
 
-exports.InsertData = function (callback,req){
-	var dataObj;
-	console.log("Inside dbconn Insert Data method");
-	//console.log(req.body.providername);
-	connection.query('use cmpe295ehr;');
-	var date = new Date();
-	var age;
+function formatdata(d){
+	var date = new Date(d);
 	var year = date.getFullYear();
 
     var month = date.getMonth() + 1;
     month = (month < 10 ? "0" : "") + month;
 
-    var day  = date.getDate();
+    var day  = date.getDate()+1;
     day = (day < 10 ? "0" : "") + day;
-    var curr = month +'/' + day+'/'+year;
-    console.info(curr);
-    var stat,cstat;
+    return "'"+year +'/' + month+'/'+day+"'";
+}
+
+exports.InsertData = function (callback,req){
+	var dataObj;
+	var date = new Date();
+	console.log("Inside dbconn Insert Data method");
+	//console.log(req.body.providername);
+	connection.query('use cmpe295ehr;');
+    var stat='';
+    var cstat='';
 	/*var query = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus)" +
 			"values('"+ req.body.pname +"','" +
 					 + req.body.insuranceId+"','"
@@ -315,20 +319,21 @@ exports.InsertData = function (callback,req){
 	connection.query(query, function(err, rows) {		
 			if (err) {console.log(err);}
 	});*/
-	var query='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId+' order by filingDate';
-	connection.query(query, function(err, rows) {
-				console.log(query);
-				console.log(rows);
-				if(rows.length > 0){
-					/*if(date > rows.insuranceDetailsExpiryDate){
+	//var query='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId+' order by filingDate  limit 1';
+	//connection.query(query, function(err, rows) {
+	//			console.log(query);
+	//			console.log(rows);
+				/*if(rows.length > 0){
+					console.log('Records found');
+					if(date > rows[0].insuranceDetailsExpiryDate){
 						stat = 'expired';
 					}else {
 						stat = 'valid';
-					}*/
-					//console.log(stat);
+					}
+					console.log(stat);
 					if(req.body.dcode == ""){
 						cstat = 'Match';
-						stat = 'valid';
+						//stat = 'valid';
 					}else{
 						var q = 'select * from diagnostoprocedure where diagnosiscodes = '+req.body.dcode+' and procedureCodes ='+req.body.tcode;
 						connection.query(q, function(err, retrow) {
@@ -341,9 +346,11 @@ exports.InsertData = function (callback,req){
 							console.log(stat);
 						});
 					}
-					var q2 = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
-					"values('"+ rows.patientFullName +"','" +
-							 + rows[0].insuranceDetailsProviderId+"','"
+					var q2 = "insert into scratch(patientFullName,dob,insuranceDetailsProviderId,insuranceDetailsExpiryDate, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
+					"values('"+ rows.patientFullName +"'," +
+							 + formatdata(rows[0].dob)+",'"
+							 + rows[0].insuranceDetailsProviderId+"',"
+							 + formatdata(rows[0].insuranceDetailsExpiryDate)+",'"
 							 + rows[0].insuranceProviderName+"','"
 							 + rows[0].patientAddressStreet+"','"
 							 + rows[0].patientAddressCity+"','"
@@ -352,57 +359,95 @@ exports.InsertData = function (callback,req){
 							 + req.body.tcode+"','"
 							 + stat+"','"
 							 + cstat+"',"
-							 + curr+")";
+							 + formatdata(new Date())+")";
 					console.log(q2);
 			connection.query(q2, function(err, retrows) {		
 					if (err) {console.log(err);}
 			});
-				}else{
-					if(date > req.body.iexpdate){
-						stat = 'expired';
-					}else {
-						stat = 'valid';
-					}
-					console.log(stat);
-					if(req.body.dcode == ""){
-						cstat = 'Match';
-					}else{
-						var q = 'select * from diagnostoprocedure where diagnosiscodes = '+req.body.dcode+' and procedureCodes ='+req.body.tcode;
+				}else{*/
+					//console.log('Records Not found');
+					console.log(formatdata(date)+ '>' + formatdata(req.body.iexpdate));
+					console.log(formatdata(req.body.pdob)+' '+formatdata(new Date()));
+					
+					var q1='delete from scratch where insuranceDetailsId ='+req.body.insuranceId;
+					connection.query(q1, function(err, delresults) {		
+						if (err) {console.log(err);}
+						console.log(q1);
+						console.log(delresults);
+					});
+					
+						var q = "select * from diagnostoprocedure where diagnosiscodes ='"+req.body.dcode+"' and procedureCodes ='"+req.body.tcode+"'";
+						console.log(q);
 						connection.query(q, function(err, retrow) {
-							if(retrow.length > 0){
+							if(err){console.log(err)}
+							console.log('Value of retrwo length is: '+retrow.length);
+							console.log('Value of checkmenow is: '+req.body.checkmenow);
+							if(retrow.length > 0 && req.body.checkmenow !="0"){
 								cstat = 'Match';
 							}else {
 								cstat = 'Mismatch';
 							}
-							console.log(cstat);
+							
+							if(formatdata(date) > formatdata(req.body.iexpdate)){
+								stat = 'expired';
+							}else {
+								stat = 'valid';
+							}
+							console.log('Value of stat is: '+stat);
+							console.log('Value of cstat is: '+cstat);
+							var q2 = "insert into scratch(patientFullName,gender,insuranceDetailsId,dob,insuranceDetailsExpiryDate, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, patientAddressState, insuranceDetailsPlan, patientESName, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
+							"values('"+ req.body.pname +"','" +
+									 + req.body.gender+"','"
+									 + req.body.insuranceId+"',"
+									 + formatdata(req.body.pdob)+","
+									 + formatdata(req.body.iexpdate)+",'"
+									 + req.body.providername+"','"
+									 + req.body.street+"','"
+									 + req.body.city+"','"
+									 + req.body.zip+"','"
+									 + req.body.state+"','"
+									 + req.body.plan+"','"
+									 + req.body.pesname+"','"
+									 + req.body.dcode+"','"
+									 + req.body.tcode+"','"
+									 + stat+"','"
+									 + cstat+"',"
+									 + formatdata(req.body.ifildate)+")";
+							console.log(q2);
+					connection.query(q2, function(err, retrows) {		
+							if (err) {console.log(err);}
+					});
+					
+					var q3='select * from scratch where insuranceDetailsId ='+req.body.insuranceId+' order by filingDate limit 1';
+					connection.query(q3, function(err, results) {		
+						if (err) {console.log(err);}
+						console.log(q3);
+						console.log(results);
+						var senddata= [];
+						
+						senddata.push(results[0].insuranceDetailsId);
+						senddata.push(results[0].patientFullName);
+						if (results[0].StatusAtFiling=='expired'){
+							senddata.push(results[0].StatusAtFiling,'');
+						}else if (results[0].CodesStatus=='Mismatch'){
+							senddata.push(results[0].CodesStatus,'');
+						}else{
+							senddata.push(results[0].StatusAtFiling,results[0].CodesStatus);
+						}
+						
+						callback(err,results,senddata);
+					});
+					
+					
 						});
-					}
-					var q2 = "insert into scratch(patientFullName,insuranceDetailsProviderId, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
-					"values('"+ req.body.pname +"','" +
-							 + req.body.insuranceId+"','"
-							 + req.body.providername+"','"
-							 + req.body.street+"','"
-							 + req.body.city+"','"
-							 + req.body.zip+"','"
-							 + req.body.dcode+"','"
-							 + req.body.tcode+"','"
-							 + stat+"','"
-							 + cstat+"','"
-							 + date+"')";
-			connection.query(q2, function(err, retrows) {		
-					if (err) {console.log(err);}
-			});
-				}
-				var q3='select * from scratch where insuranceDetailsProviderId ='+req.body.insuranceId+' order by filingDate desc limit 1';
-				connection.query(q3, function(err, results) {		
-					if (err) {console.log(err);}
-					console.log(q3);
-					console.log(JSON.stringify(results));
-					callback(err, JSON.stringify(results));
-				});
+					
+					
+					
+				//}
+				
 				//dataObj=rows;	
 				//callback(err, rows);
-	});	
+	//});	
 }
 //--------------------End of MySQL Routes--------------------------
 

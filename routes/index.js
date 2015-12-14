@@ -493,7 +493,7 @@ exports.showTemplate= function (req,res){
 
 exports.showEHR= function (req,res){
 
-	res.render('ehr-dwr.html',{filepth: ""});
+	res.render('ehr-dwr.html',{filepth: "no"});
 };
 
 exports.showOCR= function (req,res){
@@ -731,10 +731,10 @@ exports.checkTreatCode = function(req, res){
 
 exports.InsertData = function(req,res){
 	console.log(req.body.providername);
-	dbConn.InsertData(function(err,rows){
+	dbConn.InsertData(function(err,rows,testdata){
 		
 		console.log('Rows being sent to get prediction'+rows);
-		res.render('resultPage.ejs',{result: rows});
+		res.render('resultPage.ejs',{result: rows,testdata: testdata});
 		//res.redirect('/getPrediction/'+rows);
 	},req);
 	
@@ -771,6 +771,7 @@ exports.TrainData = function(req,res){
 };
 
 exports.bayeNetMethod = function(req,res){
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -826,6 +827,9 @@ exports.bayeNetMethod = function(req,res){
 =======
     console.log(req.params.dataObj);
 >>>>>>> 7b8682d... Prediction Logic added
+=======
+    console.log(req.params.dataObj);   
+>>>>>>> e6079ee... Added possible reasons for rejection funstionality.
 	var result = classifier.categorize(req.params.dataObj);
 	console.log("Result is:");
 	

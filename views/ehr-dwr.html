@@ -23,8 +23,8 @@
 <link href="/css/newbutton.css" rel="stylesheet" media="screen">
 
 </head>
-<body>
-<input type="text" id="filep" hidden="true" >
+<body onload="document.getElementById('ifildate').value = formatd(new Date());">
+<input type="text" id="filep" hidden="true" value="yes" >
 <script type="text/javascript">
 document.getElementById('filep').val="<%=filepth%>";
 </script>
@@ -35,6 +35,7 @@ document.getElementById('filep').val="<%=filepth%>";
 	<br>
 	<br>
 	<form id="ehrform" action="/insertData" method="post">
+	<input type="text" id="checkmenow" name="checkmenow" hidden="true" value="1" >
 		<div class="container">
 
 			
@@ -67,20 +68,21 @@ document.getElementById('filep').val="<%=filepth%>";
 					<tr>
 						<td colspan="34"><h5>1. MEDICARE &nbsp; &nbsp; MEDICAID
 								&nbsp; &nbsp;TRICARE</h5> <input type="checkbox" name="checkbox"
-							id="checkbox"> (Medicare#) <input type="checkbox"
+							id="checkbox" checked="true"> (Medicare#) <input type="checkbox"
 							name="checkbox2" id="checkbox2"> (medicaid#)&nbsp; <input
 							type="checkbox" name="checkbox3" id="checkbox3">
 							Sponser's SSN <label for="checkbox2"></label> <label
 							for="checkbox2"></label> <label for="checkbox3"></label></td>
 						<td colspan="33"><h5>2.INSURANCE ID</h5> <input
 							alt="Insurance Id" type="text" name="insuranceId"
-							id="insuranceId" placeholder="Insurance ID"
+							id="insuranceId" placeholder="Insurance ID" value=""
 							onblur="checkFromDB('scratch','insuranceDetailsId','insuranceId','Insurance Id');">
 
 						</td>
 						<td colspan="33"><h5>3. INSURANCE PROVIDER NAME</h5> <input
 							name="providername" class="typeahead tt-query" type="text"
 							id="providername" placeholder="Provider Name"
+							alt="Provider Name"
 							onblur="basicvalidation('providername','Provider Name');">
 
 						</td>
@@ -89,108 +91,110 @@ document.getElementById('filep').val="<%=filepth%>";
 						<td colspan="34"><h5>4.PATIENT'S NAME(Last Name, First
 								Name)</h5> <input onblur="basicvalidation('pname','Patient Name');"
 							id="pname" name="pname" class="typeahead tt-query" type="text"
-							name="textfield6" placeholder="Full Name"></td>
+							placeholder="Full Name" alt="Patients Name"></td>
 						<td colspan="33"><h5>5.DATE OF BIRTH</h5> <input type="date"
-							name="textfield2" id="textfield2" placeholder="date of birth">
+							name="pdob" id="pdob" placeholder="date of birth">
 
 						</td>
 						<td colspan="33"><h5>6.GENDER</h5> <input type="radio"
-							id="m1" name="gender" /> Male <input
-							type="radio" id="m2" name="gender" /> Female</td>
+							id="m1" name="gender" alt="Gender" value="M" /> Male <input
+							type="radio" id="m2" name="gender" alt="Gender" value="F"/> Female</td>
 					</tr>
 
 					<tr>
 						<td colspan="34"><h5>7.ADDRESS</h5> <input
 							onblur="basicvalidation('paddress','Address');" id="paddress"
 							class="typeahead tt-query" type="text" name="street"
-							placeholder="Street/Apt #"></td>
+							placeholder="Street/Apt #" alt="Street"></td>
 						<td colspan="33"><h5>8.CITY</h5> <input
 							onblur="basicvalidation('pcity','City');" id="pcity"
 							class="typeahead tt-query" type="dob" name="city"
 							placeholder="City"></td>
-						<td colspan="33"><h5>9.STATE</h5> <select name="select">
-								<option value="AL">Alabama</option>
-								<option value="AK">Alaska</option>
-								<option value="AZ">Arizona</option>
-								<option value="AR">Arkansas</option>
-								<option value="CA">California</option>
-								<option value="CO">Colorado</option>
-								<option value="CT">Connecticut</option>
-								<option value="DE">Delaware</option>
+						<td colspan="33"><h5>9.STATE</h5> <select name="state" id="pstate" type="text" alt="State">
+								<option value="">Select State</option>
+								<option value="ALABAMA">Alabama</option>
+								<option value="ALASKA">Alaska</option>
+								<option value="ARIZONA">Arizona</option>
+								<option value="ARKANSAS">Arkansas</option>
+								<option value="CAKIFORNIA">California</option>
+								<option value="COLORADO">Colorado</option>
+								<option value="CONNECTICUT">Connecticut</option>
+								<option value="DELAWARE">Delaware</option>
 								<option value="DC">District Of Columbia</option>
-								<option value="FL">Florida</option>
-								<option value="GA">Georgia</option>
-								<option value="HI">Hawaii</option>
-								<option value="ID">Idaho</option>
-								<option value="IL">Illinois</option>
-								<option value="IN">Indiana</option>
-								<option value="IA">Iowa</option>
-								<option value="KS">Kansas</option>
-								<option value="KY">Kentucky</option>
+								<option value="FLORIDA">Florida</option>
+								<option value="GEORGIA">Georgia</option>
+								<option value="HAWAII">Hawaii</option>
+								<option value="IDAHO">Idaho</option>
+								<option value="ILLINOIS">Illinois</option>
+								<option value="INDIANA">Indiana</option>
+								<option value="IOWA">Iowa</option>
+								<option value="KANSAS">Kansas</option>
+								<option value="KENTUCKY">Kentucky</option>
 								<option value="LA">Louisiana</option>
-								<option value="ME">Maine</option>
-								<option value="MD">Maryland</option>
-								<option value="MA">Massachusetts</option>
-								<option value="MI">Michigan</option>
-								<option value="MN">Minnesota</option>
-								<option value="MS">Mississippi</option>
-								<option value="MO">Missouri</option>
-								<option value="MT">Montana</option>
-								<option value="NE">Nebraska</option>
-								<option value="NV">Nevada</option>
+								<option value="MAINE">Maine</option>
+								<option value="MARYLAND">Maryland</option>
+								<option value="MASSACHUSETTS">Massachusetts</option>
+								<option value="MICHIGAN">Michigan</option>
+								<option value="MINNESOTA">Minnesota</option>
+								<option value="MISSISSIPI">Mississippi</option>
+								<option value="MISSOURI">Missouri</option>
+								<option value="MONTANA">Montana</option>
+								<option value="NEBRASKA">Nebraska</option>
+								<option value="NEVADA">Nevada</option>
 								<option value="NH">New Hampshire</option>
-								<option value="NJ">New Jersey</option>
-								<option value="NM">New Mexico</option>
-								<option value="NY">New York</option>
-								<option value="NC">North Carolina</option>
+								<option value="NEW JERSEY">New Jersey</option>
+								<option value="NEW MEXICO">New Mexico</option>
+								<option value="NEW YORK">New York</option>
+								<option value="NORTH CAROLINA">North Carolina</option>
 								<option value="ND">North Dakota</option>
-								<option value="OH">Ohio</option>
-								<option value="OK">Oklahoma</option>
-								<option value="OR">Oregon</option>
-								<option value="PA">Pennsylvania</option>
-								<option value="RI">Rhode Island</option>
+								<option value="OHIO">Ohio</option>
+								<option value="OKLAHOMA">Oklahoma</option>
+								<option value="OREGON">Oregon</option>
+								<option value="PENNSYLVANIA">Pennsylvania</option>
+								<option value="RHODE ISLAND">Rhode Island</option>
 								<option value="SC">South Carolina</option>
 								<option value="SD">South Dakota</option>
 								<option value="TN">Tennessee</option>
-								<option value="TX">Texas</option>
-								<option value="UT">Utah</option>
-								<option value="VT">Vermont</option>
-								<option value="VA">Virginia</option>
-								<option value="WA">Washington</option>
+								<option value="TEXAS">Texas</option>
+								<option value="UTAH">Utah</option>
+								<option value="VERMONT">Vermont</option>
+								<option value="VIRGINIA">Virginia</option>
+								<option value="WASHINGTON">Washington</option>
 								<option value="WV">West Virginia</option>
-								<option value="WI">Wisconsin</option>
-								<option value="WY">Wyoming</option>
+								<option value="WISCONSIN">Wisconsin</option>
+								<option value="WYOMING">Wyoming</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td colspan="34"><h5>10.ZIP CODE</h5> <input id="pzip"
 							onblur="basicvalidation('pzip','Zip Code');"
 							class="typeahead tt-query" type="text" name="zip"
-							placeholder="Zip Code"></td>
+							placeholder="Zip Code" alt="Zip Code"></td>
 						<td colspan="33"><h5>11.TELEPHONE</h5> <input
 							onblur="basicvalidation('ptel','Telephone Number');" type="tel"
-							name="textfield10" id="ptel" placeholder="(___)-(___)-(____)">
+							name="ptel" id="ptel" placeholder="(___)-(___)-(____)" alt="Telephone Number">
 
 						</td>
 						<td colspan="33"><h5>12. INSURANCE PLAN</h5> <select
-							name="select2">
-								<option value="AL">Gold</option>
-								<option value="AK">Silver</option>
-								<option value="AZ">Bronze</option>
+							name="plan" id="pplan" alt="Insurance Plan">
+								<option value="">Select Plan</option>
+								<option value="Gold">Gold</option>
+								<option value="Silver">Silver</option>
+								<option value="Bronze">Bronze</option>
 
 
 						</select></td>
 					</tr>
 					<td colspan="34"><h5>
-							13.FILING DATE <input type="date" name="textfield8"
-								id="textfield8">
+							13.FILING DATE <input type="date" name="ifildate"
+								id="ifildate" alt="Insurance Filing Date">
 						</h5></td>
 					<td colspan="33"><h5>
 							14.INSURACE EXPIRY <input type="date" name="iexpdate"
-								id="iexpdate">
+								id="iexpdate" alt="Insurance Expiry Date">
 						</h5></td>
 					<td colspan="33"><h5>15.PATIENT STATUS</h5> <input
-						type="checkbox" name="checkbox8" id="checkbox8"> Single <input
+						type="checkbox" name="checkbox8" id="checkbox8" checked="true"> Single <input
 						type="checkbox" name="checkbox9" id="checkbox9"> Married <input
 						type="checkbox" name="checkbox11" id="checkbox11"> Other <input
 						type="checkbox" name="checkbox4" id="checkbox4"> Employed
@@ -200,24 +204,24 @@ document.getElementById('filep').val="<%=filepth%>";
 						<td colspan="100"><h5>
 								16.EMPLOYER NAME OR SCHOOL NAME: <input
 									onblur="basicvalidation('pesname','Employer/School Name');"
-									type="text" name="textfield9" id="pesname"
-									placeholder="Employer/School Name">
+									type="text" name="pesname" id="pesname"
+									placeholder="Employer/School Name"
+									alt="Employer/School Name">
 							</h5></td>
 					</TR>
-
 
 					<TR id="rowToClone">
 
 						<td colspan="50"><h5>
 								DIAGNOSIS CODE <input type="text" name="dcode" id="diagcode"
-									placeholder="Enter Diagnosis Code"
+									placeholder="Enter Diagnosis Code" alt="Diagnosis Code"
 									onchange="checkFromDB('diagnostoprocedure','diagnosiscodes','diagcode');">
 								OR <input id="diagkey" type="search" class="typeahead tt-query"
 									placeholder="Search By Keyword"><i class='fa fa-search'
 									onclick="getDCode()"></i>
 							</h5></td>
 						<td colspan="50"><h5>
-								TREATMENT CODE <input type="Ddate" name="tcode" id="treatcode"
+								TREATMENT CODE <input type="Ddate" name="tcode" id="treatcode" alt="Treatment Code"
 									placeholder="Treatment Code" onchange="checkTreatCode();">
 								OR <input id="treatkey" type="search" class="typeahead tt-query"
 									placeholder="Search By Keyword"><i class='fa fa-search'
@@ -227,7 +231,6 @@ document.getElementById('filep').val="<%=filepth%>";
 							</h5></td>
 
 					</TR>
-
 				
 			</table>
 			<br>

@@ -22,28 +22,40 @@
 <% include header %>
 <br><br><br>
 <div id="aParent" >
-<div  style="margin-right:18%; float:right;">
-
-<!-- <div><h2  >Probability is <%= result %>  </h2></div>  -->
+<div  style="margin-right:1%; float:right;">
+<h2>
 <div id="divA"></div>
+<br>
 <div id="divB"></div>
-<input id="res" hidden="true" val="<%= result %>">
+<br>
+<div id="divC"></div>
+<br>
+<div id="divD"></div>
+</h2>
 <div>
-		<a href="/#dashboard" class="btn btn-info">Go Back</a></div>
+<br>
+		<a onClick="history.go(-1);return true;" class="btn btn-info">Edit Form</a>
+		<a onclick="window.location='/showEhr';" class="btn btn-info">Submit Another Form</a></div>
 
 </div>
 <div id="container"  style="margin-left:10% ;float:left;"> </div>
 </div>
 <script type="text/javascript">
-var result = "<%= result %>";
-$.get("/getPrediction/"+result, function(results) {
-		//alert(results);
-		document.getElementById("divA").textContent = "Probability is "+ results;
-		if(results=="Rejected"){
-			document.getElementById("divB").textContent = "Possible reasons of rejection are";
-		}
+var resultStatus = "<%= result[0].StatusAtFiling %>";
+var resultCStatus = "<%= result[0].CodesStatus %>";
 
-	});
+var testdata = "<%= testdata %>"
+$.get("/getPrediction/"+testdata, function(answer) {
+		document.getElementById("divA").textContent = "Probability is "+ answer;
+		if(answer=="Rejected"){
+			document.getElementById("divB").textContent ="Possible reasons of rejection are:"
+		
+			if(resultStatus == "expired"){
+			document.getElementById("divC").textContent= "\u2022 Insurance is Expired";}
+			if(resultCStatus == "Mismatch"){
+			document.getElementById("divD").textContent= "\u2022 Mismatch in Procedure and Diagnosis Codes";}
+		}
+});
 </script>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

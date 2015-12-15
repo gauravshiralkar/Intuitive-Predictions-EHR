@@ -132,6 +132,9 @@ app.get('/getClustersTwo/:one/:two', routes.KMeanClustertwo);
 
 //-----------------------K Means Method----------------------------------------------------------------------------------
 
+app.use(function (req, res) {
+    res.render('404.ejs');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

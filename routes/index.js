@@ -515,6 +515,10 @@ exports.testme = function(req, res){
 	res.render('notifytest.ejs');
 };
 
+exports.page404 = function(req, res){
+	res.render('404.ejs');
+};
+
 exports.showAboutUs = function(req, res){
 	res.render('aboutus.ejs');
 };

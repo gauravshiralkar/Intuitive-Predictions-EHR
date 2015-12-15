@@ -272,7 +272,7 @@ function autopopulate(val){
 function checkFromDB(table,field,formfield,dispname) {
 	var retval=basicvalidation(formfield,dispname);
 	var val = document.getElementById(formfield).value;
-	if(formfield==='providername'){val=val.toUpperCase();alert(val);}
+	if(formfield==='providername'){val=val.toUpperCase();}
 if (retval){
 	if (formfield==='insuranceId') {
 		$.get("/check/"+table+"/"+field+"/"+val, function(results) {
@@ -349,12 +349,12 @@ function addrow() {
     var table = document.getElementById("myTable"); // find table to append to
     var clone = row.cloneNode(true); // copy children too
     clone.id = "rowToClone"; // change id or other attributes/contents
-    row.id="";
+    row.id="1";
     $('input', clone).each(function() {
     		$(this).val("");
     	});
     $('input', row).each(function() {
-		$(this).attr('id','');
+		$(this).attr('id','1');
 		$(this).attr('readOnly',true);	 
 	});
 
@@ -396,19 +396,36 @@ function delrow(o) {
 
 function getDCode() {
 	var dkey = document.getElementById('diagkey').value;
+	if(dkey==""){
+		$.notify({
+			message: 'Field blank. Key in data to Search'
+		},{
+			type: 'warning'
+		});
+		return;
+	}
 	//document.getElementById('diagcode').value='results';
 	$.get("/searchkey/diagnosiscodes/DiagnosticDesc/"+dkey, function(results) {
 			console.log(results);
-			document.getElementById('diagcode').value=results[0].first;
+			if(results[0].first != undefined){document.getElementById('diagcode').value=results[0].first;}
+			
 		});
 }
 
 function getTCode() {
 	var dkey = document.getElementById('treatkey').value;
+	if(dkey==""){
+		$.notify({
+			message: 'Field blank. Key in data to Search'
+		},{
+			type: 'warning'
+		});
+		return;
+	}
 	//document.getElementById('diagcode').value='results';
 	$.get("/searchkey/procedureCodes/ProcedureDesc/"+dkey, function(results) {
-			console.log(results);
-			document.getElementById('treatcode').value=results[0].first;
+		if(results[0].first != undefined){
+			document.getElementById('treatcode').value=results[0].first;}
 		});
 	setTimeout(checkTreatCode, 100);
 	//checkTreatCode;

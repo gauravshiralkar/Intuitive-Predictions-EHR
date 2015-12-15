@@ -12,7 +12,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host : 'localhost',
 	user : 'root',
-	password : 'pass',
+	password : '',
 	//password : 'password123',
 	//password : 'password123',
 	port : '3306'
@@ -395,9 +395,12 @@ exports.InsertData = function (callback,req){
 							}
 							console.log('Value of stat is: '+stat);
 							console.log('Value of cstat is: '+cstat);
-							var q2 = "insert into scratch(patientFullName,gender,insuranceDetailsId,dob,insuranceDetailsExpiryDate, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, patientAddressState, insuranceDetailsPlan, patientESName, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
-							"values('"+ req.body.pname +"','" +
+							var age = formatdata(new Date()).substring(1, 5) - formatdata(req.body.pdob).substring(1, 5);
+							var q2 = "insert into scratch(patientFullName,age,gender,insuranceDetailsId,insuranceDetailsProviderId,dob,insuranceDetailsExpiryDate, insuranceProviderName, patientAddressStreet, patientAddressCity, patientAddressZip, patientAddressState, insuranceDetailsPlan, patientESName, DiagnosisCode, ProcedureCode,StatusAtFiling,CodesStatus,filingDate)" +
+							"values('"+ req.body.pname +"'," +
+									 + age +",'"
 									 + req.body.gender+"','"
+									 + req.body.insuranceId+"','"
 									 + req.body.insuranceId+"',"
 									 + formatdata(req.body.pdob)+","
 									 + formatdata(req.body.iexpdate)+",'"

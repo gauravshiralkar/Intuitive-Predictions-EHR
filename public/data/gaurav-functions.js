@@ -365,13 +365,13 @@ function addrow() {
     $j('#diagkey').typeahead({
     	valueKey: 'diagcode',
         name: 'diagcode',
-        remote: 'http://localhost:3000/typeAhead/DiagnosticDesc/diagnostoprocedure?key=%QUERY',
+        remote: '/typeAhead/DiagnosticDesc/diagnostoprocedure?key=%QUERY',
         limit: 10 
     });
     $j('#treatkey').typeahead({
     	valueKey: 'treatcode',
         name: 'treatcode',
-        remote: 'http://localhost:3000/typeAhead/ProcedureDesc/diagnostoprocedure?key=%QUERY',
+        remote: '/typeAhead/ProcedureDesc/diagnostoprocedure?key=%QUERY',
         limit: 10 
     });
  

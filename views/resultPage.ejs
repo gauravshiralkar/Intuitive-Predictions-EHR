@@ -24,9 +24,11 @@
 <br><br><br>
 <div id="aParent" >
 <div  style="margin-right:10%; float:right;">
-<h4>
+<h3>
 <div id="divA" ></div>
 <br>
+</h3>
+<h4>
 <div id="divB"></div>
 <br>
 <div id="divC"></div>
@@ -47,7 +49,12 @@ var resultCStatus = "<%= result[0].CodesStatus %>";
 
 var testdata = "<%= testdata %>"
 $.get("/getPrediction/"+testdata, function(answer) {
-		document.getElementById("divA").textContent = "Probability is "+ answer;
+		if(answer=="Rejected"){
+			document.getElementById("divA").style.color ="red"
+		}else{
+			document.getElementById("divA").style.color ="green"
+		}
+		document.getElementById("divA").textContent = "Probability is "+ "\"" +answer+ "\"";
 		if(answer=="Rejected"){
 			document.getElementById("divB").textContent ="Possible reasons of rejection are:"
 		

@@ -52,26 +52,28 @@ exports.getMapData = function(callback,q){
 	connection.query('use 295Visualization;');
 	if(q=="Comprehensive")
 	{
-		var query = 'select pctHospitalsBasicEHR*10 value, regionCode code from v1 where regionCode<>"US" group by region;';
+		var query = 'select sum(pctHospitalsBasicEHR)*10 value, regionCode code from v1 where regionCode<>"US" group by 2;';
 	}
 	else if(q=="Rural Hospitals")
 	{
 		var query = 'select case \
-			when pctRuralHospitalsBasicEHR=0 then 1 \
-			else pctRuralHospitalsBasicEHR*10 \
+			when sum(pctRuralHospitalsBasicEHR)=0 then 1 \
+			else sum(pctRuralHospitalsBasicEHR)*10 \
 			end as value, \
-			regionCode code from v1 where regionCode<>"US" group by region;';
+			regionCode code from v1 where regionCode<>"US" group by 2;';
 	}
 	else if(q=="Small Hospitals")
 	{
-		var query = 'select pctSmallHospitalsBasicEHR*10 value, regionCode code from v1 where regionCode<>"US" group by region;';
+		var query = 'select case \
+			when sum(pctRuralHospitalsBasicEHR)=0 then 1 \
+			else sum(pctRuralHospitalsBasicEHR)*10 \
+			end as value, regionCode code from v1 where regionCode<>"US" group by 2;';
 	}
 	connection.query(query, function(err, rows) {		
 		callback(err, rows);
 		console.log(rows);
 	});			
 }
-
 
 //Tree Map
 

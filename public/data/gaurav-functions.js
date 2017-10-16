@@ -270,6 +270,7 @@ function autopopulate(val){
 }
 
 function checkFromDB(table,field,formfield,dispname) {
+	$('#diagcode').focus();
 	var retval=basicvalidation(formfield,dispname);
 	var val = document.getElementById(formfield).value;
 	if(formfield==='providername'){val=val.toUpperCase();}
